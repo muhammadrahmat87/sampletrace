@@ -140,5 +140,29 @@ class Model_treatment extends CI_Model
         return $this->db->get()->result_array();
         
     }
+    public function organicMaterial($location,$treatment_om)
+    {
+        
+        $this->db->select('id');
+        $this->db->from($this->table);
+        if ($location!=="all") {
+            $this->db->where('trial_code', $location);
+        }
+        $this->db->where('treatment_om', $treatment_om);
+        return $this->db->count_all_results();
+        
+    }
+    public function getHabitat($location,$habitat)
+    {
+        
+        $this->db->select('id');
+        $this->db->from($this->table);
+        if ($location!=="all") {
+            $this->db->where('trial_code', $location);
+        }
+        $this->db->where('baits', $habitat);
+        return $this->db->count_all_results();
+        
+    }
 
 }
