@@ -54,7 +54,7 @@
               <th width="12%">No</th>
               <th width="57%">Habitat Type</th>
                
-              <th width="19%">Score</th>
+              <th width="19%">Feeding Activity</th>
                   
           </tr>
       </thead>
