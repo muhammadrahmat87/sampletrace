@@ -4,8 +4,8 @@ class Model_treatment extends CI_Model
 {
 
     public $table = "treatment";
-    public $colum_order = [null, "id", "trial_code", "treatment", "time_squence", "days_after", "replicate", "habitat_type","baits","hole","score","success"];
-    public $column_search = ["id","trial_code", "treatment", "time_squence", "days_after", "replicate", "habitat_type","baits","hole","score","success"];
+    public $colum_order = [null, "id", "trial_code", "treatment", "time_squence", "days_after", "replicate", "habitat_type", "baits", "hole", "score", "success"];
+    public $column_search = ["id", "trial_code", "treatment", "time_squence", "days_after", "replicate", "habitat_type", "baits", "hole", "score", "success"];
     public $order = ['id' => 'desc'];
 // server side
     public function get_datatables_query($post)
@@ -44,8 +44,6 @@ class Model_treatment extends CI_Model
         }
     }
 
-   
-
     public function count_filtered($post)
     {
         $this->get_datatables_query($post);
@@ -59,8 +57,8 @@ class Model_treatment extends CI_Model
     }
     public function tampil_treatment()
     {
-		$this->db->from($this->table);
-		$this->db->limit(1);
+        $this->db->from($this->table);
+        $this->db->limit(1);
         return $this->db->get();
     }
 
@@ -131,37 +129,71 @@ class Model_treatment extends CI_Model
         $this->db->update($this->table, $object);
 
     }
-    
+
     public function filterSelect($object)
     {
         $this->db->select($object);
         $this->db->from($this->table);
         $this->db->distinct($object);
         return $this->db->get()->result_array();
-        
+
     }
-    public function organicMaterial($location,$treatment_om)
+    public function organicMaterial($location, $treatment_om)
     {
-        
+
         $this->db->select('id');
         $this->db->from($this->table);
-        if ($location!=="all") {
+        if ($location !== "all") {
             $this->db->where('trial_code', $location);
         }
         $this->db->where('treatment_om', $treatment_om);
         return $this->db->count_all_results();
-        
+
     }
-    public function getHabitat($location,$habitat)
+    public function getHabitat($location, $habitat)
     {
-        
+
         $this->db->select('id');
         $this->db->from($this->table);
-        if ($location!=="all") {
+        if ($location !== "all") {
             $this->db->where('trial_code', $location);
         }
-        $this->db->where('baits', $habitat);
+        $this->db->where('habitat_type', $habitat);
         return $this->db->count_all_results();
+
+    }
+    public function trial_code($type, $code)
+    {
+        $this->db->from($this->table);
+        $this->db->select('trial_code');
+        if ($type == 'count') {
+            $this->db->distinct('trial_code');
+        } else {
+            // $this->db->where('trial_code', $code);
+        }
+        if ($type == 'count') {
+            return $this->db->get();
+        } else {
+            return $this->db->count_all_results();
+        }
+
+    }
+    public function tes(Type $var = null)
+    {
+        $this->db->from($this->table);
+        $this->db->where('treatment_om', 'control');
+        $this->db->where('score', 3);
+        $this->db->where('replicate', 1);
+        
+        return $this->db->count_all_results();
+        
+    }
+    public function findHabitat(Type $var = null)
+    {
+        $this->db->from($this->table);
+        $this->db->select('habitat_type');
+        $this->db->distinct('habitat_type');
+        return $this->db->get()->result_array();
         
     }
 

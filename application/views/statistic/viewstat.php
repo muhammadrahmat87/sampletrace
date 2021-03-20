@@ -21,10 +21,7 @@
               <label class="col-sm-2 control-label">Trial Code</label>
               <div class="col-sm-2">
                 <select class="form-control" name="trial_code" onchange="getValue()" id="trial_code">
-                  <option value="all">All</option>
-                  <option value="KNDE01">KNDE01</option>
-                  <option value="KNDE01">SBYE01</option>
-                  <option value="KNDE01">SRKE01</option>
+
                 </select>
               </div>
 
@@ -209,8 +206,26 @@
   <script>
     let url = "<?=base_url();?>"
     $(document).ready(function () {
-      getValue();
+      getFilter();
+
     });
+
+    function getFilter() {
+      $.ajax({
+        type: "POSt",
+        url: url + "Chart/filterSelect",
+        data: "data",
+        dataType: "JSON",
+        success: function (response) {
+          let html = "";
+          response.data.trial_code.forEach(element => {
+            html += `<option value="` + element.trial_code + `">` + element.trial_code + `</option>`;
+          });
+          $("#trial_code").html(`<option value="all">All</option>` + html);
+          getValue();
+        }
+      });
+    }
 
     function getValue() {
       let value = $("#trial_code").children("option:selected").val();
@@ -228,8 +243,10 @@
     }
   </script>
   <script>
-    function chart(data) { 
-       /* ChartJS
+    function chart(data) {
+      $("#barChart").html("");
+      $("#barChart2").html("");
+      /* ChartJS
        * -------
        * Here we will create a few charts using ChartJS
        */
@@ -343,7 +360,7 @@
 
       barChartOptions.datasetFill = false
       barChart.Bar(barChartData, barChartOptions)
-     }
+    }
   </script>
   </body>
 
