@@ -24,7 +24,7 @@ class Chart extends CI_Controller
         foreach ($allhabitat as $key => $value) {
             $count_habitat = $this->model_treatment->getHabitat($filter, $value['habitat_type'],3);
             $score=$this->model_treatment->getHabitat($filter, $value['habitat_type'],1);
-            $percentage=($score/$count_habitat)*100;
+            $percentage=round(($score/$count_habitat)*100,2);
             $detail_habitat[] = ["habitat" => $value['habitat_type'], 'count' => $count_habitat,'score'=>$score,'percentage'=>$percentage];
             $habitat[] = $value['habitat_type'];
             $result_habitat[] = $percentage;
