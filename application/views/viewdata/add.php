@@ -44,8 +44,17 @@
             <div class="col-sm-2">
               <button type="button" onclick="processFilter()" class="btn btn-primary">Filter</button>
               <button type="button"   onclick="resetFilter()" class="btn btn-success">Reset</button>
+              
               <button type="button" onClick="return confirm('Yakin ingin menghapus data Trial')" class="btn btn-danger">Delete</button>
 
+            </div>
+          </div>
+
+          <div class="form-group">
+             
+            <div class="col-sm-2">
+              <button type="button"   class="btn btn-warning">Export Excel</button>
+             
             </div>
           </div>
 
@@ -188,9 +197,9 @@
     </form>
   </div>
   <!-- /.box -->
-  </div>
+   
   <!-- /.col -->
-  </div>
+  
   <!-- /.row -->
 </section>
 

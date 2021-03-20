@@ -3,7 +3,7 @@
 	class Model_trials extends CI_Model
 	{
 
-		public $table ="trials";
+		public $table ="tbl_riau";
 		
 		
 		function tampil_trials(){

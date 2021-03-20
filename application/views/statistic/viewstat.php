@@ -211,7 +211,7 @@
     
 
       {
-      labels  : ['Between EFB-Soil', 'Control', 'Inside EFB', 'Under EFB', 'Under EFB Inclined', 'Control Inclined'],
+      labels  : [ 'Control', 'Control Inclined' , 'Between EFB-Soil','Inside EFB', 'Under EFB', 'Under EFB Inclined'],
       datasets: [
        
         {
@@ -222,7 +222,7 @@
           pointStrokeColor    : '#248f24',
           pointHighlightFill  : '#fff',
           pointHighlightStroke: '#248f24',
-          data                : [0.4, 0.9, 0.3, 0.2, 0.7, 0.4]
+          data                : [20.9, 25.3, 65.2, 68.3, 45.6, 51.6]
         }
       ]
     }
