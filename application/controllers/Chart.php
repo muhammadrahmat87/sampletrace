@@ -20,7 +20,7 @@ class Chart extends CI_Controller
         foreach ($treatment_om as $key => $value) {
             $result_treatment_om[] = $this->model_treatment->organicMaterial($filter, $value);
         }
-        $allhabitat = $this->model_treatment->findHabitat();
+        $allhabitat = $this->model_treatment->findField($filter);
         foreach ($allhabitat as $key => $value) {
             $count_habitat = $this->model_treatment->getHabitat($filter, $value['habitat_type']);
             $detail_habitat[] = ["habitat" => $value['habitat_type'], 'count' => $count_habitat];

@@ -179,6 +179,26 @@
       <!-- /.row -->
 
   </section>
+  <!-- Modal -->
+  <div class="modal fade" id="loading" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Loading</h5>
+        </div>
+        <div class="modal-body">
+        
+<link rel="stylesheet" href="<?=base_url()?>assets/css/loading.css">
+<div class="x_content loading">
+    <div class="loader">Loading...</div>
+</div>
+
+        </div>
+        <div class="modal-footer">
+        </div>
+      </div>
+    </div>
+  </div>
   <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
@@ -223,11 +243,13 @@
           });
           $("#trial_code").html(`<option value="all">All</option>` + html);
           getValue();
+
         }
       });
     }
 
     function getValue() {
+      $("#loading").modal("show");
       let value = $("#trial_code").children("option:selected").val();
       $.ajax({
         type: "POST",
@@ -238,6 +260,7 @@
         dataType: "JSON",
         success: function (response) {
           chart(response);
+          $("#loading").modal("hide");
         }
       });
     }

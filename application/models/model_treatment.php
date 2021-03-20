@@ -188,9 +188,13 @@ class Model_treatment extends CI_Model
         return $this->db->count_all_results();
         
     }
-    public function findHabitat(Type $var = null)
+    public function findField($filter)
     {
         $this->db->from($this->table);
+        if ($filter!=="all") {
+            $this->db->where('trial_code', $filter);
+            
+        }
         $this->db->select('habitat_type');
         $this->db->distinct('habitat_type');
         return $this->db->get()->result_array();
