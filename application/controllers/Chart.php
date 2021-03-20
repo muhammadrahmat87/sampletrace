@@ -22,10 +22,12 @@ class Chart extends CI_Controller
         }
         $allhabitat = $this->model_treatment->findField($filter);
         foreach ($allhabitat as $key => $value) {
-            $count_habitat = $this->model_treatment->getHabitat($filter, $value['habitat_type']);
-            $detail_habitat[] = ["habitat" => $value['habitat_type'], 'count' => $count_habitat];
+            $count_habitat = $this->model_treatment->getHabitat($filter, $value['habitat_type'],3);
+            $score=$this->model_treatment->getHabitat($filter, $value['habitat_type'],1);
+            $percentage=($score/$count_habitat)*100;
+            $detail_habitat[] = ["habitat" => $value['habitat_type'], 'count' => $count_habitat,'score'=>$score,'percentage'=>$percentage];
             $habitat[] = $value['habitat_type'];
-            $result_habitat[] = $count_habitat;
+            $result_habitat[] = $percentage;
         }
         $trial_code = $this->model_treatment->trial_code('count', 1)->result_array();
         foreach ($trial_code as $key => $value) {

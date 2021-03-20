@@ -58,17 +58,8 @@
                     </tr>
                   </thead>
 
-                  <tbody>
-                    <tr>
-                      <td>1</td>
-                      <td>Between EFB Soil</td>
-                      <td>0.4</td>
-                    </tr>
-                    <tr>
-                      <td>2</td>
-                      <td>Control</td>
-                      <td>0.9</td>
-                    </tr>
+                  <tbody class="table-habitat">
+                   
                   </tbody>
                 </table>
               </div>
@@ -93,8 +84,8 @@
 
 
 
-                <div class="chart">
-                  <canvas id="barChart" style="height:330px"></canvas>
+                <div class="chart-habitat">
+                  
                 </div>
               </div>
               <!-- /.box-body -->
@@ -249,6 +240,8 @@
     }
 
     function getValue() {
+      
+      $(".chart-habitat").html(``);
       $("#loading").modal("show");
       let value = $("#trial_code").children("option:selected").val();
       $.ajax({
@@ -259,11 +252,26 @@
         },
         dataType: "JSON",
         success: function (response) {
+          $(".chart-habitat").html(`<canvas id="barChart" style="height:330px"></canvas>`);
           chart(response);
+          showTableHabitat(response)
           $("#loading").modal("hide");
         }
       });
     }
+    function showTableHabitat(response) { 
+      let html="";
+      
+      let number=1;
+      response.habitat.detail.forEach(element => {
+        html+=` <tr>
+                      <td>`+number++ +`</td>
+                      <td>`+element.habitat+`</td>
+                      <td>`+element.percentage+`</td>
+                    </tr>`;
+      });
+      $(".table-habitat").html(html);
+     }
   </script>
   <script>
     function chart(data) {

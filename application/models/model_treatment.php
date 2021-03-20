@@ -150,13 +150,17 @@ class Model_treatment extends CI_Model
         return $this->db->count_all_results();
 
     }
-    public function getHabitat($location, $habitat)
+    public function getHabitat($location, $habitat,$score)
     {
 
         $this->db->select('id');
         $this->db->from($this->table);
         if ($location !== "all") {
             $this->db->where('trial_code', $location);
+        }
+        if ($score!==3) {
+            $this->db->where('score', $score);
+            
         }
         $this->db->where('habitat_type', $habitat);
         return $this->db->count_all_results();
