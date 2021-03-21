@@ -66,7 +66,7 @@
 
         </div>
         <!-- /.box-header -->
-        <div class="box-body">
+        <div class="tbl-header">
           <table id="table-treatment" class="table table-striped table-bordered table-hover table-full-width dataTable"
             cellspacing="0" width="100%">
             <thead>
