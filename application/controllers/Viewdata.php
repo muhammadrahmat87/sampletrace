@@ -131,7 +131,7 @@ class Viewdata extends CI_Controller
 			
 			$row[] = $field->start;
             $row[] = $field->finish;
-            $row[] = $field->installation_date;
+ 
             $row[] = $field->treatment_om;
             $row[] = $field->treatment_rate;
             

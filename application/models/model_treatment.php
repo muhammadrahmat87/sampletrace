@@ -166,6 +166,22 @@ class Model_treatment extends CI_Model
         return $this->db->count_all_results();
 
     }
+    public function getOM($location, $om,$score)
+    {
+
+        $this->db->select('id');
+        $this->db->from($this->table);
+        if ($location !== "all") {
+            $this->db->where('trial_code', $location);
+        }
+        if ($score!==3) {
+            $this->db->where('score', $score);
+            
+        }
+        $this->db->where('treatment_om', $om);
+        return $this->db->count_all_results();
+
+    }
     public function trial_code($type, $code)
     {
         $this->db->from($this->table);
@@ -182,16 +198,7 @@ class Model_treatment extends CI_Model
         }
 
     }
-    public function tes(Type $var = null)
-    {
-        $this->db->from($this->table);
-        $this->db->where('treatment_om', 'control');
-        $this->db->where('score', 3);
-        $this->db->where('replicate', 1);
-        
-        return $this->db->count_all_results();
-        
-    }
+ 
     public function findField($filter)
     {
         $this->db->from($this->table);
@@ -204,5 +211,22 @@ class Model_treatment extends CI_Model
         return $this->db->get()->result_array();
         
     }
+
+    public function findOM($filter)
+    {
+        $this->db->from($this->table);
+        if ($filter!=="all") {
+            $this->db->where('trial_code', $filter);
+            
+        }
+        $this->db->select('treatment_om');
+        $this->db->distinct('treatment_om');
+        return $this->db->get()->result_array();
+        
+    }
+
+    
+
+    
 
 }

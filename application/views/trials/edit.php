@@ -41,20 +41,34 @@
                         <input type="text" value="<?php echo $trials['location']; ?>" name="location" class="form-control"  >
                       </div>
                   </div>
+
+                  <div class="form-group">
+                      <label class="col-sm-2 control-label">Region</label>
+                      <div class="col-sm-6">
+                        <input type="text" value="<?php echo $trials['region']; ?>" name="region" class="form-control"  >
+                      </div>
+                  </div>
+
+                  <div class="form-group">
+                      <label class="col-sm-2 control-label">PSM</label></label>
+                      <div class="col-sm-6">
+                        <input type="text" value="<?php echo $trials['psm']; ?>" name="psm" class="form-control"  >
+                      </div>
+                  </div>
 				  
 				         
 
 				          <div class="form-group">
                       <label class="col-sm-2 control-label">Start</label>
                       <div class="col-sm-2">
-                        <input type="date" value="<?php echo $trials['start']; ?>" name="start" class="form-control"  >
+                        <input type="text" value="<?php echo $trials['start']; ?>" name="start" class="form-control"  >
                       </div>
                   </div>
 				  
 				          <div class="form-group">
                       <label class="col-sm-2 control-label">Finish</label>
                       <div class="col-sm-2">
-                        <input type="date" value="<?php echo $trials['finish']; ?>" name="finish" class="form-control"  >
+                        <input type="text" value="<?php echo $trials['finish']; ?>" name="finish" class="form-control"  >
                       </div>
                   </div>
 				  

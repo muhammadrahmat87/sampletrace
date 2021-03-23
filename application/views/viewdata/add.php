@@ -76,7 +76,7 @@
                   <th rowspan="2" width="6%"><center>Palm Age</th>
                   <th rowspan="2" width="6%"><center>Start</th>
                   <th rowspan="2" width="6%"><center>Finish</th>
-                  <th rowspan="2" width="6%"><center>Installation Date</th>
+                 
                   <th colspan="12" ><center>Treatment</center></th>
                   
                   

@@ -16,10 +16,7 @@ class Chart extends CI_Controller
     public function index()
     {
         $filter = $this->input->post('value');
-        $treatment_om = ["Control", "EFB"];
-        foreach ($treatment_om as $key => $value) {
-            $result_treatment_om[] = $this->model_treatment->organicMaterial($filter, $value);
-        }
+       
         $allhabitat = $this->model_treatment->findField($filter);
         foreach ($allhabitat as $key => $value) {
             $count_habitat = $this->model_treatment->getHabitat($filter, $value['habitat_type'],3);
@@ -29,6 +26,18 @@ class Chart extends CI_Controller
             $habitat[] = $value['habitat_type'];
             $result_habitat[] = $percentage;
         }
+
+        
+        $all_om = $this->model_treatment->findOM($filter);
+        foreach ($all_om as $key => $value) {
+            $count_om = $this->model_treatment->getOM($filter, $value['treatment_om'],3);
+            $score=$this->model_treatment->getOM($filter, $value['treatment_om'],1);
+            $percentage=round(($score/$count_om)*100,2);
+            $detail_om[] = ["om" => $value['treatment_om'], 'count' => $count_om,'score'=>$score,'percentage'=>$percentage];
+            $om[] = $value['treatment_om'];
+            $result_om[] = $percentage;
+        }
+
         $trial_code = $this->model_treatment->trial_code('count', 1)->result_array();
         foreach ($trial_code as $key => $value) {
             $trial[] = $this->model_treatment->trial_code('non', $value['trial_code']);
@@ -38,14 +47,16 @@ class Chart extends CI_Controller
             [
             'status' => 'success',
             'response' => 200,
-            'organic_material' => [
-                'label' => $treatment_om,
-                'data' => $result_treatment_om,
-            ],
+            
             'habitat' => [
                 'label' => $habitat,
                 'data'=>$result_habitat,
                 'detail' => $detail_habitat,
+            ],
+            'om' => [
+                'label' => $om,
+                'data'=>$result_om,
+                'detail' => $detail_om,
             ],
             'value' => $filter,
             'trial_code' => [

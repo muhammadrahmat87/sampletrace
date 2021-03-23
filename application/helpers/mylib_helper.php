@@ -17,7 +17,7 @@
   		$bulan = $nama_bulan[(int)substr($tgl,5,2)];
   		$tahun = substr($tgl,0,4);
   
-  		return $bulan.' '.$tahun;     
+  		return $tahun;     
 		}
 		
 		function cmb_dinamis($name, $table, $field, $pk, $selected=null, $extra=null)

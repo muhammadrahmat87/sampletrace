@@ -25,10 +25,7 @@
                 </select>
               </div>
 
-              <div class="col-sm-2">
-                <button type="button" onclick="processFilter()" class="btn btn-primary">Filter</button>
-
-              </div>
+             
             </div>
 
           </div>
@@ -53,12 +50,72 @@
                       <th width="12%">No</th>
                       <th width="57%">Habitat Type</th>
 
-                      <th width="19%">Feeding Activity</th>
+                      <th width="29%">Feeding Activity (%)</th>
 
                     </tr>
                   </thead>
 
                   <tbody class="table-habitat">
+                   
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+
+          <!-- BAR CHART -->
+          <div class="col-md-7">
+            <div class="box box-success">
+              <div class="box-header with-border" style="background-color:#CCCCCC">
+                <h3 class="box-title">Bar Chart - OM</h3>
+
+                <div class="box-tools pull-right">
+                  <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                  </button>
+                  <button type="button" class="btn btn-box-tool" data-widget="remove"><i
+                      class="fa fa-times"></i></button>
+                </div>
+              </div>
+              <div class="box-body">
+
+
+
+                <div class="chart-habitat">
+                  
+                </div>
+              </div>
+              <!-- /.box-body -->
+            </div>
+            <!-- /.box -->
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-xs-5">
+
+            <div class="box box-success">
+              <div class="box-header with-border" style="background-color:#CCCCCC">
+                <h3 class="box-title">Statistic - OM</h3>
+              </div>
+              <!-- /.box-header -->
+              <div class="box-body">
+
+                <!-- button add -->
+
+                <table id="exampl" class="table table-striped table-bordered table-hover table-full-width dataTable"
+                  cellspacing="0" width="100%">
+                  <thead>
+                    <tr class="bg-success">
+                      <th width="12%">No</th>
+                      <th width="57%">Treatment Organic Material</th>
+
+                      <th width="29%">Feeding Activity (%)</th>
+
+                    </tr>
+                  </thead>
+
+                  <tbody class="table-om">
                    
                   </tbody>
                 </table>
@@ -84,7 +141,7 @@
 
 
 
-                <div class="chart-habitat">
+                <div class="chart-om">
                   
                 </div>
               </div>
@@ -97,77 +154,8 @@
 
 
 
-        <div class="row">
-          <div class="col-xs-5">
 
-            <div class="box box-success">
-              <div class="box-header with-border" style="background-color:#CCCCCC">
-                <h3 class="box-title">Statistic - Organic Material</h3>
-              </div>
-              <!-- /.box-header -->
-              <div class="box-body">
-
-                <!-- button add -->
-
-                <table id="exampl" class="table table-striped table-bordered table-hover table-full-width dataTable"
-                  cellspacing="0" width="100%">
-                  <thead>
-                    <tr class="bg-success">
-                      <th width="12%">No</th>
-                      <th width="57%">Organic Material</th>
-
-                      <th width="19%">Score</th>
-
-                    </tr>
-                  </thead>
-
-                  <tbody>
-                    <td>1</td>
-                    <td>Control</td>
-                    <td>0.4</td>
-                    </tr>
-                    <tr>
-                      <td>2</td>
-                      <td>EFB</td>
-                      <td>0.9</td>
-                  </tbody>
-                </table>
-              </div>
-            </div>
-          </div>
-
-
-          <!-- BAR CHART -->
-          <div class="col-md-7">
-            <div class="box box-success">
-              <div class="box-header with-border" style="background-color:#CCCCCC">
-                <h3 class="box-title">Bar Chart - Organic Material</h3>
-
-                <div class="box-tools pull-right">
-                  <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
-                  </button>
-                  <button type="button" class="btn btn-box-tool" data-widget="remove"><i
-                      class="fa fa-times"></i></button>
-                </div>
-              </div>
-              <div class="box-body">
-
-
-
-                <div class="chart">
-                  <canvas id="barChart2" style="height:330px"></canvas>
-                </div>
-              </div>
-              <!-- /.box-body -->
-            </div>
-            <!-- /.box -->
-          </div>
-        </div>
-
-
-        <!-- /.col (RIGHT) -->
-      </div>
-      <!-- /.row -->
+        
 
   </section>
   <!-- Modal -->
@@ -198,7 +186,7 @@
   <!-- Add the sidebar's background. This div must be placed
        immediately after the control sidebar -->
   <div class="control-sidebar-bg"></div>
-  </div>
+  </div></
   <!-- ./wrapper -->
 
   <!-- jQuery 3 -->
@@ -242,6 +230,7 @@
     function getValue() {
       
       $(".chart-habitat").html(``);
+      $(".chart-om").html(``);
       $("#loading").modal("show");
       let value = $("#trial_code").children("option:selected").val();
       $.ajax({
@@ -252,14 +241,30 @@
         },
         dataType: "JSON",
         success: function (response) {
-          $(".chart-habitat").html(`<canvas id="barChart" style="height:330px"></canvas>`);
+          $(".chart-habitat").html(`<canvas id="barChart" style="height:200px"></canvas>`);
+          $(".chart-om").html(`<canvas id="barChartom" style="height:200px"></canvas>`);
           chart(response);
           showTableHabitat(response)
+          showTableOM(response)
           $("#loading").modal("hide");
         }
       });
     }
-    function showTableHabitat(response) { 
+    function showTableOM(response) { 
+      let html="";
+      
+      let number=1;
+      response.om.detail.forEach(element => {
+        html+=` <tr>
+                      <td>`+number++ +`</td>
+                      <td>`+element.om+`</td>
+                      <td>`+element.percentage+`</td>
+                    </tr>`;
+      });
+      $(".table-om").html(html);
+     }
+
+     function showTableHabitat(response) { 
       let html="";
       
       let number=1;
@@ -276,7 +281,7 @@
   <script>
     function chart(data) {
       $("#barChart").html("");
-      $("#barChart2").html("");
+      $("#barChartom").html("");
       /* ChartJS
        * -------
        * Here we will create a few charts using ChartJS
@@ -296,10 +301,10 @@
 
             {
               label: 'Score 1',
-              fillColor: '#248f24',
+              fillColor: '#057c82',
               strokeColor: '#248f24',
               pointColor: '#248f24',
-              pointStrokeColor: '#248f24',
+              pointStrokeColor: '#057c82',
               pointHighlightFill: '#fff',
               pointHighlightStroke: '#248f24',
               data: data.habitat.data
@@ -315,9 +320,9 @@
         //Boolean - Whether grid lines are shown across the chart
         scaleShowGridLines: true,
         //String - Colour of the grid lines
-        scaleGridLineColor: 'rgba(0,0,0,.05)',
+        scaleGridLineColor: '#ced8d9',
         //Number - Width of the grid lines
-        scaleGridLineWidth: 1,
+        scaleGridLineWidth: 100,
         //Boolean - Whether to show horizontal lines (except X axis)
         scaleShowHorizontalLines: true,
         //Boolean - Whether to show vertical lines (except Y axis)
@@ -327,9 +332,9 @@
         //Number - Pixel width of the bar stroke
         barStrokeWidth: 2,
         //Number - Spacing between each of the X value sets
-        barValueSpacing: 5,
+        barValueSpacing: 30,
         //Number - Spacing between data sets within X values
-        barDatasetSpacing: 1,
+        barDatasetSpacing: 300,
         //String - A legend template
         legendTemplate: '<ul class="<%=name.toLowerCase()%>-legend"><% for (var i=0; i<datasets.length; i++){%><li><span style="background-color:<%=datasets[i].fillColor%>"></span><%if(datasets[i].label){%><%=datasets[i].label%><%}%></li><%}%></ul>',
         //Boolean - whether to make the chart responsive
@@ -339,27 +344,31 @@
 
       barChartOptions.datasetFill = false
       barChart.Bar(barChartData, barChartOptions)
+    
 
-      //- BAR CHART -
-      //--------------
-      var barChartCanvas = $('#barChart2').get(0).getContext('2d')
+      var barChartCanvas = $('#barChartom').get(0).getContext('2d')
       var barChart = new Chart(barChartCanvas)
       var barChartData =
 
 
         {
-          labels: data.organic_material.label,
-          datasets: [{
-            label: 'Score 1',
-            fillColor: '#248f24',
-            strokeColor: '#248f24',
-            pointColor: '#248f24',
-            pointStrokeColor: '#248f24',
-            pointHighlightFill: '#fff',
-            pointHighlightStroke: '#248f24',
-            data: data.organic_material.data
-          }]
+          labels: data.om.label,
+          datasets: [
+
+            {
+              label: 'Score 1',
+              fillColor: '#943009',
+              strokeColor: '#943009',
+              pointColor: '#248f24',
+              pointStrokeColor: '#943009',
+              pointHighlightFill: '#fff',
+              pointHighlightStroke: '#248f24',
+              data: data.om.data
+            }
+          ]
         }
+
+
 
       var barChartOptions = {
         //Boolean - Whether the scale should start at zero, or an order of magnitude down from the lowest value
@@ -367,9 +376,9 @@
         //Boolean - Whether grid lines are shown across the chart
         scaleShowGridLines: true,
         //String - Colour of the grid lines
-        scaleGridLineColor: 'rgba(0,0,0,.05)',
+        scaleGridLineColor: '#ced8d9',
         //Number - Width of the grid lines
-        scaleGridLineWidth: 1,
+        scaleGridLineWidth: 100,
         //Boolean - Whether to show horizontal lines (except X axis)
         scaleShowHorizontalLines: true,
         //Boolean - Whether to show vertical lines (except Y axis)
@@ -379,9 +388,9 @@
         //Number - Pixel width of the bar stroke
         barStrokeWidth: 2,
         //Number - Spacing between each of the X value sets
-        barValueSpacing: 5,
+        barValueSpacing: 100,
         //Number - Spacing between data sets within X values
-        barDatasetSpacing: 1,
+        barDatasetSpacing: 10,
         //String - A legend template
         legendTemplate: '<ul class="<%=name.toLowerCase()%>-legend"><% for (var i=0; i<datasets.length; i++){%><li><span style="background-color:<%=datasets[i].fillColor%>"></span><%if(datasets[i].label){%><%=datasets[i].label%><%}%></li><%}%></ul>',
         //Boolean - whether to make the chart responsive
@@ -391,6 +400,7 @@
 
       barChartOptions.datasetFill = false
       barChart.Bar(barChartData, barChartOptions)
+
     }
   </script>
   </body>

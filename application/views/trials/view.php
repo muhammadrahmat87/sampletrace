@@ -23,10 +23,12 @@
                         <th width="17%">Title</th>
 						            <th width="33%">Description</th>
                         <th width="6%">Location</th>
+                        <th width="6%">Region</th>
+                        <th width="6%">PSM</th>
                        
-                        <th width="11%">Start</th>
-                        <th width="10%">Finish</th>
-                        <th width="5%">Status</th>
+                        <th width="11%">Starting Year</th>
+                        <th width="10%">Target Finish</th>
+                        <th width="5%">Progress</th>
                          
                         <th width="5%">Action</th>
                     </tr>
@@ -45,13 +47,15 @@
 					  <td><?php echo $t['title']; ?></td>
 					  <td><?php echo $t['description']; ?></td>
 					  <td><?php echo $t['location']; ?></td>
+            <td><?php echo $t['region']; ?></td>
+            <td><?php echo $t['psm']; ?></td>
 					  
-					  <td><?php echo tgl_indonesia($t['start']);  ?></td>	
-					  <td><?php echo tgl_indonesia($t['finish']);  ?></td>	
+					  <td><?php echo  $t['start'];  ?></td>	
+					  <td><?php echo $t['finish'];  ?></td>	
 					  
 					  <td><?php 
 					  
-					  $tgl_sekarang=date("Y-m-d");//tanggal sekarang
+					  $tgl_sekarang=date("Y");//tanggal sekarang
 						$tgl_mulai=$t['finish'];// tanggal launching aplikasi   </td>	
 					  
 						

@@ -14,22 +14,47 @@
 			$quser = 'SELECT COUNT(*) AS hasil FROM trials';
 			$data['trials'] = $this->db->query($quser)->row_array();
 
-			$tgl_sekarang=date("Y-m-d");
-			$qsiswa = 'SELECT COUNT(*) AS hasil FROM trials where finish > date(now())  ';
+			$date = date("Y");
+			$qsiswa = "SELECT COUNT(*) AS hasil FROM trials where finish > $date ";
 			$data['aktif'] = $this->db->query($qsiswa)->row_array();
 
 			
-			$tgl_sekarang=date("Y-m-d");
-			$qsiswa = 'SELECT COUNT(*) AS hasil FROM trials where finish <= date(now())  ';
+			$date = date("Y");
+			$qsiswa = "SELECT COUNT(*) AS hasil FROM trials where finish <= $date";
 			$data['closed'] = $this->db->query($qsiswa)->row_array();
 
 			$qguru = 'SELECT COUNT(*) AS hasil FROM trials';
-			$data['trials'] = $this->db->query($qguru)->row_array();
+			$data['alltrials'] = $this->db->query($qguru)->row_array();
 
-			$qruangan = 'SELECT COUNT(*) AS hasil FROM trials';
-			$data['trials'] = $this->db->query($qruangan)->row_array();
-			
-			
+			$qguru = 'SELECT COUNT(DISTINCT region) AS hasil FROM trials';
+			$data['ree'] = $this->db->query($qguru)->row_array();
+			 
+					
+				
+			$query = "SELECT COUNT(region) AS Siak FROM trials where region = 'Siak'";
+			$data['regions'] = $this->db->query($query)->row_array(); 
+
+			$a = "SELECT COUNT(region) AS Lampung FROM trials where region = 'Lampung'";
+			$data['regionl'] = $this->db->query($a)->row_array(); 
+
+			$queryq = "SELECT COUNT(region) AS Kampar FROM trials where region = 'Kampar'";
+			$data['regionk'] = $this->db->query($queryq)->row_array(); 
+
+			$queryw = "SELECT COUNT(region) AS Kalimantan FROM trials where region = 'Kalimantan Tengah'";
+			$data['regionkt'] = $this->db->query($queryw)->row_array(); 
+
+			$querye = "SELECT COUNT(region) AS Palembang FROM trials where region = 'Palembang'";
+			$data['regionp'] = $this->db->query($querye)->row_array(); 
+
+			$queryr = "SELECT COUNT(region) AS Indragiri FROM trials where region = 'Indragiri'";
+			$data['regioni'] = $this->db->query($queryr)->row_array(); 
+
+			$queryt = "SELECT COUNT(region) AS Jambi FROM trials where region = 'Jambi'";
+			$data['regionj'] = $this->db->query($queryt)->row_array(); 
+
+			$queryy = "SELECT COUNT(region) AS Belitung FROM trials where region = 'Belitung'";
+			$data['regionb'] = $this->db->query($queryy)->row_array(); 
+
 			$data['graph'] = $this->model_tampilanutama->graph();
 
 			$this->template->load('template', 'dashboard', $data);

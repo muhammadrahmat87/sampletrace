@@ -3,7 +3,7 @@
 	class Model_trials extends CI_Model
 	{
 
-		public $table ="tbl_riau";
+		public $table ="trials";
 		
 		
 		function tampil_trials(){
@@ -20,6 +20,8 @@
 				'title'          		=> $this->input->post('title', TRUE),
 				'description'          	=> $this->input->post('description', TRUE),
 				'location' 				=> $this->input->post('location', TRUE),
+				'psm' 				=> $this->input->post('psm', TRUE),
+				'region' 				=> $this->input->post('region', TRUE),
 				 
 				 
 				'start'	    			=> $this->input->post('start', TRUE),
@@ -37,7 +39,8 @@
 				'title'          		=> $this->input->post('title', TRUE),
 				'description'          	=> $this->input->post('description', TRUE),
 				'location' 				=> $this->input->post('location', TRUE),
-				 
+				'psm' 				=> $this->input->post('psm', TRUE),
+				'region' 				=> $this->input->post('region', TRUE),
 				'start'	    			=> $this->input->post('start', TRUE),
 				'finish'	    		=> $this->input->post('finish', TRUE),
 				 

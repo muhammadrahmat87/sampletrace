@@ -1,4 +1,5 @@
- 
+
+
 <section class="content" >
       <!-- Info boxes -->
       <div class="row" >
@@ -21,7 +22,7 @@
 
             <div class="info-box-content">
               <span class="info-box-text"><b>Total PSM</span>
-              <span class="info-box-number"><h3>8</h1></span>
+              <span class="info-box-number"><h3>3</h1></span>
             </div>
             <!-- /.info-box-content -->
           </div>
@@ -35,7 +36,7 @@
 
             <div class="info-box-content">
               <span class="info-box-text"><b>Total Region</span>
-              <span class="info-box-number"><h3>25</span>
+              <h3><?php echo $ree['hasil']; ?></h3>
             </div>
             <!-- /.info-box-content -->
           </div>
@@ -52,7 +53,7 @@
 
             <div class="info-box-content">
               <span class="info-box-text"><b>Total Estate</span>
-              <span class="info-box-number"><h3>129</span>
+              <span class="info-box-number"><h3>12</span>
             </div>
             <!-- /.info-box-content -->
           </div>
@@ -67,7 +68,7 @@
             <div class="info-box-content">
               <span class="info-box-text"><b>Total Trials</span>
               <span class="info-box-number">                  
-              <h3><?php echo $trials['hasil']; ?></h3>
+              <h3><?php echo $alltrials['hasil']; ?></h3>
               <small> </small></span>
             </div>
             <!-- /.info-box-content -->
@@ -201,7 +202,7 @@
   </div>
   <!-- /.content-wrapper -->
    
-
+  
   
 <!-- ./wrapper -->
 
@@ -219,6 +220,7 @@
 <script src="../../dist/js/demo.js"></script>
 <!-- page script -->
 <script>
+
   $(function () {
    
   
@@ -275,91 +277,62 @@
 
 
 
+  
+
+
     var pieChartCanvas = $('#regionChart').get(0).getContext('2d')
     var pieChart       = new Chart(pieChartCanvas)
     var PieData        = [
      
+      
       {
-        value    : 11,
-        color    : '#06508a',
-        highlight: '#49116b',
-        label    : 'Jambi'
-      } ,
-
-      {
-        value    : 7,
+        value    : <?php echo $regions['Siak']; ?>,
         color    : '#00a65a',
         highlight: '#49116b',
-        label    : 'Sumut'
-      },
-     
+        label    : 'Siak'
+      }, 
       {
-        value    : 6,
+        value    : <?php echo $regionl['Lampung']; ?>,
         color    : '#faf605',
         highlight: '#49116b',
-        label    : 'Bangka'
-      },
-
-      {
-        value    : 2,
-        color    : '#d2d6de',
-        highlight: '#49116b',
-        label    : 'Belitung'
-      },
-
-      {
-        value    : 2,
-        color    : '#86d1cf',
-        highlight: '#49116b',
         label    : 'Lampung'
-      },
+      }, 
       {
-        value    : 5,
-        color    : '#f56954',
-        highlight: '#49116b',
-        label    : 'Kampar'
-      },
-
-      {
-        value    : 36,
-        color    : '#00c0ef',
-        highlight: '#49116b',
-        label    : 'Kalteng'
-      } ,
-     
-      {
-        value    : 7,
-        color    : '#f39c12',
-        highlight: '#49116b',
-        label    : 'Siak'
-      },
-       
-     
-      {
-        value    : 15,
-        color    : '#e0e649',
-        highlight: '#49116b',
-        label    : 'Kalsel'
-      } ,
-     
-      {
-        value    : 13,
-        color    : '#4df70f',
-        highlight: '#49116b',
-        label    : 'Ketapang'
-      } ,
-      {
-        value    : 4,
+        value    : <?php echo $regionk['Kampar']; ?>,
         color    : '#ed0cde',
         highlight: '#49116b',
-        label    : 'Gunung Mas'
-      } ,
+        label    : 'Kampar'
+      }, 
       {
-        value    : 4,
+        value    : <?php echo $regionkt['Kalimantan']; ?>,
+        color    : '#00c0ef',
+        highlight: '#49116b',
+        label    : 'Kalimantan Tengah'
+      }, 
+      {
+        value    : <?php echo $regionp['Palembang']; ?>,
+        color    : '#e0e649',
+        highlight: '#49116b',
+        label    : 'Palembang'
+      }, 
+      {
+        value    : <?php echo $regionj['Jambi']; ?>,
+        color    : '#f39c12',
+        highlight: '#49116b',
+        label    : 'Jambi'
+      }, 
+      {
+        value    : <?php echo $regionb['Belitung']; ?>,
+        color    : '#4df70f',
+        highlight: '#49116b',
+        label    : 'Belitung'
+      }, 
+      {
+        value    : <?php echo $regioni['Indragiri']; ?>,
         color    : '#d2d6de',
         highlight: '#49116b',
         label    : 'Indragiri'
-      } 
+      }
     ]
     var pieOptions     = {
       //Boolean - Whether we should show a stroke on each segment

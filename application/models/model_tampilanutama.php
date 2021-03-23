@@ -18,4 +18,7 @@ class Model_tampilanutama extends CI_Model
 		return $data->result();
 	}
 
+	 
+   
+
 }

@@ -17,43 +17,56 @@
                 <div class="form-group">
                   <label class="col-sm-2 control-label">Trial Code</label>
                       <div class="col-sm-2">
-                        <input type="text" name="trial_code" class="form-control" placeholder="Trial Code" required>
+                        <input type="text" name="trial_code" class="form-control"   required>
                       </div>
                 </div>  
 				  
 				        <div class="form-group">
                   <label class="col-sm-2 control-label">Title</label>
                       <div class="col-sm-6">
-                        <input type="text" name="title" class="form-control" placeholder="Title" required>
+                        <input type="text" name="title" class="form-control"   required>
                       </div>
                 </div>
 				  
 				        <div class="form-group">
                   <label class="col-sm-2 control-label">Description</label>
                       <div class="col-sm-6">
-                        <input type="text" name="description" class="form-control" placeholder="Title" required>
+                        <input type="text" name="description" class="form-control"   required>
                       </div>
                 </div>				  
 				  
 				        <div class="form-group">
                   <label class="col-sm-2 control-label">Location</label>
                       <div class="col-sm-2">
-                        <input type="text" name="location" class="form-control" placeholder="location" required>
+                        <input type="text" name="location" class="form-control"  required>
                       </div>
                 </div>
-				            
+				        
+                <div class="form-group">
+                  <label class="col-sm-2 control-label">Region</label>
+                      <div class="col-sm-2">
+                        <input type="text" name="region" class="form-control"   required>
+                      </div>
+                </div>
 
                 <div class="form-group">
-                  <label class="col-sm-2 control-label">Start</label>
+                  <label class="col-sm-2 control-label">PSM</label>
                       <div class="col-sm-2">
-                        <input type="date" name="start" class="form-control" placeholder="Start" required>
+                        <input type="text" name="psm" class="form-control"   required>
+                      </div>
+                </div>
+
+                <div class="form-group">
+                  <label class="col-sm-2 control-label">Starting Year</label>
+                      <div class="col-sm-2">
+                        <input type="text" name="start" class="form-control"   required>
                       </div>
                 </div>
 				  
 				        <div class="form-group">
-                  <label class="col-sm-2 control-label">Finish</label>
+                  <label class="col-sm-2 control-label">Target Finish</label>
                       <div class="col-sm-2">
-                        <input type="date" name="finish" class="form-control" placeholder="Finish" required>
+                        <input type="text" name="finish" class="form-control"   required>
                       </div>
                 </div>
 				  
