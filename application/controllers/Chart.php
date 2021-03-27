@@ -20,7 +20,7 @@ class Chart extends CI_Controller
             $count_habitat = $this->model_treatment->getDataField($filter, $value[$field], 3, $field);
             $score = $this->model_treatment->getDataField($filter, $value[$field], 1, $field);
             $percentage = round(($score / $count_habitat) * 100, 2);
-            $detail_habitat[] = [$name => $value[$field], 'count' => $count_habitat, 'score' => $score, 'percentage' => $percentage];
+            $detail_habitat[] = ['label' => $value[$field], 'count' => $count_habitat, 'score' => $score, 'percentage' => $percentage];
             $habitat[] = $value[$field];
             $result_habitat[] = $percentage;
         }
@@ -44,6 +44,8 @@ class Chart extends CI_Controller
     public function index()
     {
         $filter = $this->input->post('value');
+        $dataName=$this->input->post('dataName');
+        $field=$this->input->post('field');
         $trial_code = $this->model_treatment->trial_code('count', 1)->result_array();
         foreach ($trial_code as $key => $value) {
             $trial[] = $this->model_treatment->trial_code('non', $value['trial_code']);
@@ -54,18 +56,7 @@ class Chart extends CI_Controller
             'status' => 'success',
             'response' => 200,
 
-            'habitat' => $this->getData($filter, "habitat_type", "habitat"),
-            'om' => $this->getData($filter, "treatment_om", "om"),
-            'freq' => $this->getData($filter, "treatment_freq", "freq"),
-            'slopes' => $this->getData($filter, "treatment_slopes", "slopes"),
-            'mp' => $this->getData($filter, "treatment_mp", "mp"),
-            'distance' => $this->getData($filter, "treatment_distance", "distance"),
-            'direction' => $this->getData($filter, "treatment_direction", "direction"),
-            'position' => $this->getData($filter, "treatment_position", "position"),
-            'n' => $this->getData($filter, "treatment_n", "n"),
-            'p' => $this->getData($filter, "treatment_p", "p"),
-            'k' => $this->getData($filter, "treatment_k", "k"),
-            'value' => $filter,
+            'data_chart'=> $this->getData($filter, $field, $dataName),
             'trial_code' => [
                 'label' => $trial_code,
                 'data' => $trial,
