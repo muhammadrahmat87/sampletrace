@@ -139,7 +139,7 @@ class Model_treatment extends CI_Model
 
     }
      
-    public function getHabitat($location, $habitat,$score)
+    public function getDataField($location, $habitat,$score,$field)
     {
 
         $this->db->select('id');
@@ -151,197 +151,10 @@ class Model_treatment extends CI_Model
             $this->db->where('score', $score);
             
         }
-        $this->db->where('habitat_type', $habitat);
+        $this->db->where($field, $habitat);
         return $this->db->count_all_results();
 
     }
-    public function getOM($location, $om,$score)
-    {
-
-        $this->db->select('id');
-        $this->db->from($this->table);
-        if ($location !== "all") {
-            $this->db->where('trial_code', $location);
-        }
-        if ($score!==3) {
-            $this->db->where('score', $score);
-            
-        }
-        $this->db->where('treatment_om', $om);
-        return $this->db->count_all_results();
-
-    }
-
-    public function getFREQ($location, $freq,$score)
-    {
-
-        $this->db->select('id');
-        $this->db->from($this->table);
-        if ($location !== "all") {
-            $this->db->where('trial_code', $location);
-        }
-        if ($score!==3) {
-            $this->db->where('score', $score);
-            
-        }
-        $this->db->where('treatment_freq', $freq);
-        return $this->db->count_all_results();
-
-    }
-
-
-    public function getSLOPES($location, $slopes,$score)
-    {
-
-        $this->db->select('id');
-        $this->db->from($this->table);
-        if ($location !== "all") {
-            $this->db->where('trial_code', $location);
-        }
-        if ($score!==3) {
-            $this->db->where('score', $score);
-            
-        }
-        $this->db->where('treatment_slopes', $slopes);
-        return $this->db->count_all_results();
-
-    }
-
-    public function getMP($location, $mp,$score)
-    {
-
-        $this->db->select('id');
-        $this->db->from($this->table);
-        if ($location !== "all") {
-            $this->db->where('trial_code', $location);
-        }
-        if ($score!==3) {
-            $this->db->where('score', $score);
-            
-        }
-        $this->db->where('treatment_mp', $mp);
-        return $this->db->count_all_results();
-
-    }
-
-    public function getDIRECTION($location, $direction,$score)
-    {
-
-        $this->db->select('id');
-        $this->db->from($this->table);
-        if ($location !== "all") {
-            $this->db->where('trial_code', $location);
-        }
-        if ($score!==3) {
-            $this->db->where('score', $score);
-            
-        }
-        $this->db->where('treatment_direction', $direction);
-        return $this->db->count_all_results();
-
-    }
-
-    public function getDISTANCE($location, $distance,$score)
-    {
-
-        $this->db->select('id');
-        $this->db->from($this->table);
-        if ($location !== "all") {
-            $this->db->where('trial_code', $location);
-        }
-        if ($score!==3) {
-            $this->db->where('score', $score);
-            
-        }
-        $this->db->where('treatment_distance', $distance);
-        return $this->db->count_all_results();
-
-    }
-
-    public function getPOSITION($location, $position,$score)
-    {
-
-    
-
-        $this->db->select('id');
-        $this->db->from($this->table);
-        if ($location !== "all") {
-            $this->db->where('trial_code', $location);
-        }
-        if ($score!==3) {
-            $this->db->where('score', $score);
-            
-        } 
-
-        $this->db->where('treatment_position', $position);
-        return $this->db->count_all_results();
-        
-    }
-
-    public function getN($location, $n,$score)
-    {
-
-    
-
-        $this->db->select('id');
-        $this->db->from($this->table);
-        if ($location !== "all") {
-            $this->db->where('trial_code', $location);
-        }
-        if ($score!==3) {
-            $this->db->where('score', $score);
-            
-        } 
-
-        $this->db->where('treatment_n', $n);
-        return $this->db->count_all_results();
-        
-    }
-
-    public function getP($location, $p,$score)
-    {
-
-    
-
-        $this->db->select('id');
-        $this->db->from($this->table);
-        if ($location !== "all") {
-            $this->db->where('trial_code', $location);
-        }
-        if ($score!==3) {
-            $this->db->where('score', $score);
-            
-        } 
-
-        $this->db->where('treatment_p', $p);
-        return $this->db->count_all_results();
-        
-    }
-
-    public function getK($location, $k,$score)
-    {
-
-    
-
-        $this->db->select('id');
-        $this->db->from($this->table);
-        if ($location !== "all") {
-            $this->db->where('trial_code', $location);
-        }
-        if ($score!==3) {
-            $this->db->where('score', $score);
-            
-        } 
-
-        $this->db->where('treatment_k', $k);
-        return $this->db->count_all_results();
-        
-    }
-
-
-   
-
-
     public function trial_code($type, $code)
     {
         $this->db->from($this->table);
@@ -359,146 +172,17 @@ class Model_treatment extends CI_Model
 
     }
  
-    public function findField($filter)
+    public function findField($filter,$field)
     {
         $this->db->from($this->table);
         if ($filter!=="all") {
             $this->db->where('trial_code', $filter);
-            
         }
-        $this->db->select('habitat_type');
-        $this->db->distinct('habitat_type');
-        return $this->db->get()->result_array();
+        $this->db->where($field."!='' ");
         
-    }
-
-    public function findOM($filter)
-    {
-        $this->db->from($this->table);
-        if ($filter!=="all") {
-            $this->db->where('trial_code', $filter);
-            
-        }
-        $this->db->select('treatment_om');
-        $this->db->distinct('treatment_om');
-        return $this->db->get()->result_array();
-        
-    }
-
-    public function findFREQ($filter)
-    {
-        $this->db->from($this->table);
-        if ($filter!=="all") {
-            $this->db->where('trial_code', $filter);
-            
-        }
-        $this->db->select('treatment_freq');
-        $this->db->distinct('treatment_freq');
-        return $this->db->get()->result_array();
-        
-    }
-
-    public function findSLOPES($filter)
-    {
-        $this->db->from($this->table);
-        if ($filter!=="all") {
-            $this->db->where('trial_code', $filter);
-            
-        }
-        $this->db->select('treatment_slopes');
-        $this->db->distinct('treatment_slopes');
-        return $this->db->get()->result_array();
-        
-    }
-
-    public function findMP($filter)
-    {
-        $this->db->from($this->table);
-        if ($filter!=="all") {
-            $this->db->where('trial_code', $filter);
-            
-        }
-        $this->db->select('treatment_mp');
-        $this->db->distinct('treatment_mp');
-        return $this->db->get()->result_array();
-        
-    }
-
-    public function findDIRECTION($filter)
-    {
-        $this->db->from($this->table);
-        if ($filter!=="all") {
-            $this->db->where('trial_code', $filter);
-            
-        }
-        $this->db->select('treatment_direction');
-        $this->db->distinct('treatment_direction');
-        return $this->db->get()->result_array();
-        
-    }
-
-    public function findDISTANCE($filter)
-    {
-        $this->db->from($this->table);
-        if ($filter!=="all") {
-            $this->db->where('trial_code', $filter);
-            
-        }
-        $this->db->select('treatment_distance');
-        $this->db->distinct('treatment_distance');
-        return $this->db->get()->result_array();
-        
-    }
-
-    public function findP($filter)
-    {
-        $this->db->from($this->table);
-        if ($filter!=="all") {
-            $this->db->where('trial_code', $filter);
-            
-        }
-        $this->db->select('treatment_p');
-        $this->db->distinct('treatment_p');
-        return $this->db->get()->result_array();
-        
-    }
-
-    public function findN($filter)
-    {
-        $this->db->from($this->table);
-        if ($filter!=="all") {
-            $this->db->where('trial_code', $filter);
-            
-        }
-        $this->db->select('treatment_n');
-        $this->db->distinct('treatment_n');
-        return $this->db->get()->result_array();
-        
-    }
-
-    public function findK($filter)
-    {
-        $this->db->from($this->table);
-        if ($filter!=="all") {
-            $this->db->where('trial_code', $filter);
-            
-        }
-        $this->db->select('treatment_k');
-        $this->db->distinct('treatment_k');
-        return $this->db->get()->result_array();
-        
-    }
-
-    public function findPOSITION($filter)
-    {
-        $this->db->from($this->table);
-        if ($filter!=="all") {
-            $this->db->where('trial_code', $filter);
-            
-        }
-        $this->db->select('treatment_position');
-        $this->db->distinct('treatment_position');
-        return $this->db->get()->result_array();
+        $this->db->select($field);
+        $this->db->distinct($field);
+        return $this->db->get();
         
     }
 
