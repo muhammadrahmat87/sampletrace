@@ -33,18 +33,7 @@
                       <div class="col-sm-6">
                         <input type="text" value="<?php echo $import['description']; ?>" name="description" class="form-control"  >
                       </div>
-                  </div>
-
-                  <div class="form-group">
-                      <label class="col-sm-2 control-label">Observation Date</label>
-                      <div class="col-sm-2">
-                        <input type="date"   class="form-control"  >
-                      </div>
-                  </div>
-				  
-				         
-				  
-				          
+                  </div>  
 
                   <div class="form-group">
                   <label class="col-sm-2 control-label"></label>
