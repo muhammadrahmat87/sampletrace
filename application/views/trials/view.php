@@ -15,22 +15,22 @@
 				
             ?>
 
-              <table id="exampl" class="table table-striped table-bordered table-hover table-full-width dataTable" cellspacing="0" width="100%">
+              <table id="example" class="table table-striped table-bordered table-hover table-full-width dataTable"  >
                 <thead>
-                    <tr class="bg-success">
-                        <th width="5%">No</th>
-                        <th width="8%">Trial Code</th>
-                        <th width="17%">Title</th>
-						            <th width="33%">Description</th>
-                        <th width="6%">Location</th>
-                        <th width="6%">Region</th>
-                        <th width="6%">PSM</th>
+                    <tr class="bg-blue">
+                        <th width="2%">No</th>
+                        <th width="7%">Trial Code</th>
+                        <th width="30%">Title</th>
+						            <th width="30%">Description</th>
+                        <th width="5%">Location</th>
+                        <th width="5%">Region</th>
+                        <th width="4%">PSM</th>
                        
-                        <th width="11%">Starting Year</th>
-                        <th width="10%">Target Finish</th>
-                        <th width="5%">Progress</th>
+                        <th width="4%">Start </th>
+                        <th width="4%">Finish</th>
+                        <th width="4%">Progress</th>
                          
-                        <th width="5%">Action</th>
+                        <th >Action</th>
                     </tr>
                 </thead>
 				
@@ -73,7 +73,7 @@
 					  
 					<td>
                                        
-                    <a href="<?php echo base_url(); ?>trials/edit/<?php echo $t['trial_code'] ?>" class="btn btn-xs btn-success" title="EDIT"data-placement="top"><i class="fa fa-edit"></i></a>                   
+                    <a href="<?php echo base_url(); ?>trials/edit/<?php echo $t['trial_code'] ?>" class="btn btn-xs btn-warning" title="EDIT"data-placement="top"><i class="fa fa-edit"></i></a>                   
                    <a href="<?php echo base_url(); ?>trials/delete/<?php echo $t['trial_code'] ?>"class="btn btn-xs btn-danger" title="DELETE"><i onClick="return confirm('Yakin ingin menghapus data Trial <?php echo $t['trial_code']; ?> ?')"> <i class="fa fa-trash fa-fw"></i></i></a>					
                     
              </td>
@@ -105,15 +105,12 @@
 <script src="<?php echo base_url(); ?>assets/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
 <link rel="stylesheet" href="<?php echo base_url(); ?>assets/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
     <script>
-      $(function() {
-         $('#exampl').DataTable();
-	    function filterData () {
-		    $('#tabelData').DataTable().search(
-		        $('.jenis_kelamin').val()
-		    	).draw();
-		}
-		$('.jenis_kelamin').on('change', function () {
-	        filterData();
-	    });
-	});
+   $(document).ready(function() {
+    $('#example').DataTable( {
+        "scrollY": 500,
+        "scrollX": true,
+        
+        
+    } );
+} );
     </script>

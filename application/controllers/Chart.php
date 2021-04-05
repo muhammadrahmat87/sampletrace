@@ -17,8 +17,8 @@ class Chart extends CI_Controller
         $allhabitat = $this->model_treatment->findField($filter, $field);
         if ($allhabitat->num_rows()>0) {
         foreach ($allhabitat->result_array() as $key => $value) {
-            $count_habitat = $this->model_treatment->getDataField($filter, $value[$field], 3, $field);
-            $score = $this->model_treatment->getDataField($filter, $value[$field], 1, $field);
+            $count_habitat = $this->model_treatment->getDataField($filter, $value[$field], 3, $field); //count_semua_score
+            $score = $this->model_treatment->getDataField($filter, $value[$field], 1, $field); //count score 1
             $percentage = round(($score / $count_habitat) * 100, 2);
             $detail_habitat[] = ['label' => $value[$field], 'count' => $count_habitat, 'score' => $score, 'percentage' => $percentage];
             $habitat[] = $value[$field];
@@ -55,7 +55,7 @@ class Chart extends CI_Controller
             [
             'status' => 'success',
             'response' => 200,
-
+            'value' => $filter,
             'data_chart'=> $this->getData($filter, $field, $dataName),
             'trial_code' => [
                 'label' => $trial_code,

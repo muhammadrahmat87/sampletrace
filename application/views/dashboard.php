@@ -9,8 +9,8 @@
 	    <!-- /.col -->
       <div class="col-md-12" >
 		  <div class="box ">
-      <div class="box-header with-border" style="background-color:seagreen">
-      <marquee direction="left" scrollamount="8"  ><h3  style="color: white" class="box-title" ><b>Data management system for Bait Lamina Project using desktop application
+      <div class="box-header with-border bg-blue"  >
+      <marquee direction="left" scrollamount="8"  ><h3  style="color: white" class="box-title"  ><b style="font-style:inherit">Data Management System for Bait Lamina Project  
 </h3> </marquee>
               
 
@@ -22,7 +22,7 @@
 
             <div class="info-box-content">
               <span class="info-box-text"><b>Total PSM</span>
-              <span class="info-box-number"><h3>3</h1></span>
+              <span class="info-box-number"><h3>4</h1></span>
             </div>
             <!-- /.info-box-content -->
           </div>
@@ -78,7 +78,7 @@
        
 	    <div class="col-md-4 col-sm-6 col-xs-12">
           <div class="info-box">
-            <span class="info-box-icon bg-yellow"><i class="ion ion-checkmark"></i></span>
+            <span class="info-box-icon bg-maroon"><i class="ion ion-checkmark"></i></span>
 
             <div class="info-box-content">
               <span class="info-box-text">Trial Active</span>
@@ -116,90 +116,142 @@
     <section class="contenter">
       <div class="row">
 
-      <div class="col-md-6">
-		  <div class="box ">
-      <div class="box-header with-border" style="background-color:slategrey">
-              <h3  style="color: white" class="box-title" >Status </h3>
-            
-              <div class="box-tools pull-right">
-                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
-                </button>
-                <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
-              </div>
-            </div>
-            <div class="box-body">
-              <canvas id="statusChart" style="height:100px"></canvas>
-            </div>
-            <!-- /.box-body -->
-          </div>
-        </div> 
+      
+		
 
-        <div class="col-md-6">
-		  <div class="box box-success">
-      <div class="box-header with-border" style="background-color:slategrey">
-              <h3 style="color: white" class="box-title">Region </h3>
+            <!-- DONUT CHART -->
+            <div class="col-md-4">
+            <div class="box box-primary">
+      <div class="box-header with-border bg-blue"  >
+              <h3  style="color: white" class="box-title" >Trial Status </h3>
 
               <div class="box-tools pull-right">
-                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                <button type="button" class="btn btn-box-tool" style="background-color: white;" data-widget="collapse"><i class="fa fa-minus"></i>
                 </button>
-                <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                <button type="button" class="btn btn-box-tool"  style="background-color: white;" data-widget="remove"><i class="fa fa-times"></i></button>
               </div>
+              </div>
+              <div class="box-body">
+                <canvas id="statusChart" style="height:300px; min-height:300px"></canvas>
+              </div>
+              <!-- /.card-body -->
             </div>
-            <div class="box-body">
-              <canvas id="regionChart" style="height:250px"></canvas>
+            <!-- /.card -->
             </div>
-            <!-- /.box-body -->
-          </div></div>
 
-
-        <!-- /.col (LEFT) -->
-        <div class="col-md-6">
-          <!-- AREA CHART -->
-          <div class="box box-success">
-          <div class="box-header with-border" style="background-color:slategrey">
-              <h3  style="color: white" class="box-title">Trial Year </h3>
+               <!-- DONUT CHART -->
+               <div class="col-md-4">
+               <div class="box box-primary">
+      <div class="box-header with-border bg-blue"  >
+              <h3  style="color: white" class="box-title" >PSM </h3>
 
               <div class="box-tools pull-right">
-                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                <button type="button" class="btn btn-box-tool" style="background-color: white;" data-widget="collapse"><i class="fa fa-minus"></i>
                 </button>
-                <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                <button type="button" class="btn btn-box-tool" style="background-color: white;" data-widget="remove"><i class="fa fa-times"></i></button>
               </div>
-            </div>
-            <div class="box-body">
-            <center> <i class="fa fa-circle text-gray"></i> On going
-                    </span>
-                    <span class="mr-2">
-                        <i class="fa fa-circle text-blue"></i> Closed
-              <div class="chart">
-                <canvas id="yearChart" style="height:330px"></canvas>
               </div>
+              <div class="box-body">
+                <canvas id="psmChart" style="height:300px; min-height:300px"></canvas>
+              </div>
+              <!-- /.card-body -->
             </div>
-            <!-- /.box-body -->
-          </div></div>
-          <!-- /.box -->
+            <!-- /.card -->
+               </div>
+
+              <!-- DONUT CHART -->
+              <div class="col-md-4">
+              <div class="box box-primary">
+      <div class="box-header with-border bg-blue"  >
+              <h3  style="color: white" class="box-title" >Region</h3>
+
+              <div class="box-tools pull-right">
+                <button type="button" class="btn btn-box-tool" style="background-color: white;" data-widget="collapse"><i class="fa fa-minus"></i>
+                </button>
+                <button type="button" class="btn btn-box-tool " style="background-color: white;" data-widget="remove"><i class="fa fa-times"></i></button>
+              </div>
+              </div>
+              <div class="box-body">
+                <canvas id="regionChart" style="height:300px; min-height:300px"></canvas>
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+               </div>
+
+           
 
           
-			  
+          
+          <!-- /.col (LEFT) -->
+          <div class="col-md-6">
+            <!-- LINE CHART -->
+            <div class="box box-primary  ">
+          <div class="box-header with-border bg-blue">
+          <h3  style="color: white" class="box-title">Trial Year </h3>
 
-               
+                <div class="box-tools pull-right">
+                <button type="button" class="btn btn-box-tool"  style="background-color: white;" data-widget="collapse"><i class="fa fa-minus"></i>
+                </button>
+                <button type="button" class="btn btn-box-tool"  style="background-color: white;" data-widget="remove"><i class="fa fa-times"></i></button>
+              </div>
+              </div>
+              <div class="box-body">  
+                <div class="chart">
+                  <canvas id="lineChart" style="height:250px; min-height:230px"></canvas>
+                </div>
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+          </div>
+
+            <!-- BAR CHART -->
+            <div class="col-md-6">
+            <div class="box box-primary  ">
+          <div class="box-header with-border bg-blue">
+          <h3  style="color: white" class="box-title">Trial Year </h3>
+
+                <div class="box-tools pull-right">
+                <button type="button" class="btn btn-box-tool"  style="background-color: white;" data-widget="collapse"><i class="fa fa-minus"></i>
+                </button>
+                <button type="button" class="btn btn-box-tool"  style="background-color: white;" data-widget="remove"><i class="fa fa-times"></i></button>
+              </div>
+              </div>
+              <div class="box-body">  
+                <div class="chart">
+                  <canvas id="barChart" style="height:250px; min-height:230px"></canvas>
+                </div>
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+            </div>
+
+            <!-- STACKED BAR CHART 
+            <div class="card card-success">
+              <div class="card-header">
+                <h3 class="card-title">Stacked Bar Chart</h3>
+
+                <div class="card-tools">
+                  <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i>
+                  </button>
+                  <button type="button" class="btn btn-tool" data-card-widget="remove"><i class="fas fa-times"></i></button>
+                </div>
+              </div>
+              <div class="card-body">
+                <div class="chart">
+                  <canvas id="stackedBarChart" style="height:230px; min-height:230px"></canvas>
+                </div>
+              </div>
+              --> 
             
+            <!-- /.box-body -->
          
-          
-               
-              </div>
-            </div>
-            <!-- /.box-body -->
-          </div>
-          <!-- /.box -->
-
-        </div>
-        <!-- /.col (RIGHT) -->
-      </div>
-      <!-- /.row -->
 
     </section>
     <!-- /.content -->
-  </div>
+  
   <!-- /.content-wrapper -->
    
   
@@ -211,7 +263,7 @@
 <!-- Bootstrap 3.3.7 -->
 <script src="../../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 <!-- ChartJS -->
-<script src="../../bower_components/chart.js/Chart.js"></script>
+<script src="../../bower_components/charttt.js/Chart.min.js"></script>
 <!-- FastClick -->
 <script src="../../bower_components/fastclick/lib/fastclick.js"></script>
 <!-- AdminLTE App -->
@@ -223,227 +275,270 @@
 
   $(function () {
    
-  
-    
-
-    //-------------
-    //- PIE CHART -
-    //-------------
-    // Get context with jQuery - using jQuery's .get() method.
-
-    var pieChartCanvas = $('#statusChart').get(0).getContext('2d')
-    var pieChart       = new Chart(pieChartCanvas)
-    var PieData        = [  
-      {
-        value    : <?php echo $aktif['hasil']; ?>,
-        color    : '#00c0ef',
-        highlight: '#49116b',
-        label    : 'On going'
-      },
-      {
-        value    : <?php echo $closed['hasil']; ?>,
-        color    : '#f39c12',
-        highlight: '#49116b',
-        label    : 'Closed'
-      } 
-    ]
-    var pieOptions     = {
-      //Boolean - Whether we should show a stroke on each segment
-      segmentShowStroke    : true,
-      //String - The colour of each segment stroke
-      segmentStrokeColor   : '#fff',
-      //Number - The width of each segment stroke
-      segmentStrokeWidth   : 2,
-      //Number - The percentage of the chart that we cut out of the middle
-      percentageInnerCutout: 0, // This is 0 for Pie charts
-      //Number - Amount of animation steps
-      animationSteps       : 100,
-      //String - Animation easing effect
-      animationEasing      : 'easeOutBounce',
-      //Boolean - Whether we animate the rotation of the Doughnut
-      animateRotate        : true,
-      //Boolean - Whether we animate scaling the Doughnut from the centre
-      animateScale         : false,
-      //Boolean - whether to make the chart responsive to window resizing
-      responsive           : true,
-      // Boolean - whether to maintain the starting aspect ratio or not when responsive, if set to false, will take up entire container
-      maintainAspectRatio  : true,
-      //String - A legend template
-      legendTemplate       : '<ul class="<%=name.toLowerCase()%>-legend"><% for (var i=0; i<segments.length; i++){%><li><span style="background-color:<%=segments[i].fillColor%>"></span><%if(segments[i].label){%><%=segments[i].label%><%}%></li><%}%></ul>'
-    }
-    //Create pie or douhnut chart
-    // You can switch between pie and douhnut using the method below.
-    pieChart.Doughnut(PieData, pieOptions)
-
-
-
-  
-
-
-    var pieChartCanvas = $('#regionChart').get(0).getContext('2d')
-    var pieChart       = new Chart(pieChartCanvas)
-    var PieData        = [
-     
-      
-      {
-        value    : <?php echo $regions['Siak']; ?>,
-        color    : '#00a65a',
-        highlight: '#49116b',
-        label    : 'Siak'
-      }, 
-      {
-        value    : <?php echo $regionl['Lampung']; ?>,
-        color    : '#faf605',
-        highlight: '#49116b',
-        label    : 'Lampung'
-      }, 
-      {
-        value    : <?php echo $regionk['Kampar']; ?>,
-        color    : '#ed0cde',
-        highlight: '#49116b',
-        label    : 'Kampar'
-      }, 
-      {
-        value    : <?php echo $regionkt['Kalimantan']; ?>,
-        color    : '#00c0ef',
-        highlight: '#49116b',
-        label    : 'Kalimantan Tengah'
-      }, 
-      {
-        value    : <?php echo $regionp['Palembang']; ?>,
-        color    : '#e0e649',
-        highlight: '#49116b',
-        label    : 'Palembang'
-      }, 
-      {
-        value    : <?php echo $regionj['Jambi']; ?>,
-        color    : '#f39c12',
-        highlight: '#49116b',
-        label    : 'Jambi'
-      }, 
-      {
-        value    : <?php echo $regionb['Belitung']; ?>,
-        color    : '#4df70f',
-        highlight: '#49116b',
-        label    : 'Belitung'
-      }, 
-      {
-        value    : <?php echo $regioni['Indragiri']; ?>,
-        color    : '#d2d6de',
-        highlight: '#49116b',
-        label    : 'Indragiri'
-      }
-    ]
-    var pieOptions     = {
-      //Boolean - Whether we should show a stroke on each segment
-      segmentShowStroke    : true,
-      //String - The colour of each segment stroke
-      segmentStrokeColor   : '#fff',
-      //Number - The width of each segment stroke
-      segmentStrokeWidth   : 2,
-      //Number - The percentage of the chart that we cut out of the middle
-      percentageInnerCutout: 0, // This is 0 for Pie charts
-      //Number - Amount of animation steps
-      animationSteps       : 100,
-      //String - Animation easing effect
-      animationEasing      : 'easeOutBounce',
-      //Boolean - Whether we animate the rotation of the Doughnut
-      animateRotate        : true,
-      //Boolean - Whether we animate scaling the Doughnut from the centre
-      animateScale         : false,
-      //Boolean - whether to make the chart responsive to window resizing
-      responsive           : true,
-      // Boolean - whether to maintain the starting aspect ratio or not when responsive, if set to false, will take up entire container
-      maintainAspectRatio  : true,
-      //String - A legend template
-      legendTemplate       : '<ul class="<%=name.toLowerCase()%>-legend"><% for (var i=0; i<segments.length; i++){%><li><span style="background-color:<%=segments[i].fillColor%>"></span><%if(segments[i].label){%><%=segments[i].label%><%}%></li><%}%></ul>'
-    }
-    //Create pie or douhnut chart
-    // You can switch between pie and douhnut using the method below.
-    pieChart.Doughnut(PieData, pieOptions)  
-
-
-
-
- 
-
-        //--------------
+    //--------------
     //- AREA CHART -
     //--------------
 
     // Get context with jQuery - using jQuery's .get() method.
-    var areaChartCanvas = $('#yearChart').get(0).getContext('2d')
-    // This will get the first returned node in the jQuery collection.
-    var areaChart       = new Chart(areaChartCanvas)
+    var areaChartCanvas = $('#lineChart').get(0).getContext('2d')
 
     var areaChartData = {
-      labels  : ['2014 ', '2015', '2016', '2017', '2018', '2019', '2020'],
+      labels  : ['2014 ', '2015', '2016', '2017', '2018', '2019', '2020', '2021'],
       datasets: [
+       
         {
-          label               : 'Electronics',
-          fillColor           : 'rgba(0, 192, 239)',
-          
-          strokeColor         : 'rgba(210, 214, 222, 1)',
-          pointColor          : 'rgba(10, 214, 222, 1)',
-          pointStrokeColor    : '#2c2e30',
+          label               : 'Closed',
+          backgroundColor     : '#00c0ef',
+          borderColor         : '#00c0ef',
+          pointRadius         : false,
+          pointColor          : '#17cfcf',
+          pointStrokeColor    : '#c1c7d1',
           pointHighlightFill  : '#fff',
-          pointHighlightStroke: 'rgba(220,220,220,1)',
-          data                : [1, 3, 4, 4, 6, 7, 10]
-        },
-        {
-          label               : 'Digital Goods',
-          fillColor           : 'rgba( 243, 156, 18)',
-          strokeColor         : 'rgba(60,141,188,0.8)',
+          pointHighlightStroke: '#17cfcf',
+          data                : [0, 0, 0, 1, 6, 7, 15, 15]
+        }, {
+          label               : 'On Going',
+          backgroundColor     : '#cc1078',
+          borderColor         : '#cc1078',
+          pointRadius          : false,
           pointColor          : '#3b8bba',
-          pointStrokeColor    : 'rgba(60,141,188,1)',
+          pointStrokeColor    : '#cc1078',
           pointHighlightFill  : '#fff',
-          pointHighlightStroke: 'rgba(60,141,188,1)',
-          data                : [1, 1, 2, 3, 3, 4, 4]
-        }
+          pointHighlightStroke: '#cc1078',
+          data                : [0, 1, 4, 6	, 5, 12, 6, 6]
+        },
       ]
     }
 
     var areaChartOptions = {
-      //Boolean - If we should show the scale at all
-      showScale               : true,
-      //Boolean - Whether grid lines are shown across the chart
-      scaleShowGridLines      : false,
-      //String - Colour of the grid lines
-      scaleGridLineColor      : 'rgba(0,0,0,.05)',
-      //Number - Width of the grid lines
-      scaleGridLineWidth      : 1,
-      //Boolean - Whether to show horizontal lines (except X axis)
-      scaleShowHorizontalLines: true,
-      //Boolean - Whether to show vertical lines (except Y axis)
-      scaleShowVerticalLines  : true,
-      //Boolean - Whether the line is curved between points
-      bezierCurve             : true,
-      //Number - Tension of the bezier curve between points
-      bezierCurveTension      : 0.3,
-      //Boolean - Whether to show a dot for each point
-      pointDot                : false,
-      //Number - Radius of each point dot in pixels
-      pointDotRadius          : 4,
-      //Number - Pixel width of point dot stroke
-      pointDotStrokeWidth     : 1,
-      //Number - amount extra to add to the radius to cater for hit detection outside the drawn point
-      pointHitDetectionRadius : 20,
-      //Boolean - Whether to show a stroke for datasets
-      datasetStroke           : true,
-      //Number - Pixel width of dataset stroke
-      datasetStrokeWidth      : 2,
-      //Boolean - Whether to fill the dataset with a color
-      datasetFill             : true,
-      //String - A legend template
-      legendTemplate          : '<ul class="<%=name.toLowerCase()%>-legend"><% for (var i=0; i<datasets.length; i++){%><li><span style="background-color:<%=datasets[i].lineColor%>"></span><%if(datasets[i].label){%><%=datasets[i].label%><%}%></li><%}%></ul>',
-      //Boolean - whether to maintain the starting aspect ratio or not when responsive, if set to false, will take up entire container
-      maintainAspectRatio     : true,
-      //Boolean - whether to make the chart responsive to window resizing
-      responsive              : true
+      maintainAspectRatio : false,
+      responsive : true,
+      legend: {
+        display: false
+      },
+      scales: {
+        xAxes: [{
+          gridLines : {
+            display : false,
+          }
+        }],
+        yAxes: [{
+          gridLines : {
+            display : false,
+          }
+        }]
+      }
     }
-    areaChart.Line(areaChartData, areaChartOptions)
 
-   
+    // This will get the first returned node in the jQuery collection.
+    var areaChart       = new Chart(areaChartCanvas, { 
+      type: 'line',
+      data: areaChartData, 
+      options: areaChartOptions
+    })
+
+    //-------------
+    //- LINE CHART -
+    //--------------
+    var lineChartCanvas = $('#lineChart').get(0).getContext('2d')
+    var lineChartOptions = jQuery.extend(true, {}, areaChartOptions)
+    var lineChartData = jQuery.extend(true, {}, areaChartData)
+    lineChartData.datasets[0].fill = false;
+    lineChartData.datasets[1].fill = false;
+    lineChartOptions.datasetFill = false
+
+    var lineChart = new Chart(lineChartCanvas, { 
+      type: 'line',
+      data: lineChartData, 
+      options: lineChartOptions
+    })
+
+    //-------------
+    //- STATUS CHART -
+    //-------------
+    // Get context with jQuery - using jQuery's .get() method.
+    var pieChartCanvas = $('#statusChart').get(0).getContext('2d')
+    var donutData        = {
+      labels: [
+          'On Going', 
+          'Closed',
+           
+      ],
+      datasets: [
+        {
+          data: [ <?php echo $aktif['hasil']; ?>,
+                  <?php echo $closed['hasil']; ?> 
+          ],
+          backgroundColor : [  '#cc1078', '#00c0ef' ],
+        }
+      ]
+    }
+    var donutOptions     = {
+      maintainAspectRatio : false,
+      responsive : true,
+    }
+    //Create pie or douhnut chart
+    // You can switch between pie and douhnut using the method below.
+    var pieChart = new Chart(pieChartCanvas, {
+      type: 'pie',
+      data: donutData,
+      options: donutOptions      
+    })
+
+
+     //-------------
+    //- PSM CHART -
+    //-------------
+    // Get context with jQuery - using jQuery's .get() method.
+    var pieChartCanvas = $('#psmChart').get(0).getContext('2d')
+    var donutData        = {
+      labels: [
+          'PSM 1', 
+          'PSM 2',
+          'PSM 5', 
+          'PSM 6'
+           
+      ],
+      datasets: [
+        {
+          data: [ 
+            <?php echo $psm1['aaa']; ?>,
+            <?php echo $psm2['bbb']; ?>,
+            <?php echo $psm5['ccc']; ?>,
+            <?php echo $psm6['ddd']; ?>
+           ],
+          backgroundColor : ['#f39c12', '#00c0ef','#e0e649','#cc1078'],
+        }
+      ]
+    }
+    var donutOptions     = {
+      maintainAspectRatio : false,
+      responsive : true,
+    }
+    //Create pie or douhnut chart
+    // You can switch between pie and douhnut using the method below.
+    var pieChart = new Chart(pieChartCanvas, {
+      type: 'pie',
+      data: donutData,
+      options: donutOptions      
+    })
+
+
+     //-------------
+    //- PSM CHART -
+    //-------------
+    // Get context with jQuery - using jQuery's .get() method.
+    var pieChartCanvas = $('#regionChart').get(0).getContext('2d')
+    var donutData        = {
+      labels: [
+          'Siak', 
+          'Lampung',
+          'Kampar', 
+          'Kalimantan Tengah',
+          'Palembang',
+          'Jambi',
+          'Belitung',
+          'Indragiri'
+           
+      ],
+      datasets: [
+        {
+          data: [ 
+            <?php echo $regions['Siak']; ?>,
+            <?php echo $regionl['Lampung']; ?>,
+            <?php echo $regionk['Kampar']; ?>,
+            <?php echo $regionkt['Kalimantan']; ?>,
+            <?php echo $regionp['Palembang']; ?>,
+            <?php echo $regionj['Jambi']; ?>,
+            <?php echo $regionb['Belitung']; ?>,
+            <?php echo $regioni['Indragiri']; ?>,
+           ],
+          backgroundColor : ['#f39c12', '#00c0ef','#e0e649','#07a6a3','#cc1078','#4df70f','#faf605','#ed0cde'],
+        }
+      ]
+    }
+    var donutOptions     = {
+      maintainAspectRatio : false,
+      responsive : true,
+    }
+    //Create pie or douhnut chart
+    // You can switch between pie and douhnut using the method below.
+    var pieChart = new Chart(pieChartCanvas, {
+      type: 'pie',
+      data: donutData,
+      options: donutOptions      
+    })
+
+  
+    //-------------
+    //- BAR CHART -
+    //-------------
+    var barChartCanvas = $('#barChart').get(0).getContext('2d')
+    var barChartData = {
+      labels  : ['2014 ', '2015', '2016', '2017', '2018', '2019', '2020', '2021'],
+      datasets: [
+        {
+          label               : 'On Going',
+          backgroundColor     : '#cc1078',
+          borderColor         : '#cc1078',
+          pointRadius          : false,
+          pointColor          : '#3b8bba',
+          pointStrokeColor    : '#cc1078',
+          pointHighlightFill  : '#fff',
+          pointHighlightStroke: '#cc1078',
+          data                : [0, 1, 4, 6	, 5, 12, 6, 6]
+        },
+        {
+          label               : 'Closed',
+          backgroundColor     : '#00c0ef',
+          borderColor         : '#00c0ef',
+          pointRadius         : false,
+          pointColor          : '#17cfcf',
+          pointStrokeColor    : '#c1c7d1',
+          pointHighlightFill  : '#fff',
+          pointHighlightStroke: '#17cfcf',
+          data                : [0, 0, 0, 1, 6, 7, 15, 15]
+        }, 
+      ]
+    }
+    
+
+    var barChartOptions = {
+      responsive              : true,
+      maintainAspectRatio     : false,
+      datasetFill             : false
+    }
+
+    var barChart = new Chart(barChartCanvas, {
+      type: 'bar', 
+      data: barChartData,
+      options: barChartOptions
+    })
+
+    //---------------------
+    //- STACKED BAR CHART -
+    //---------------------
+    var stackedBarChartCanvas = $('#stackedBarChart').get(0).getContext('2d')
+    var stackedBarChartData = jQuery.extend(true, {}, barChartData)
+
+    var stackedBarChartOptions = {
+      responsive              : true,
+      maintainAspectRatio     : false,
+      scales: {
+        xAxes: [{
+          stacked: true,
+        }],
+        yAxes: [{
+          stacked: true
+        }]
+      }
+    }
+
+    var stackedBarChart = new Chart(stackedBarChartCanvas, {
+      type: 'bar', 
+      data: stackedBarChartData,
+      options: stackedBarChartOptions
+    })
   })
 </script>
 </body>
@@ -452,10 +547,4 @@
  
 
             <!-- /.box-body -->
-          </div>
-          <!-- /.box -->
-        </div>
-        <!-- /.col -->
-    </div>
-    <!-- /.row -->
-</section>  
+        

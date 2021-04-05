@@ -55,6 +55,18 @@
 			$queryy = "SELECT COUNT(region) AS Belitung FROM trials where region = 'Belitung'";
 			$data['regionb'] = $this->db->query($queryy)->row_array(); 
 
+			$queryy = "SELECT COUNT(psm) AS aaa FROM trials where psm = 'PSM 1'";
+			$data['psm1'] = $this->db->query($queryy)->row_array(); 
+		
+			$queryy = "SELECT COUNT(psm) AS bbb FROM trials where psm = 'PSM 2'";
+			$data['psm2'] = $this->db->query($queryy)->row_array(); 
+		
+			$queryy = "SELECT COUNT(psm) AS ccc FROM trials where psm = 'PSM 5'";
+			$data['psm5'] = $this->db->query($queryy)->row_array(); 
+		
+			$queryy = "SELECT COUNT(psm) AS ddd FROM trials where psm = 'PSM 6'";
+			$data['psm6'] = $this->db->query($queryy)->row_array(); 
+
 			$data['graph'] = $this->model_tampilanutama->graph();
 
 			$this->template->load('template', 'dashboard', $data);

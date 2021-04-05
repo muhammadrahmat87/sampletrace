@@ -1,51 +1,55 @@
 <!DOCTYPE html>
 <html>
 
-<head>
+<section class="content">
+    <div class="row">
+        <div class="col-xs-12">
 
-</head>
-<br>
-<div class="col-md-4">
-  <div class="box ">
-    <div class="box-header with-border" style="background-color:#169143">
-
-
-      <div class="form-group">
-        <label class="col-sm-4 control-label">
-          <h4 style="color: aquamarine"><b>Trial Code</b></h4>
-        </label>
-        <div class="col-sm-4">
-          <select class="form-control" name="trial_code" onchange="getValue()" id="trial_code">
-          </select>
+          <div class="box box-primary">
+            <div class="box-header  with-border">
+          <h3 class="box-title">Statistic & Graph - Feeding Activity</h3>
+         
         </div>
-      </div>
+        <!-- /.box-header -->
+        <!-- form start -->
+        <br> <br>
+        <div class="box-body">
+          <div class="form-group">
+          <label class="col-sm-1 control-label">Trial Code</label>
+            <div class="col-sm-2">
+              <select class="form-control" name="trial_code" onChange="getValue()" id="trial_code">
+                
+              </select>
+            </div>
+           
     </div>
-  </div>
-</div>
+
 
 <section class="content">
-  <br>
+  <br> <br>
   <div class="row">
     <div class="col-lg-12">
-      <div class="nav-tabs-custom">
-        <ul class="nav nav-tabs box-success" style="background-color:#5cf29b">
-          <li class="active"><a data-toggle="tab" href="#habitat" onclick="showChart(1)"><b>Habitat Type</b></a></li>
-          <li><a data-toggle="tab" href="#habitat" onclick="showChart(2)"><b>Organic Material</b></a></li>
-          <li><a data-toggle="tab" href="#habitat" onclick="showChart(3)"><b>Frequency</b></a></li>
-          <li><a data-toggle="tab" href="#habitat" onclick="showChart(4)"><b>Slopes</b></a></li>
-          <li><a data-toggle="tab" href="#habitat" onclick="showChart(5)"><b>Manajemen Practices</b></a></li>
-          <li><a data-toggle="tab" href="#habitat" onclick="showChart(6)"><b>Direction</b></a></li>
-          <li><a data-toggle="tab" href="#habitat" onclick="showChart(7)"><b>Distance</b></a></li>
-          <li><a data-toggle="tab" href="#habitat" onclick="showChart(8)"><b>Position</b></a></li>
-          <li><a data-toggle="tab" href="#habitat" onclick="showChart(9)"><b>N</b></a></li>
-          <li><a data-toggle="tab" href="#habitat" onclick="showChart(10)"><b>P</b></a></li>
-          <li><a data-toggle="tab" href="#habitat" onclick="showChart(11)"><b>K</b></a></li>
+    <div class="box box-success">
+      <div class="nav-tabs-custom nav-tabs-custom-success">
+        <ul class="nav nav-tabs box-blue bg-aqua">
+          <li class="active"><a data-toggle="tab" href="#habitat" onClick="showChart(1)"><b>Habitat Type</b></a></li>
+          <li><a data-toggle="tab" href="#habitat" onClick="showChart(2)"> <b  > Organic Material</b> </a></li>
+          <li><a data-toggle="tab" href="#habitat" onClick="showChart(3)"><b>Frequency</b></a></li>
+          <li><a data-toggle="tab" href="#habitat" onClick="showChart(4)"><b>Slopes</b></a></li>
+          <li><a data-toggle="tab" href="#habitat" onClick="showChart(5)"><b>Manajemen Practices</b></a></li>
+          <li><a data-toggle="tab" href="#habitat" onClick="showChart(6)"><b>Direction</b></a></li>
+          <li><a data-toggle="tab" href="#habitat" onClick="showChart(7)"><b>Distance</b></a></li>
+          <li><a data-toggle="tab" href="#habitat" onClick="showChart(8)"><b>Position</b></a></li>
+          <li><a data-toggle="tab" href="#habitat" onClick="showChart(9)"><b>N</b></a></li>
+          <li><a data-toggle="tab" href="#habitat" onClick="showChart(10)"><b>P</b></a></li>
+          <li><a data-toggle="tab" href="#habitat" onClick="showChart(11)"><b>K</b></a></li>
+          <li><a data-toggle="tab" href="#habitat" onClick="showChart(12)"><b>Days After Aplication</b></a></li>
         </ul>
 
         <div class="tab-content">
 
 
-          <div id="habitat" class="tab-pane fade in active">
+         
 
             <!-- /.box-header -->
 
@@ -56,9 +60,9 @@
             <div class="row">
               <div class="col-xs-5">
 
-                <div class="box box-success">
-                  <div class="box-header with-border" style="background-color:#31d6d3">
-                    <h3 class="box-title name"><b>Habitat Type</b></h3>
+                <div class="box box-primary">
+                  <div class="box-header with-border bg-blue">
+                    <h3 class="box-title name"><b> </b></h3>
                   </div>
                   <!-- /.box-header -->
                   <div class="box-body">
@@ -77,7 +81,7 @@
                         </tr>
                       </thead>
 
-                      <tbody class="table-habitat">
+                      <tbody class="table-stat">
 
                       </tbody>
                     </table>
@@ -88,20 +92,15 @@
 
               <!-- BAR CHART -->
               <div class="col-md-7">
-                <div class="box box-success">
-                  <div class="box-header with-border" style="background-color:#31d6d3">
-                    <h3 class="box-title name"><b>Habitat Type</b></h3>
+                <div class="box box-primary">
+                  <div class="box-header   with-border bg-blue">
+                    <h3 class="box-title name"><b> </b></h3>
 
-                    <div class="box-tools pull-right">
-                      <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
-                      </button>
-                      <button type="button" class="btn btn-box-tool" data-widget="remove"><i
-                          class="fa fa-times"></i></button>
-                    </div>
+                    
                   </div>
                   <div class="box-body">
-                    <div class="chart-habitat">
-
+                    <div class="chart-habitat" style="height:4420px;">
+                     
                     </div>
                   </div>
                   <!-- /.box-body -->
@@ -113,11 +112,6 @@
 
 
         </div>
-
-
-
-
-
 </section>
 <!-- Modal -->
 <div class="col-md-12">
@@ -131,7 +125,7 @@
 
           <link rel="stylesheet" href="<?=base_url()?>assets/css/loading.css">
           <div class="x_content loading">
-            <div class="loader">Loading...</div>
+            <div class="loader">loading</div>
           </div>
 
         </div>
@@ -140,6 +134,8 @@
       </div>
     </div>
   </div>
+</div>  </div>
+</div>  </div>
 </div>
 <!-- /.content -->
 
@@ -156,7 +152,7 @@
 <!-- Bootstrap 3.3.7 -->
 <script src="../../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 <!-- ChartJS -->
-<script src="../../bower_components/chart.js/Chart.js"></script>
+<script src="../../bower_components/charttt.js/Chart.js"></script>
 <!-- FastClick -->
 <script src="../../bower_components/fastclick/lib/fastclick.js"></script>
 <!-- AdminLTE App -->
@@ -240,6 +236,11 @@
       field = 'treatment_k';
       table_title = 'Treatment K'
     }
+    else if (params == 12) {
+      name = "Days After";
+      field = 'days_after';
+      table_title = 'Days After Aplication'
+    }
     $(".name").text(name);
     $(".table_title").text(table_title);
     getValue(value, field);
@@ -248,6 +249,7 @@
   function getValue(value, field) {
 
     $(".chart-habitat").html(``);
+      
     $("#loading").modal("show");
     $.ajax({
       type: "POST",
@@ -258,7 +260,7 @@
       },
       dataType: "JSON",
       success: function (response) {
-        $(".chart-habitat").html(`<canvas id="barChart" style="height:200px"></canvas>`);
+        $(".chart-habitat").html(`<canvas id="barChart" style="height:2050px"></canvas>`);
         chart(response);
         showTableHabitat(response);
         $("#loading").modal("hide");
@@ -277,7 +279,7 @@
                       <td>` + element.percentage + `</td>
                     </tr>`;
     });
-    $(".table-habitat").html(html);
+    $(".table-stat").html(html);
   }
 </script>
 <script>
@@ -294,61 +296,36 @@
     var barChartCanvas = $('#barChart').get(0).getContext('2d')
     var barChart = new Chart(barChartCanvas)
     var barChartData =
-
-
       {
         labels: data.data_chart.label,
         datasets: [
-
           {
-            label: 'Score 1',
-            fillColor: '#057c82',
-            strokeColor: '#248f24',
-            pointColor: '#248f24',
-            pointStrokeColor: '#057c82',
-            pointHighlightFill: '#fff',
-            pointHighlightStroke: '#248f24',
-            data: data.data_chart.data
-          }
+            label: 'Feeding Activity',     
+            data: data.data_chart.data,
+            backgroundColor     : '#046982',
+          } 
         ]
       }
 
-
-
-    var barChartOptions = {
-      //Boolean - Whether the scale should start at zero, or an order of magnitude down from the lowest value
-      scaleBeginAtZero: true,
-      //Boolean - Whether grid lines are shown across the chart
-      scaleShowGridLines: true,
-      //String - Colour of the grid lines
-      scaleGridLineColor: '#d8e2e3',
-      //Number - Width of the grid lines
-      scaleGridLineWidth: 1,
-      //Boolean - Whether to show horizontal lines (except X axis)
-      scaleShowHorizontalLines: true,
-      //Boolean - Whether to show vertical lines (except Y axis)
-      scaleShowVerticalLines: true,
-      //Boolean - If there is a stroke on each bar
-      barShowStroke: true,
-      //Number - Pixel width of the bar stroke
-      barStrokeWidth: 2,
-      //Number - Spacing between each of the X value sets
-      barValueSpacing: 30,
-      //Number - Spacing between data sets within X values
-      barDatasetSpacing: 300,
-      //String - A legend template
-      legendTemplate: '<ul class="<%=name.toLowerCase()%>-legend"><% for (var i=0; i<datasets.length; i++){%><li><span style="background-color:<%=datasets[i].fillColor%>"></span><%if(datasets[i].label){%><%=datasets[i].label%><%}%></li><%}%></ul>',
-      //Boolean - whether to make the chart responsive
-      responsive: true,
-      maintainAspectRatio: true
+      var barChartOptions = {
+        
+      responsive              : true,
+      maintainAspectRatio     : true,
+      datasetFill             : false
     }
 
-    barChartOptions.datasetFill = false
-    barChart.Bar(barChartData, barChartOptions)
 
+    barChartOptions.datasetFill = false
+    var barChart = new Chart(barChartCanvas, {
+      type: 'bar', 
+      data: barChartData,
+      options: barChartOptions
+    })
 
   }
 </script>
+
+ 
 </body>
 
 </html>

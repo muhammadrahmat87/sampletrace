@@ -8,13 +8,12 @@
         </div>
         <!-- /.box-header -->
         <!-- form start -->
-<form action="" class="filterForm form-horizontal" method="post">
+        <form id="form-filter" class="form-horizontal" method="POST">
         <div class="box-body">
           <div class="form-group">
             <label class="col-sm-2 control-label">Trial Code</label>
             <div class="col-sm-2">
               <select class="form-control" name="trial_code" id="trial_code">
-                
               </select>
             </div>
           </div>
@@ -39,13 +38,14 @@
             </div>
           </div>
 
+
           <div class="form-group">
             <label for="LastName" class="col-sm-2 control-label"></label>
-            <div class="col-sm-2">
-              <button type="button" onclick="processFilter()" class="btn btn-primary">Filter</button>
-              <button type="button"   onclick="resetFilter()" class="btn btn-success">Reset</button>
-              
-              <button type="button" onClick="return confirm('Yakin ingin menghapus data Trial')" class="btn btn-danger">Delete</button>
+            <div class="col-sm-5">
+              <button type="button" onclick="processFilter()" class="btn btn-success"">Filter</button>
+              <button type="button" id="btn-reset"  onclick="return confirm('Reset Filter?')" class="btn btn-success"">Reset</button>
+              <button type="button"   class="btn btn-success"">Export Excel</button>
+              <button type="button" onClick="deleteFilter()" class="btn btn-danger">Delete</button>
 
             </div>
           </div>
@@ -53,7 +53,7 @@
           <div class="form-group">
              
             <div class="col-sm-2">
-              <button type="button"   class="btn btn-warning">Export Excel</button>
+              
              
             </div>
           </div>
@@ -63,11 +63,11 @@
            
           <div class="table-responsive">
             <table id="table-viewdata"
-              class="table table-striped table-bordered table-hover table-full-width dataTable w-100 dt-responsive nowrap"
+              class="table table-striped table-bordered table-hover table-full-width dataTable   dt-responsive nowrap"
               cellspacing="0" width="100%">
 
               <thead>
-                <tr style="background-color:mediumspringgreen">
+              <tr class="bg-blue">
                   <th rowspan="2" width="3%"> <center>No</th>
                   <th rowspan="2" width="8%"> <center>Trial Code</th>
                   <th rowspan="2" width="29%"> <center>Title</th>
@@ -132,15 +132,13 @@
                   <th rowspan="2" width="5%"><center>Edit</th>
 
                 </tr>
-				 <tr class="odd bg-gray">
+                <tr class="bg-olive">
                                         <th>
-                                            <center>Organic Material
-                                                     
+                                            <center>Organic Material                                                 
                                             </center>
                                         </th>
                                         <th>
-                                            <center>Rate
-                                                     
+                                            <center>Rate            
                                             </center>
                                         </th>
                                         <th>
@@ -150,7 +148,7 @@
                                         <th>
                                             <center> Slopes  </center>
                                         </th>
-										 <th>
+										                   <th>
                                             <center>Management Practices </center>
                                         </th>
 										 
@@ -207,44 +205,23 @@
 <script src="<?php echo base_url(); ?>assets/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
 <script src="<?php echo base_url(); ?>assets/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js">
 </script>
-<link rel="stylesheet"
-  href="<?php echo base_url(); ?>assets/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
+<link rel="stylesheet" href="<?php echo base_url(); ?>assets/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
 <script type="text/javascript">
+  
   $(document).ready(function () {
     showData();
     makeFilter();
-    $('.viewdata').on('change', function () {
-      console.log($('.viewdata').val());
-    });
+   
   });
   let url = "<?=base_url()?>";
 
-  function saveData(id) {
-    const score = $("#" + id).val();
-    const data = {
-      id: id,
-      score: score
-    }
-    if (score > 1) {
-      $("#modal-alert").modal("show");
-    } else {
-      // console.log(data);
-      $.ajax({
-        type: "POST",
-        url: url + "viewdata/saveScore",
-        data: data,
-        dataType: "JSON",
-        success: function (response) {
-          console.log(response);
-        }
-      });
-    }
-  }
 
   function showData(data) {
     table = $('#table-viewdata').DataTable({
-
-      "processing": true,
+      "scrollY": 400,
+      "scrollX": true,
+      "searching": false,
+       "processing": true,
       "serverSide": true,
       "destroy": true,
       "order": [],
@@ -297,9 +274,10 @@
     showData(data)
     // console.log('hi');
    }
-   function resetFilter() { 
-     makeFilter();
-    }
+   $('#btn-reset').click(function(){ //button reset event click
+        $('#form-filter')[0].reset();
+        table.ajax.reload();  //just reload table
+    });
 
     function deleteFilter() { 
     let data={
