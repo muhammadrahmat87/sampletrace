@@ -285,11 +285,11 @@
       html += ` <tr>
                       <td>` + number++ + `</td>
                       <td>` + element.label + `</td>
-                      <td>` + element.percentagesh + `</td>
-                      <td>` + element.percentagest + `</td>
-                      <td>` + element.percentage + `</td>
-                      <td>` + element.percentage + `</td>
-                      <td>` + element.percentage + `</td>
+                      <td>` + element.soil_humidity + `</td>
+                      <td>` + element.temperature + `</td>
+                      <td>` + element.rainfall_during + `</td>
+                      <td>` + element.rainfall_beforethree + `</td>
+                      <td>` + element.rainfall_beforesix + `</td>
                     </tr>`;
     });
     $(".table-habitat").html(html);
@@ -318,28 +318,28 @@
           {
             label                 : 'Soil Humidity',
             backgroundColor       : '#bf1324',
-            data                  : data.data_chart.data
+            data                  : data.data_chart.data.a_soil_humidity
           },
           
           {
             label                 : 'Soil temperature',
             backgroundColor       : '#dee605',         
-            data                  : data.data_chart.data
+            data                  : data.data_chart.data.a_temperature
           },
           {
             label                 : 'Rainfall during instalation',
             backgroundColor       : '#1327bf',         
-            data                  : data.data_chart.data
+            data                  : data.data_chart.data.a_rainfall_during
           },
           {
             label                 : 'Rainfall 3 days before instalation',
             backgroundColor       : '#9c11b8',         
-            data                  : data.data_chart.data
+            data                  : data.data_chart.data.a_rainfall_beforethree
           },
           {
             label                 : 'Rainfall 6 days before instalation',
             backgroundColor       : '#057c82',         
-            data                  : data.data_chart.data
+            data                  : data.data_chart.data.a_rainfall_beforesix
           },
           
         ]

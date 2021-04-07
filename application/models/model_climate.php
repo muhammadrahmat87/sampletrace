@@ -66,37 +66,36 @@ class Model_climate extends CI_Model
 
     }
  
- public function getCount($location, $habitat,$soil,$field)
+ public function getCount($location, $habitat,$select,$field)
     {
 
-        $this->db->select('id');                             //select_id
+        $this->db->select('soil_humidity');                             //select_id
         $this->db->from($this->table);                       //from table treatment
         if ($location !== "all") {                           //filter = all
             $this->db->where('trial_code', $location);       //where trial code = all
         }
-        if ($soil!==3) {                                     //tidak sama dengan
-            $this->db->where('soil_humidity', $soil);        //menghitung score (variable yang dihitung)
+        // if ($soil!==3) {                                     //tidak sama dengan
+        //     $this->db->where('soil_humidity', $soil);        //menghitung score (variable yang dihitung)
             
-        }
-        $this->db->where($field, $habitat);
-        return $this->db->count_all_results();
+        // }
+       return $this->db->where($field, $habitat);
 
     }
 
-    public function getRata($location, $habitat,$soil,$field)
+    public function getRata($location, $habitat,$select,$field)
     {
 
-        $this->db->select('id');                             //select_id
+        $this->db->select($select);                             //select_id
         $this->db->from($this->table);                       //from table treatment
         if ($location !== "all") {                           //filter = all
             $this->db->where('trial_code', $location);       //where trial code = all
         }
-        if ($soil!==3) {                                     //tidak sama dengan
-            $this->db->where('soil_humidity', $soil);        //menghitung score (variable yang dihitung)
+        // if ($soil!==3) {                                     //tidak sama dengan
+        //     $this->db->where('soil_humidity', $soil);        //menghitung score (variable yang dihitung)
             
-        }
+        // }
         $this->db->where($field, $habitat);
-        return $this->db->count_all_results();
+        return $this->db->get();
 
     }
 
