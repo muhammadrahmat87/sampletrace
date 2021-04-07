@@ -84,7 +84,7 @@
    
       
       // Ambil data value yang telah di ambil dan dimasukkan ke variabel $get
-      			$trial_code = $row['A'];
+      	$trial_code = $row['A'];
 				$title = $row['B'];
         $location = $row['C'];
 				$palm_age = $row['D'];
@@ -108,7 +108,7 @@
 				$treatment_mg = $row['S'];
 				$gps = $row['T'];
 				 				
-		        $time_squence = $row['U'];  
+		    $time_squence = $row['U'];  
 				$days_after = $row['V']; 
 				$replicate = $row['W']; 
 				$degree = $row['X'];
@@ -247,7 +247,6 @@
        
 
 		
-
 
 
 

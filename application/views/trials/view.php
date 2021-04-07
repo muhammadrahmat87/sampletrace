@@ -18,17 +18,17 @@
               <table id="example" class="table table-striped table-bordered table-hover table-full-width dataTable"  >
                 <thead>
                     <tr class="bg-blue">
-                        <th width="2%">No</th>
+                        <th width="1%">No</th>
                         <th width="7%">Trial Code</th>
-                        <th width="30%">Title</th>
-						            <th width="30%">Description</th>
+                        <th width="28%">Title</th>
+						            <th width="28%">Description</th>
                         <th width="5%">Location</th>
                         <th width="5%">Region</th>
                         <th width="4%">PSM</th>
                        
                         <th width="4%">Start </th>
                         <th width="4%">Finish</th>
-                        <th width="4%">Progress</th>
+                        <th width="3%">Progress</th>
                          
                         <th >Action</th>
                     </tr>
@@ -109,6 +109,7 @@
     $('#example').DataTable( {
         "scrollY": 500,
         "scrollX": true,
+        paging : false,
         
         
     } );

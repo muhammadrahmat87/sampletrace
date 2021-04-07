@@ -218,14 +218,14 @@
 
   function showData(data) {
     table = $('#table-viewdata').DataTable({
-      "scrollY": 400,
+      "scrollY": 420,
       "scrollX": true,
       "searching": false,
        "processing": true,
       "serverSide": true,
       "destroy": true,
       "order": [],
-
+      
       "ajax": {
         "url": "<?=base_url();?>viewdata/getViewdata",
         "type": "POST",

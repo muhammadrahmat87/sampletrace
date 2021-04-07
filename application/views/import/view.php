@@ -93,6 +93,7 @@
     var table = $('#example').DataTable( {
         orderCellsTop: true,
         fixedHeader: true,
+        paging : false,
         "scrollY": 500,
         "scrollX": true
     } );
