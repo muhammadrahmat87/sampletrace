@@ -6,7 +6,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-
+<link rel="icon" href="<?php echo base_url(); ?>assets/dist/img/6.png" type="image/gif"> 
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>3BALAMINA | SMARTRI</title>

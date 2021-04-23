@@ -30,11 +30,14 @@
 			 				 
 			);
 			$this->db->insert($this->table, $data);
+
+			
 		}
 
 		function update()
 		{
 			$data = array(
+				'kode'        	=> $this->input->post('kode', TRUE),
 				'trial_code'        	=> $this->input->post('trial_code', TRUE),
 				'title'          		=> $this->input->post('title', TRUE),
 				'description'          	=> $this->input->post('description', TRUE),
@@ -48,9 +51,11 @@
 			);
 		
 
-			$kode	= $this->input->post('trial_code');
-			$this->db->where('trial_code', $kode);
+			$kode	= $this->input->post('kode');
+			$this->db->where('kode', $kode);
 			$this->db->update($this->table, $data);
+
+		 
 		}
 
 		// Fungsi untuk melakukan proses upload file

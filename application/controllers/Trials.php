@@ -24,7 +24,11 @@
 			if (isset($_POST['submit'])) {
 				$uploadFoto = $this->upload_foto_trials();
 				$this->model_trials->save($uploadFoto);
+
+				helper_log("add", "Menambahkan Trial", "All Trials");
 				redirect('trials');
+
+				
 			} else {
 				$this->template->load('template', 'trials/add');
 			}
@@ -38,8 +42,10 @@
 				redirect('trials');
 			} else {
 				$trial_code           = $this->uri->segment(3);
-				$data['trials'] = $this->db->get_where('trials', array('trial_code' => $trial_code))->row_array();
+				$data['trials'] = $this->db->get_where('trials', array('kode' => $trial_code))->row_array();
 				$this->template->load('template', 'trials/edit', $data);
+
+				helper_log("add", "Mengupdate Data Trial", "All Trials");
 			}
 		}
 
@@ -47,9 +53,13 @@
 		{
 			$trial_code = $this->uri->segment(3);
 			if (!empty($trial_code)) {
-				$this->db->where('trial_code', $trial_code);
+				$this->db->where('kode', $trial_code);
 				$this->db->delete('trials');
+
+				helper_log("delete", "Menghapus Data Trial", "All Trials");
 			} 
+
+			
 			redirect('trials');
 		}
 

@@ -37,6 +37,8 @@
 				 
 					// $this->session->set_userdata($loginUser); -> maksudnya mengset userdata yang mana datanya diambil dari $loginUser
 					$this->session->set_userdata($loginUser);
+
+					helper_log("login", "Login Aplikasi 3Balamina", "Login");
 					redirect('tampilan_utama');
 
 				} 
@@ -54,7 +56,11 @@
 		function logout()
 		{
 			$this->session->sess_destroy();
+
+			helper_log("logout", "Logout Aplikasi 3Balamina", "Logout");
 			redirect('auth');
+
+		 
 		}
 
 	}

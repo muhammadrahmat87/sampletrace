@@ -4,9 +4,9 @@
     <div class="row">
         <div class="col-xs-12">
 
-          <div class="box box-primary">
+        <div class="box box-primary">
             <div class="box-header  with-border">
-          <h3 class="box-title">Statistic & Graph - Feeding Activity</h3>
+          <h3 class="box-title">Statistic & Graph - Climate</h3>
          
         </div>
         <!-- /.box-header -->
@@ -27,7 +27,7 @@
   <br> <br>
   <div class="row">
     <div class="col-lg-12">
-    <div class="box box-success">
+    <div class="box box-primary">
       <div class="nav-tabs-custom nav-tabs-custom-success">
         <ul class="nav nav-tabs box-blue bg-aqua">
           <li class="active"><a data-toggle="tab" href="#habitat" onclick="showChart(1)"><b>Habitat Type</b></a></li>
@@ -47,18 +47,10 @@
         <div class="tab-content">
 
 
-         
-
-            <!-- /.box-header -->
-
-
-
-
-
             <div class="row">
               <div class="col-xs-5">
 
-                <div class="box box-success">
+              <div class="box box-primary">
                 <div class="box-header with-border bg-blue">
                     <h3 class="box-title name"><b> </b></h3>
                   </div>
@@ -80,7 +72,7 @@
                           <th width="29%">Rainfall 3 days before instalation</th>
                           <th width="29%">Rainfall 6 days before instalation</th>
                            
-                          
+                        
 
                         </tr>
                       </thead>
@@ -333,7 +325,7 @@
           },
           {
             label                 : 'Rainfall 3 days before instalation',
-            backgroundColor       : '#9c11b8',         
+            backgroundColor       : '#a2b0af',         
             data                  : data.data_chart.data.a_rainfall_beforethree
           },
           {

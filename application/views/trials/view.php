@@ -11,7 +11,7 @@
 
             <!-- button add -->
             <?php
-                echo anchor('trials/add', '<button class="btn btn-success margin">Add Trial</button>');     
+                echo anchor('trials/add', '<button class="btn-lg btn-success fa fa-plus"> Add Trial</button>');     
 				
             ?>
 
@@ -19,9 +19,9 @@
                 <thead>
                     <tr class="bg-blue">
                         <th width="1%">No</th>
-                        <th width="7%">Trial Code</th>
-                        <th width="28%">Title</th>
-						            <th width="28%">Description</th>
+                        <th width="7%">Code</th>
+                        <th width="26%">Title</th>
+						            <th width="26%">Description</th>
                         <th width="5%">Location</th>
                         <th width="5%">Region</th>
                         <th width="4%">PSM</th>
@@ -61,11 +61,16 @@
 						
 						if ($tgl_sekarang >=$tgl_mulai )
 							{
-						    echo "Closed"; 
-						}
+               
+                echo "CLOSED";
+               
+                 	}
 							else
 						{
-							 echo "On Going";
+              echo '
+              <button class="btn btn-xs btn-primary">ON GOING</button>
+              ';
+							
 						}?>  </td>	
 					  
 					  
@@ -73,8 +78,8 @@
 					  
 					<td>
                                        
-                    <a href="<?php echo base_url(); ?>trials/edit/<?php echo $t['trial_code'] ?>" class="btn btn-xs btn-warning" title="EDIT"data-placement="top"><i class="fa fa-edit"></i></a>                   
-                   <a href="<?php echo base_url(); ?>trials/delete/<?php echo $t['trial_code'] ?>"class="btn btn-xs btn-danger" title="DELETE"><i onClick="return confirm('Yakin ingin menghapus data Trial <?php echo $t['trial_code']; ?> ?')"> <i class="fa fa-trash fa-fw"></i></i></a>					
+                    <a href="<?php echo base_url(); ?>trials/edit/<?php echo $t['kode'] ?>" class="btn btn-xs btn-warning" title="EDIT"data-placement="top"><i class="fa fa-edit"></i></a>                   
+                   <a href="<?php echo base_url(); ?>trials/delete/<?php echo $t['kode'] ?>"class="btn btn-xs btn-danger" title="DELETE"><i onClick="return confirm('Yakin ingin menghapus Trial <?php echo $t['trial_code']; ?> ?')"> <i class="fa fa-trash fa-fw"></i></i></a>					
                     
              </td>
 				  </tr>
@@ -92,22 +97,17 @@
     <!-- /.row -->
 </section>
 
-<!-- punya lama -->
-<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.0/jquery.dataTables.js"></script> -->
-<!-- <script src="https://cdn.datatables.net/1.10.12/js/dataTables.bootstrap.js"></script> -->
+<script src="<?php echo base_url(); ?>assets/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
+<script src="<?php echo base_url(); ?>assets/bower_components/datatables.net/js/jquery.dataTables.bootstrap.min.js">
 
-<!-- baru tapi cdn -->
-<!-- <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
-<script src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap.min.js"></script>
-<link rel="stylesheet" href="https://cdn.datatables.net/1.10.16/css/dataTables.bootstrap.min.css"> -->
-
- <script src="<?php echo base_url(); ?>assets/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
-<script src="<?php echo base_url(); ?>assets/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
-<link rel="stylesheet" href="<?php echo base_url(); ?>assets/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
+</script>
+<link rel="stylesheet" href="<?php echo base_url(); ?>assets/bower_components/datatables.net/js/datatables.min.css">
+ 
+  
     <script>
    $(document).ready(function() {
     $('#example').DataTable( {
-        "scrollY": 500,
+        "scrollY": 550,
         "scrollX": true,
         paging : false,
         

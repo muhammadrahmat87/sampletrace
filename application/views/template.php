@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="icon" href="<?php echo base_url(); ?>assets/dist/img/4.png" type="image/gif"> 
+<link rel="icon" href="<?php echo base_url(); ?>assets/dist/img/6.png" type="image/gif"> 
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>3BALAMINA | SMARTRI</title>
@@ -42,21 +42,23 @@
 
     <!-- Logo -->
     <a href="#" class="logo">
+	  <img src="<?php echo base_url(); ?>assets/dist/img/nc.png"    width="231" height="84">
+	
       <!-- mini logo for sidebar mini 50x50 pixels -->
       
       <!-- logo for regular state and mobile devices -->
-       
     </a>
 
     <!-- Header Navbar: style can be found in header.less -->
     <nav class="navbar navbar-static-top">
+	
       <!-- Sidebar toggle button-->
-      <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
+    <!--   <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
        
                 
       </a>
 	  
-	   <span class="sr-only">Toggle navigation</span>
+	   
 		 
                       
                        
@@ -136,20 +138,11 @@
         </div>
       </div>
       <!-- search form -->
-      <form action="#" method="get" class="sidebar-form">
-        <div class="input-group">
-        <!-- <img src="<?php echo base_url(); ?>assets/dist/img/logo.jpg" width="208" height=" 76"   >  -->
-          
-                
-                  		
-                </button>
-          </span>
-        </div>
-      </form>
+      
       <!-- /.search form -->
       <!-- sidebar menu: : style can be found in sidebar.less -->
       <ul class="sidebar-menu" data-widget="tree">
-        <li class="header">DATA MASTER</li>
+        <li class="header"> </li>
 
         <!-- menu dinamis -->
 
@@ -227,7 +220,8 @@
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
-      <center><img src="<?php echo base_url(); ?>assets/dist/img/5.png"    width="150" height="53"></center>
+      <center><img src="<?php echo base_url(); ?>assets/dist/img/5.png"    width="88" height="31">
+      </center>
       <ol class="breadcrumb">
         
       </ol>
@@ -243,7 +237,12 @@
   <footer class="main-footer">
     <div class="pull-right hidden-xs">
       <b>Version</b> 1.0 </div>
-    <strong>Copyright &copy; 2021 <a href="https://tribalamina.com">3Balamina</a>.</strong>
+	  
+	  
+    <b>
+	Copyright &copy; 2021 <a href="https://tribalamina.com"> 3BALAMINA</b></a> </b>
+	<p>Data Management System for Bait Lamina Project  <!--  <center> <img src="<?php echo base_url(); ?>assets/dist/img/logo.jpg" width="170" height="62"   > <img src="<?php echo base_url(); ?>assets/dist/img/ssqc.png" width="230" height="62"   >
+    <p> 
   </footer>
 
   <!-- Control Sidebar -->

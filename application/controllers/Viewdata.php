@@ -13,6 +13,8 @@ class Viewdata extends CI_Controller
         $this->load->model('model_treatment');
         
     }
+
+    
     public function saveScore(Type $var = null)
     {
         $id = $this->input->post('id');
@@ -29,76 +31,15 @@ class Viewdata extends CI_Controller
         // echo json_encode($treatment);
         $this->template->load('template', 'viewdata/add', $viewdata);
     }
+
     public function filterSelect(Type $var = null)
     {
         $data['trial_code']=$this->model_viewdata->filterSelect('trial_code');
         $data['squence']=$this->model_viewdata->filterSelect('time_squence');
         $data['replicate']=$this->model_viewdata->filterSelect('replicate');
+        $data['location']=$this->model_viewdata->filterSelect('location');
         echo json_encode($data);
     }
-    
-
-     
- 
-
-     
-
-   
- 
-    // siswa_aktif() -> untuk menampilkan view peserta didik ->terletak di controller Siswa
-    // combobox_kelas() -> untuk menampilkan data kelas sesuai jurusan yang dipilih -> terletak di controller Kelas
-    // loadDataSiswa() -> untuk menampilkan data siswa trial_code dan nama sesuai kode_kelas yang dipilih di filter, lalu ditampilkan ke div id = kelas yang bedada di view/siswa_aktif -> terletak di controller Siswa
-
-    public function export_excel()
-    {
-        $this->load->library('CPHP_excel');
-        $objPHPExcel = new PHPExcel();
-        $objPHPExcel->getActiveSheet()->setCellValue('A1', 'NIM');
-        $objPHPExcel->getActiveSheet()->setCellValue('B1', 'SISWA');
-
-        $kelas = $_POST['kelas'];
-        $this->db->where('kd_kelas', $kelas);
-        $siswa = $this->db->get('tbl_siswa');
-        $no = 2;
-        foreach ($siswa->result() as $row) {
-            $objPHPExcel->getActiveSheet()->setCellValue('A' . $no, $row->nim);
-            $objPHPExcel->getActiveSheet()->setCellValue('B' . $no, $row->nama);
-            $no++;
-        }
-
-        $objWriter = PHPExcel_IOFactory::createWriter($objPHPExcel, 'Excel2007');
-        $objWriter->save("data-siswa.xlsx");
-        $this->load->helper('download');
-        force_download('data-siswa.xlsx', null);
-    }
-
-    public function form()
-    {
-        $data = array(); // Buat variabel $data sebagai array
-
-        if (isset($_POST['preview'])) { // Jika user menekan tombol Preview pada form
-            // lakukan upload file dengan memanggil function upload yang ada di SiswaModel.php
-            $uploadcsv = $this->model_siswa->upload_csv($this->filename);
-
-            if ($uploadcsv['result'] == "success") { // Jika proses upload sukses
-                // Load plugin PHPExcel nya
-                include APPPATH . 'third_party/PHPExcel/PHPExcel.php';
-
-                $csvreader = PHPExcel_IOFactory::createReader('CSV');
-                $loadcsv = $csvreader->load('csv/' . $this->filename . '.csv'); // Load file yang tadi diupload ke folder csv
-                $sheet = $loadcsv->getActiveSheet()->getRowIterator();
-
-                // Masukan variabel $sheet ke dalam array data yang nantinya akan di kirim ke file form.php
-                // Variabel $sheet tersebut berisi data-data yang sudah diinput di dalam csv yang sudha di upload sebelumnya
-                $data['sheet'] = $sheet;
-            } else { // Jika proses upload gagal
-                $data['upload_error'] = $uploadcsv['error']; // Ambil pesan error uploadnya untuk dikirim ke file form dan ditampilkan
-            }
-        }
-
-        $this->load->view('siswa/form', $data);
-    }
-
    
     public function getViewdata(Type $var = null)
     {

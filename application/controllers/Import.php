@@ -14,7 +14,7 @@
 		
 		function index()
     	{
-        $import['import'] = $this->model_import->tampil_import();
+        $import['trials'] = $this->model_import->tampil_import();
         $this->template->load('template', 'import/view', $import);
 		
     	}	
@@ -104,12 +104,12 @@
 		  	// Load plugin PHPExcel nya
 		  	include APPPATH.'third_party/PHPExcel/PHPExcel.php';
 		    $excelreader = new PHPExcel_Reader_Excel2007();
-   			 $loadexcel = $excelreader->load('excel/'.$this->filename.'.xlsx'); // Load file yang telah diupload ke folder excel
+   			$loadexcel = $excelreader->load('excel/'.$this->filename.'.xlsx'); // Load file yang telah diupload ke folder excel
     		$sheet = $loadexcel->getActiveSheet()->toArray("", true, true ,true);
 
 		    
 		    // Buat sebuah variabel array untuk menampung array data yg akan kita insert ke database
-		       $data = array();
+		    $data = array();
 		    
 		    $numrow = 0;
 		    foreach($sheet as $row){
@@ -197,6 +197,8 @@
 				'na10' => $row['BM'],  
 				'htkr10' => $row['BN'], 
 				'altkr10' => $row['BO'], 
+
+				
 				 ));
 		      }
 		      
@@ -204,6 +206,9 @@
 		    }
 		    // Panggil fungsi insert_multiple yg telah kita buat sebelumnya di model
 		    $this->model_import->insert_multiple($data);
+			
+			
+			
 		    
 		    redirect("import"); // Redirect ke halaman awal (ke controller siswa fungsi index)
 		  }

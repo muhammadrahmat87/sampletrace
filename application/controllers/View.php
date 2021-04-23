@@ -1,251 +1,150 @@
 <?php
 
-	class View extends CI_Controller
-	{
-		private $filename = "import_data"; // nama file .csv
-		
-		function __construct() 
-		{
-			parent::__construct();
-			//checkAksesModule();
-			$this->load->library('ssp');
-			$this->load->model('model_view');
-		}
-		
-		function index()
-    	{
-        $trials['trials'] = $this->model_view->tampil_trials();
-        $this->template->load('template', 'view/view', $trials);
-    	}
-		
+class View extends CI_Controller
+{
+    private $filename = "import_data"; // nama file .csv
 
-		function data()
-		{
+    public function __construct()
+    {
+        parent::__construct();
+        //checkAksesModule();
+        $this->load->library('ssp');
+        $this->load->model('model_view');
+        $this->load->model('model_treatment');
+        
+    }
 
-			// nama table
-			$table      = 'trials';
-			// nama PK
-			$primaryKey = 'trial_code';
-			// list field yang mau ditampilkan
-			$columns    = array(
-				//tabel db(kolom di database) => dt(nama datatable di view)
-				
-				array('db' => 'trial_code', 'dt' => 'trial_code'),
-		        array('db' => 'title', 'dt' => 'title'),
-		        array('db' => 'location', 'dt' => 'location'),
-		        array('db' => 'block', 'dt' => 'block'),
-				array('db' => 'palm_age', 'dt' => 'palm_age'),
-				array('db' => 'start', 'dt' => 'start'),
-				array('db' => 'finish', 'dt' => 'finish'),
-				array('db' => 'last_update', 'dt' => 'last_update'),
-				 
+    
+    public function saveScore(Type $var = null)
+    {
+        $id = $this->input->post('id');
+        $insert = [
+            'score' => $this->input->post('score'),
+        ];
+        $this->model_view->updateScore($id, $insert);
+        $response = ['response' => 200, 'status' => 'success'];
+        echo json_encode($response);
+    }
+    public function index()
+    {
+        $view['treatment'] = $this->model_view->tampil_view();
+        // echo json_encode($treatment);
+        $this->template->load('template', 'view/add', $view);
+    }
+
+    public function filterSelect(Type $var = null)
+    {
+        $data['trial_code']=$this->model_view->filterSelect('trial_code');
+        $data['squence']=$this->model_view->filterTimesquence('time_squence');
+        $data['replicate']=$this->model_view->filterSelect('replicate');
+        $data['location']=$this->model_view->filterSelect('location');
+        echo json_encode($data);
+    }
+ 
+    public function getview(Type $var = null)
+    {
+        
+        $post = [
+            'length' => $this->input->post('length'),
+            'start' => $this->input->post('start'),
+            'order' => $this->input->post('order'),
+            'search' => $this->input->post('search'),
+            'draw' => $this->input->post('draw'),
+            "trial_code"=>$this->input->post('trial_code'),
+            'squence'=>$this->input->post('squence'),
+            'replicate'=>$this->input->post('replicate'),
+        ];
+        $list = $this->model_view->get_datatables($post);
+        $data = [];
+        $no = $post['start'];
+         
+
+        foreach ($list as $field) {
+            $no++;
+           
+            $row = [];
+            $row[] = $no;
+            $row[] = $field->trial_code;
+            $row[] = $field->title;
+            $row[] = $field->location;
+            $row[] = $field->block;
+            $row[] = $field->palm_age;
+			
+			$row[] = $field->start;
+            $row[] = $field->finish;
+ 
+            $row[] = $field->treatment_om;
+            $row[] = $field->treatment_rate;
+            
+            $row[] = $field->treatment_freq;
+            $row[] = $field->treatment_slopes;
+            $row[] = $field->treatment_mp;
+            $row[] = $field->treatment_direction	;
+            $row[] = $field->treatment_distance;
+            $row[] = $field->treatment_position	;
+            $row[] = $field->treatment_n;
+            $row[] = $field->treatment_p;
+            $row[] = $field->treatment_k;
+            $row[] = $field->treatment_mg;
+            $row[] = $field->gps;
+           
+            $row[] = $field->time_squence;
+			$row[] = $field->days_after;
+            $row[] = $field->replicate;
+			$row[] = $field->degree;
+			$row[] = $field->palm_number;
+            $row[] = $field->habitat_type;
+            $row[] = $field->baits;
+            $row[] = $field->hole;
+            $row[] = $field->score;
+            $row[] = $field->soil_humidity;
+            $row[] = $field->temperature;
+			
+            $row[] = $field->rainfall_during;
+            $row[] = $field->rainfall_beforethree;
+            $row[] = $field->rainfall_beforesix;
+            $row[] = $field->bulk_density;
+            $row[] = $field->porosity;
+            $row[] = $field->agregate;
+            $row[] = $field->field_capacity;
+            $row[] = $field->wilting_point;
+			
+            $row[] = $field->ph5;
+            $row[] = $field->c5;
+            $row[] = $field->n_tot5;
+            $row[] = $field->cn5;
+            $row[] = $field->p_tot5;
+            $row[] = $field->k_tot5;
+            $row[] = $field->ktk5;
+            $row[] = $field->mg5;
+            $row[] = $field->ca5;
+            $row[] = $field->pbray5;
+            $row[] = $field->k5;
+            $row[] = $field->na5;
+			$row[] = $field->htkr5;
+            $row[] = $field->altkr5;
+            $row[] = $field->ph10;
+            $row[] = $field->c10;
+            $row[] = $field->n_tot10;
+            $row[] = $field->cn10;
+            $row[] = $field->p_tot10;
+            $row[] = $field->k_tot10;
+            $row[] = $field->ktk10;
+            $row[] = $field->mg10;
+            $row[] = $field->ca10;
+            $row[] = $field->pbray10;
+            $row[] = $field->k10;
+            $row[] = $field->na10;
+			$row[] = $field->htkr10;
+            $row[] = $field->altkr10;
+             
+             
 			 
-				
-				
-		        //untuk menampilkan aksi(edit/delete dengan parameter trial_code trials)
-		       
-		    );
+ 
+            $data[] = $row;
+        }
+        $response = ['status' => 20, 'msg' => 'Data di datapatkan', 'draw' => $post['draw'], 'recordsTotal' => $this->model_view->count_all($post), 'recordsFiltered' => $this->model_view->count_filtered($post), 'data' => $data, "post" => $post];
+        echo json_encode($response);
+    }
 
-			$sql_details = array(
-				'user' => $this->db->username,
-				'pass' => $this->db->password,
-				'db'   => $this->db->database,
-				'host' => $this->db->hostname
-		    );
-
-		    echo json_encode(
-		     	SSP::simple($_GET, $sql_details, $table, $primaryKey, $columns)
-		     );
-
-		}
-
-
-		
-		
-
-		function add()
-		{
-			if (isset($_POST['submit'])) {
-				$uploadFoto = $this->upload_foto_trials();
-				$this->model_trials->save($uploadFoto);
-				redirect('trials');
-			} else {
-				$this->template->load('template', 'trials/add');
-			}
-		}
-
-		function edit()
-		{
-			if (isset($_POST['submit'])) {
-				$uploadFoto = $this->upload_foto_trials();
-				$this->model_trials->update($uploadFoto);
-				redirect('trials');
-			} else {
-				$trial_code           = $this->uri->segment(3);
-				$data['trials'] = $this->db->get_where('trials', array('trial_code' => $trial_code))->row_array();
-				$this->template->load('template', 'trials/edit', $data);
-			}
-		}
-
-		function delete()
-		{
-			$trial_code = $this->uri->segment(3);
-			if (!empty($trial_code)) {
-				$this->db->where('trial_code', $trial_code);
-				$this->db->delete('trials');
-			} 
-			redirect('trials');
-		}
-
-		function upload_foto_trials()
-		{
-			//validasi foto yang di upload
-			$config['upload_path']          = './uploads/';
-            $config['allowed_types']        = 'gif|jpg|png';
-            $config['max_size']             = 1024;
-            $this->load->library('upload', $config);
-
-            //proses upload
-            $this->upload->do_upload('userfile');
-            $upload = $this->upload->data();
-            return $upload['file_name'];
-		}
-
-		// siswa_aktif() -> untuk menampilkan view peserta didik ->terletak di controller Siswa
-		// combobox_kelas() -> untuk menampilkan data kelas sesuai jurusan yang dipilih -> terletak di controller Kelas
-		// loadDataSiswa() -> untuk menampilkan data siswa trial_code dan nama sesuai kode_kelas yang dipilih di filter, lalu ditampilkan ke div id = kelas yang bedada di view/siswa_aktif -> terletak di controller Siswa
-		
-		
-
-		function export_excel()
-		{
-			$this->load->library('CPHP_excel');
-	        $objPHPExcel = new PHPExcel();
-	        $objPHPExcel->getActiveSheet()->setCellValue('A1', 'NIM');
-	        $objPHPExcel->getActiveSheet()->setCellValue('B1', 'SISWA');
-	        
-	        $kelas = $_POST['kelas'];
-	        $this->db->where('kd_kelas', $kelas);
-	        $siswa = $this->db->get('tbl_siswa');
-	        $no=2;
-	        foreach ($siswa->result() as $row){
-	            $objPHPExcel->getActiveSheet()->setCellValue('A'.$no, $row->nim);
-	            $objPHPExcel->getActiveSheet()->setCellValue('B'.$no, $row->nama);
-	            $no++;
-	        }
-	        
-	        $objWriter = PHPExcel_IOFactory::createWriter($objPHPExcel, 'Excel2007'); 
-	        $objWriter->save("data-siswa.xlsx");
-	        $this->load->helper('download');
-	        force_download('data-siswa.xlsx', NULL);
-		}
-
-		
-
-		function form(){
-		    $data = array(); // Buat variabel $data sebagai array
-		    
-		    if(isset($_POST['preview'])){ // Jika user menekan tombol Preview pada form
-		      // lakukan upload file dengan memanggil function upload yang ada di SiswaModel.php
-		      $uploadcsv = $this->model_trials->upload_csv($this->filename);
-		      
-		      if($uploadcsv['result'] == "success"){ // Jika proses upload sukses
-		        // Load plugin PHPExcel nya
-		        include APPPATH.'third_party/PHPExcel/PHPExcel.php';
-		        
-		        $csvreader = PHPExcel_IOFactory::createReader('CSV');
-		        $loadcsv = $csvreader->load('csv/'.$this->filename.'.csv'); // Load file yang tadi diupload ke folder csv
-		        $sheet = $loadcsv->getActiveSheet()->getRowIterator();
-		        
-		        // Masukan variabel $sheet ke dalam array data yang nantinya akan di kirim ke file form.php
-		        // Variabel $sheet tersebut berisi data-data yang sudah diinput di dalam csv yang sudha di upload sebelumnya
-		        $data['sheet'] = $sheet; 
-		      }else{ // Jika proses upload gagal
-		        $data['upload_error'] = $uploadcsv['error']; // Ambil pesan error uploadnya untuk dikirim ke file form dan ditampilkan
-		      }
-		    }
-		    
-		    $this->load->view('trials/form', $data);
-		  }
-
-		  function import(){
-		  	// Load plugin PHPExcel nya
-		  	include APPPATH.'third_party/PHPExcel/PHPExcel.php';
-		    
-		    $csvreader = PHPExcel_IOFactory::createReader('CSV');
-		    $loadcsv = $csvreader->load('csv/'.$this->filename.'.csv'); // Load file yang tadi diupload ke folder csv
-		    $sheet = $loadcsv->getActiveSheet()->getRowIterator();
-		    
-		    // Buat sebuah variabel array untuk menampung array data yg akan kita insert ke database
-		    $data = [];
-		    
-		    $numrow = 1;
-		    foreach($sheet as $row){
-		      // Cek $numrow apakah lebih dari 1
-		      // Artinya karena baris pertama adalah nama-nama kolom
-		      // Jadi dilewat saja, tidak usah diimport
-		      if($numrow > 1){
-		        // START -->
-		        // Skrip untuk mengambil value nya
-		        $cellIterator = $row->getCellIterator();
-		        $cellIterator->setIterateOnlyExistingCells(false); // Loop all cells, even if it is not set
-		        
-		        $get = array(); // Valuenya akan di simpan kedalam array,dimulai dari index ke 0
-		        foreach ($cellIterator as $cell) {
-		          array_push($get, $cell->getValue()); // Menambahkan value ke variabel array $get
-		        }
-		        // <-- END
-		        
-		        // Ambil data value yang telah di ambil dan dimasukkan ke variabel $get
-		        $nim = $get[0]; // Ambil data NIS dari kolom A di csv
-		        $nama = $get[1]; // Ambil data nama dari kolom B di csv
-		        $tanggal_lahir = $get[2]; // Ambil data jenis kelamin dari kolom C di csv
-		        $tempat_lahir = $get[3]; // Ambil data alamat dari kolom D di csv
-		        
-		        // Kita push (add) array data ke variabel data
-		        array_push($data, [
-		          'nim'=>$nim, // Insert data nis
-		          'nama'=>$nama, // Insert data nama
-		          'tanggal_lahir'=>$tanggal_lahir, // Insert data jenis kelamin
-		          'tempat_lahir'=>$tempat_lahir, // Insert data alamat
-		        ]);
-		      }
-		      
-		      $numrow++; // Tambah 1 setiap kali looping
-		    }
-		    // Panggil fungsi insert_multiple yg telah kita buat sebelumnya di model
-		    $this->model_siswa->insert_multiple($data);
-		    
-		    redirect("Siswa"); // Redirect ke halaman awal (ke controller siswa fungsi index)
-		  }
-
-		
-			//$querynaik = "UPDATE tbl_siswa SET kd_kelas = '8-A1' WHERE NIM = '18SI1000' AND kd_kelas = '$kelas'"
-		 
-
-		// function loadDataSiswa()
-		// {
-		// 	$kelas 	= $_GET['kd_kelas'];
-
-		// 	echo "<table class='table table-striped table-bordered table-hover table-full-width dataTable'>
-		// 			<tr>
-		// 				<th width=100 class='text-center'>NIM</th>
-		// 				<th>NAMA</th>
-		// 				<th class='text-center'>NILAI</th>
-		// 			</tr>";
-
-		// 	$this->db->where('kd_kelas', $kelas);
-		// 	$siswa = $this->db->get('tbl_siswa');
-		// 	foreach ($siswa->result() as $row) {
-		// 		echo "<tr>
-		// 				<td class='text-center'>$row->nim</td>
-		// 				<td>$row->nama</td>
-		// 				<td class='text-center'>".anchor('siswa/nilai_siswa/'.$row->nim, '<i class="fa fa-eye" aria-hidden="true"></i>')."</td>
-		// 			 </tr>";
-		// 	}
-		// 	echo "</table>";
-		// }
-
-	}
-
-?>
+}

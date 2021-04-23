@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html>
-
 <section class="content">
     <div class="row">
         <div class="col-xs-12">
@@ -14,25 +13,23 @@
         <!-- form start -->
         <br> <br>
         <div class="box-body">
+
           <div class="form-group">
           <label class="col-sm-1 control-label">Trial Code</label>
             <div class="col-sm-2">
-              <select class="form-control" name="trial_code" onChange="getValue()" id="trial_code">
-                
+              <select class="form-control" name="trial_code" onChange="getValue()" id="trial_code">         
               </select>
-            </div>
-           
-    </div>
+            </div>   
+          </div>
 
-
-<section class="content">
+ 
   <br> <br>
   <div class="row">
     <div class="col-lg-12">
-    <div class="box box-success">
-      <div class="nav-tabs-custom nav-tabs-custom-success">
+    <div class="box box-primary">
+      <div class="nav-tabs-custom nav-tabs-custom-primary">
         <ul class="nav nav-tabs box-blue bg-aqua">
-          <li class="active"><a data-toggle="tab" href="#habitat" onClick="showChart(1)"><b>Habitat Type</b></a></li>
+          <li class="active bg-aqua"><a data-toggle="tab" href="#habitat" onClick="showChart(1)"><b>Habitat Type</b></a></li>
           <li><a data-toggle="tab" href="#habitat" onClick="showChart(2)"> <b  > Organic Material</b> </a></li>
           <li><a data-toggle="tab" href="#habitat" onClick="showChart(3)"><b>Frequency</b></a></li>
           <li><a data-toggle="tab" href="#habitat" onClick="showChart(4)"><b>Slopes</b></a></li>
@@ -47,14 +44,6 @@
         </ul>
 
         <div class="tab-content">
-
-
-         
-
-            <!-- /.box-header -->
-
-
-
 
 
             <div class="row">
@@ -99,19 +88,29 @@
                     
                   </div>
                   <div class="box-body">
-                    <div class="chart-habitat" style="height:4420px;">
+                    <div class="chart-habitat"  >
                      
                     </div>
                   </div>
                   <!-- /.box-body -->
                 </div>
                 <!-- /.box -->
-              </div>
-            </div>
+                </div>
+
+
+                </div>
           </div>
 
 
+
         </div>
+
+
+    </div>   </div>
+    </div>
+    </div>
+                 
+
 </section>
 <!-- Modal -->
 <div class="col-md-12">
@@ -134,8 +133,6 @@
       </div>
     </div>
   </div>
-</div>  </div>
-</div>  </div>
 </div>
 <!-- /.content -->
 
@@ -324,8 +321,6 @@
 
   }
 </script>
-
- 
 </body>
 
 </html>

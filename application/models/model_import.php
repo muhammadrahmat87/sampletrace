@@ -6,7 +6,7 @@
 		public $table ="trials";
 		
 		function tampil_import(){
-        $hasil = $this->db->query("select * from trials order by trial_code asc");
+			$hasil = $this->db->query("select * from tabel_log where log_tipe = '4' order by log_id desc");
         return $hasil;
 		}
 
@@ -56,21 +56,25 @@
 		}
 
 		// Fungsi untuk melakukan proses upload file
-	  	public function upload_file($filename){
+	  	public function upload_file(){
 		    $this->load->library('upload'); // Load librari upload
 		    
-		   
+			$filename =  $_FILES['file']['name'];
 		  
 		 	$config['upload_path'] = './excel/';
     		$config['allowed_types'] = 'xlsx';
-    		$config['max_size']  = '100480';
-   			$config['overwrite'] = true;
-			$config['file_name'] = $filename;
+    		$config['max_size']  = '1000480';
+   			$config['overwrite'] = false;
+			   $config['file_name'] = $filename;
+			   helper_log("import", "Import Data Excel  ", "Import", $filename);
+			 
 		    $this->upload->initialize($config); // Load konfigurasi uploadnya
 		    if($this->upload->do_upload('file')){ // Lakukan upload dan Cek jika proses upload berhasil
 		      // Jika berhasil :
+			 
 		      $return = array('result' => 'success', 'file' => $this->upload->data(), 'error' => '');
-		      return $return;
+		      
+			  return $return;
 		    }else{
 		      // Jika gagal :
 		      $return = array('result' => 'failed', 'file' => '', 'error' => $this->upload->display_errors());
@@ -79,7 +83,10 @@
 		  }
 		// Buat sebuah fungsi untuk melakukan insert lebih dari 1 data
 		public function insert_multiple($data){
+			
 		    $this->db->insert_batch('treatment', $data);
+			
+			
 		}
 		public function getTrials(Type $var = null)
 		{

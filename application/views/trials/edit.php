@@ -14,6 +14,14 @@
 
                 <div class="box-body">
 
+
+                <div class="form-group">
+                      
+                      <div class="col-sm-2">
+                        <input type="hidden" value="<?php echo $trials['kode']; ?>" readonly="true" name="kode" class="form-control"  >
+                      </div>
+                  </div> 
+
                   <div class="form-group">
                       <label class="col-sm-2 control-label">Trial Code</label>
                       <div class="col-sm-2">

@@ -43,7 +43,7 @@
                       </div>
                 </div>  
     
-    
+                <input type="hidden" name="tanggal" value="<?php echo date("Y-m-d"); ?>" />
     <!--
     -- Buat sebuah tombol submit untuk melakukan preview terlebih dahulu data yang akan di import
     -->
@@ -51,7 +51,9 @@
     <label class="col-sm-1 control-label"> </label>
     <div class="col-sm-5">
                         <button type="submit" name="preview"  value="Preview" class="btn btn-primary">Preview</button>
-				                
+				            <?php
+                          echo anchor('import', 'Back', array('class'=>'btn btn-default'));
+                          ?>     
                       </div>
                       </div> 
   </form>
@@ -241,7 +243,7 @@
         $ca10_td = ( ! empty($ca10))? "" : " style='background: #E07171;'"; 
         $pbray10_td = ( ! empty($pbray10))? "" : " style='background: #E07171;'"; 
         $k10_td = ( ! empty($k10))? "" : " style='background: #E07171;'"; 
-        $na10_td = ( ! empty($na10))? "" : " style='background: #E07171;'"; 
+        $na10_td = ( ! empty($na10))? "" : " style='background:  #E07171;'"; 
         $htkr10_td = ( ! empty($htkr10))? "" : " style='background: #E07171;'"; 
         $altkr10_td = ( ! empty($altkr10))? "" : " style='background: #E07171;'"; 
        

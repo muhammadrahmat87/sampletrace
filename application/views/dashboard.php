@@ -16,16 +16,21 @@
 
       </div></div></div>
      
-      <div class="col-md-4 col-sm-12 col-xs-1111">
-          <div class="info-box">
-            <span class="info-box-icon bg-blue"><i class="ion-earth"></i></span>
-
+      <div class="col-lg-4 col-6">
+          <div class="info-box bg-info">
+          
+            <span class="info-box-icon bg-blue"> <i class="ion-earth"></i></a></span>
+            
+            
             <div class="info-box-content">
-              <span class="info-box-text"><b>Total PSM</span>
-              <span class="info-box-number"><h3>4</h1></span>
+              <span class="info-box-text"><b>Total PSM </span>
+              
+              <span class="inner"><h3>4</h1></span>
             </div>
+            
+              
             <!-- /.info-box-content -->
-          </div>
+          </div>  
           <!-- /.info-box -->
         </div>
 
@@ -183,29 +188,7 @@
 
           
           
-          <!-- /.col (LEFT) -->
-          <div class="col-md-6">
-            <!-- LINE CHART -->
-            <div class="box box-primary  ">
-          <div class="box-header with-border bg-blue">
-          <h3  style="color: white" class="box-title">Trial Year </h3>
-
-                <div class="box-tools pull-right">
-                <button type="button" class="btn btn-box-tool"  style="background-color: white;" data-widget="collapse"><i class="fa fa-minus"></i>
-                </button>
-                <button type="button" class="btn btn-box-tool"  style="background-color: white;" data-widget="remove"><i class="fa fa-times"></i></button>
-              </div>
-              </div>
-              <div class="box-body">  
-                <div class="chart">
-                  <canvas id="lineChart" style="height:250px; min-height:230px"></canvas>
-                </div>
-              </div>
-              <!-- /.card-body -->
-            </div>
-            <!-- /.card -->
-          </div>
-
+        
             <!-- BAR CHART -->
             <div class="col-md-6">
             <div class="box box-primary  ">
@@ -228,6 +211,31 @@
             <!-- /.card -->
             </div>
 
+          
+        
+            <!-- LINE CHART -->
+            <div class="col-md-6">
+            <div class="box box-primary  ">
+          <div class="box-header with-border bg-blue">
+          <h3  style="color: white" class="box-title">Trial Year </h3>
+
+                <div class="box-tools pull-right">
+                <button type="button" class="btn btn-box-tool"  style="background-color: white;" data-widget="collapse"><i class="fa fa-minus"></i>
+                </button>
+                <button type="button" class="btn btn-box-tool"  style="background-color: white;" data-widget="remove"><i class="fa fa-times"></i></button>
+              </div>
+              </div>
+              <div class="box-body">  
+                <div class="chart">
+                  <canvas id="stackedBarChart" hidden="true" style="height:250px; min-height:230px"></canvas>
+                </div>
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+          </div>
+
+
             <!-- STACKED BAR CHART 
             <div class="card card-success">
               <div class="card-header">
@@ -248,7 +256,7 @@
             
             <!-- /.box-body -->
          
-
+      </div>
     </section>
     <!-- /.content -->
   
@@ -274,84 +282,7 @@
 <script>
 
   $(function () {
-   
-    //--------------
-    //- AREA CHART -
-    //--------------
-
-    // Get context with jQuery - using jQuery's .get() method.
-    var areaChartCanvas = $('#lineChart').get(0).getContext('2d')
-
-    var areaChartData = {
-      labels  : ['2014 ', '2015', '2016', '2017', '2018', '2019', '2020', '2021'],
-      datasets: [
-       
-        {
-          label               : 'Closed',
-          backgroundColor     : '#00c0ef',
-          borderColor         : '#00c0ef',
-          pointRadius         : false,
-          pointColor          : '#17cfcf',
-          pointStrokeColor    : '#c1c7d1',
-          pointHighlightFill  : '#fff',
-          pointHighlightStroke: '#17cfcf',
-          data                : [0, 0, 0, 1, 6, 7, 15, 15]
-        }, {
-          label               : 'On Going',
-          backgroundColor     : '#cc1078',
-          borderColor         : '#cc1078',
-          pointRadius          : false,
-          pointColor          : '#3b8bba',
-          pointStrokeColor    : '#cc1078',
-          pointHighlightFill  : '#fff',
-          pointHighlightStroke: '#cc1078',
-          data                : [0, 1, 4, 6	, 5, 12, 6, 6]
-        },
-      ]
-    }
-
-    var areaChartOptions = {
-      maintainAspectRatio : false,
-      responsive : true,
-      legend: {
-        display: false
-      },
-      scales: {
-        xAxes: [{
-          gridLines : {
-            display : false,
-          }
-        }],
-        yAxes: [{
-          gridLines : {
-            display : false,
-          }
-        }]
-      }
-    }
-
-    // This will get the first returned node in the jQuery collection.
-    var areaChart       = new Chart(areaChartCanvas, { 
-      type: 'line',
-      data: areaChartData, 
-      options: areaChartOptions
-    })
-
-    //-------------
-    //- LINE CHART -
-    //--------------
-    var lineChartCanvas = $('#lineChart').get(0).getContext('2d')
-    var lineChartOptions = jQuery.extend(true, {}, areaChartOptions)
-    var lineChartData = jQuery.extend(true, {}, areaChartData)
-    lineChartData.datasets[0].fill = false;
-    lineChartData.datasets[1].fill = false;
-    lineChartOptions.datasetFill = false
-
-    var lineChart = new Chart(lineChartCanvas, { 
-      type: 'line',
-      data: lineChartData, 
-      options: lineChartOptions
-    })
+ 
 
     //-------------
     //- STATUS CHART -
@@ -396,7 +327,7 @@
           'PSM 1', 
           'PSM 2',
           'PSM 5', 
-          'PSM 6'
+          'PSM 7'
            
       ],
       datasets: [
@@ -405,7 +336,7 @@
             <?php echo $psm1['aaa']; ?>,
             <?php echo $psm2['bbb']; ?>,
             <?php echo $psm5['ccc']; ?>,
-            <?php echo $psm6['ddd']; ?>
+            <?php echo 1; ?>
            ],
           backgroundColor : ['#f39c12', '#00c0ef','#e0e649','#cc1078'],
         }

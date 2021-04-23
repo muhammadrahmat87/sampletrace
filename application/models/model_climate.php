@@ -30,15 +30,7 @@ class Model_climate extends CI_Model
 
  
 
- 
-
-    // Fungsi untuk melakukan proses upload file
    
-
-    // Buat sebuah fungsi untuk melakukan insert lebih dari 1 data
-    
-    
-
     public function filterSelect($object)
     {
         $this->db->select($object);

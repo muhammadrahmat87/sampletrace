@@ -38,6 +38,21 @@
             </div>
           </div>
 
+          <div class="form-group">
+            <label class="col-sm-2 control-label">Select Location</label>
+            <div class="col-sm-2">
+              <select class="form-control" name="replicate" id="location">
+                
+              </select>
+
+            </div>
+          </div>
+
+
+  
+
+
+
 
           <div class="form-group">
             <label for="LastName" class="col-sm-2 control-label"></label>
@@ -63,7 +78,7 @@
            
           <div class="table-responsive">
             <table id="table-viewdata"
-              class="table table-striped table-bordered table-hover table-full-width dataTable   dt-responsive nowrap"
+            class="table table-striped table-bordered table-hover table-full-width dataTable   dt-responsive nowrap"
               cellspacing="0" width="100%">
 
               <thead>
@@ -175,14 +190,7 @@
                                         </th>
                                     </tr>
               </thead>
-
-
-
-
             </table>
-
-
-
 
           </div>
           <!-- /.box-body -->
@@ -201,11 +209,11 @@
   <!-- /.row -->
 </section>
 
- 
 <script src="<?php echo base_url(); ?>assets/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
 <script src="<?php echo base_url(); ?>assets/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js">
 </script>
-<link rel="stylesheet" href="<?php echo base_url(); ?>assets/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
+<link rel="stylesheet"
+  href="<?php echo base_url(); ?>assets/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
 <script type="text/javascript">
   
   $(document).ready(function () {
@@ -218,21 +226,24 @@
 
   function showData(data) {
     table = $('#table-viewdata').DataTable({
-      "scrollY": 420,
-      "scrollX": true,
-      "searching": false,
-       "processing": true,
-      "serverSide": true,
-      "destroy": true,
-      "order": [],
+      scrollY: 500,
+      scrollX: true,
+      pageLength: 200,  
+      ordering: false,  
+      searching: false,
+      processing: true,
+      serverSide: true,
+      destroy: true,
+      order: [],
       
-      "ajax": {
+      ajax: {
         "url": "<?=base_url();?>viewdata/getViewdata",
         "type": "POST",
         "data":data
       },
-      "aoColumnDefs": [{
-        "aTargets": [8],
+      "columnDefs": [{
+        "aTargets": [0],
+        "orderable": false, //set not orderable
 
       }],
     });
@@ -262,6 +273,12 @@
           replicate += `<option value="` + element.replicate + `">` + element.replicate + `</option>`;
         });
         $("#replicate").html(` <option value="">All</option>` + replicate);
+
+        let location = "";
+        response.location.forEach(element => {
+          location += `<option value="` + element.location + `">` + element.location + `</option>`;
+        });
+        $("#location").html(` <option value="">All</option>` + location);
       }
     });
   }
@@ -270,6 +287,7 @@
       trial_code:$("#trial_code").children("option:selected").val(),
       squence:$("#squence").children("option:selected").val(),
       replicate:$("#replicate").children("option:selected").val(),
+      location:$("#location").children("option:selected").val(),
     }
     showData(data)
     // console.log('hi');
