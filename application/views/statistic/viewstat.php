@@ -17,7 +17,7 @@
           <div class="form-group">
           <label class="col-sm-1 control-label">Trial Code</label>
             <div class="col-sm-2">
-              <select class="form-control" name="trial_code" onChange="getValue()" id="trial_code">         
+              <select class="form-control" name="trial_code" onChange="getDataByTrial()" id="trial_code">         
               </select>
             </div>   
           </div>
@@ -180,9 +180,12 @@
       }
     });
   }
-
+  function getDataByTrial() {  
+    let params=localStorage.getItem('params');
+    showChart(params);
+  }
   function showChart(params) {
-
+    localStorage.setItem('params',params);
     let value = $("#trial_code").children("option:selected").val();
     let name = "";
     let dataName = '';

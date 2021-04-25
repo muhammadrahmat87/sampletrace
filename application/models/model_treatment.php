@@ -151,6 +151,21 @@ class Model_treatment extends CI_Model
             $this->db->where('score', $score);
             
         }
+        if ($field == 'treatment_n') {
+            $this->db->where($field, $habitat);
+            $this->db->where('treatment_p', 2);
+            $this->db->where('treatment_k', 2);
+        }
+        if ($field == 'treatment_p') {
+            $this->db->where($field, $habitat);
+            $this->db->where('treatment_n', 2);
+            $this->db->where('treatment_k', 2);
+        }
+        if ($field == 'treatment_k') {
+            $this->db->where($field, $habitat);
+            $this->db->where('treatment_p', 2);
+            $this->db->where('treatment_n', 2);
+        }
         $this->db->where($field, $habitat);
         return $this->db->count_all_results();
 
