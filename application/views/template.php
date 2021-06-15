@@ -2,10 +2,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="icon" href="<?php echo base_url(); ?>assets/dist/img/6.png" type="image/gif"> 
+<link rel="icon" href="<?php echo base_url(); ?>assets/dist/img/lab3.png" type="image/gif"> 
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>3BALAMINA | SMARTRI</title>
+  <title>Sample Tracing System</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.7 -->
@@ -42,7 +42,7 @@
 
     <!-- Logo -->
     <a href="#" class="logo">
-	  <img src="<?php echo base_url(); ?>assets/dist/img/nc.png"    width="231" height="84">
+	  <img src="<?php echo base_url(); ?>assets/dist/img/lab3.png"    width="210" height="80">
 	
       <!-- mini logo for sidebar mini 50x50 pixels -->
       
@@ -53,7 +53,7 @@
     <nav class="navbar navbar-static-top">
 	
       <!-- Sidebar toggle button-->
-    <!--   <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
+      <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
        
                 
       </a>
@@ -74,32 +74,19 @@
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               
               <span class="hidden-xs"><?php echo $this->session->userdata('nama_lengkap'); ?></span>
-			  <img src="<?php echo base_url(); ?>assets/dist/img/4.png" class="user-image" alt="User Image">
+			  <img src="<?php echo base_url(); ?>assets/dist/img/lablogo.png" class="user-image" alt="User Image">
             </a>
             <ul class="dropdown-menu">
               <!-- User image -->
               <li class="user-header">
-                <img src="<?php echo base_url(); ?>assets/dist/img/4.png"    width="123" height="123">
+                <img src="<?php echo base_url(); ?>assets/dist/img/lablogo.png"    width="123" height="123">
 
                 <p>
                   <?php echo $this->session->userdata('nama_lengkap'); ?>
                   <small></small>
                 </p>
               </li>
-              <!-- Menu Body -->
-              <!-- <li class="user-body">
-                <div class="row">
-                  <div class="col-xs-4 text-center">
-                    <a href="#">Followers</a>
-                  </div>
-                  <div class="col-xs-4 text-center">
-                    <a href="#">Sales</a>
-                  </div>
-                  <div class="col-xs-4 text-center">
-                    <a href="#">Friends</a>
-                  </div>
-                </div>
-              </li> -->
+            
               <!-- Menu Footer-->
               <li class="user-footer" style="background-color:#CCCCCC">
                 <!--<div class="pull-left">
@@ -108,7 +95,7 @@
                 <div class="text-center">
 
                   <?php
-                    echo anchor('auth/logout', '<button class="btn btn-success ">Log Out</button>');
+                    echo anchor('authen/logout', '<button class="btn btn-success ">Log Out</button>');
                   ?>
  
                 </div>
@@ -147,9 +134,11 @@
         <!-- menu dinamis -->
 
         <?php
-        $id_level_user = $this->session->userdata('id_level_user');
+        $kd_level_user = $this->session->userdata('id_level_user');
 
-        $sql_menu = "SELECT * FROM `tabel_menu` WHERE id IN(SELECT id_menu FROM tbl_user_rule WHERE id_level_user = $id_level_user) AND is_main_menu = 0";
+       
+
+        $sql_menu = "SELECT * FROM `tabel_menu` WHERE id IN(SELECT id_menu FROM tbl_user_rule WHERE id_level_user = $kd_level_user) AND is_main_menu = 0";
 
         $main_menu  = $this->db->query($sql_menu)->result();
 
@@ -180,11 +169,11 @@
         }
 
         // tanpa pembatasan hak akses menu
-        // $main_menu  = $this->db->get_where('tabel_menu', array('is_main_menu' => 0))->result();
+        // $main_menu  = $this->db->get_where('tabel_menu_balamina', array('is_main_menu' => 0))->result();
 
         // foreach ($main_menu as $main) {
         //     // check apakah memiliki submenu?
-        //     $submenu  = $this->db->get_where('tabel_menu', array('is_main_menu' => $main->id));
+        //     $submenu  = $this->db->get_where('tabel_menu_balamina', array('is_main_menu' => $main->id));
 
         //     if ($submenu->num_rows()>0) {
         //       //submenu true
@@ -220,7 +209,7 @@
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
-      <center><img src="<?php echo base_url(); ?>assets/dist/img/5.png"    width="88" height="31">
+    <!--   <center><img src="<?php echo base_url(); ?>assets/dist/img/zzz.png"    width="98" height="25">
       </center>
       <ol class="breadcrumb">
         
@@ -240,9 +229,9 @@
 	  
 	  
     <b>
-	Copyright &copy; 2021 <a href="https://tribalamina.com"> 3BALAMINA</b></a> </b>
-	<p>Data Management System for Bait Lamina Project  <!--  <center> <img src="<?php echo base_url(); ?>assets/dist/img/logo.jpg" width="170" height="62"   > <img src="<?php echo base_url(); ?>assets/dist/img/ssqc.png" width="230" height="62"   >
-    <p> 
+	Copyright &copy; 2021 <a href="https://smartri.com"> Sample Tracing System</b></a> </b>
+	 
+    
   </footer>
 
   <!-- Control Sidebar -->

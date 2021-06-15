@@ -30,7 +30,10 @@ define(function () {
       return 'Recherche en cours…';
     },
     removeAllItems: function () {
-      return 'Supprimer tous les articles';
+      return 'Supprimer tous les éléments';
+    },
+    removeItem: function () {
+      return 'Supprimer l\'élément';
     }
   };
 });

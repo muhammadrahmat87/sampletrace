@@ -6,6 +6,7 @@
 		function __construct()
 		{
 			parent::__construct();
+			checkAuth();
 			//checkAksesModule();
 			$this->load->library('ssp');
 			$this->load->model('model_menu');

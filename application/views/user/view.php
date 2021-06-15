@@ -17,7 +17,7 @@
 
               <table id="mytable" class="table table-striped table-bordered table-hover table-full-width dataTable" cellspacing="0" width="100%">
                 <thead>
-                    <tr>
+                <tr class="bg-blue">
                         <th>No.</th>
                          
                         <th>Full Name</th>

@@ -10,67 +10,24 @@
         return $hasil;
 		}
 
-
-		function save()
-		{
-			$data = array(
-				//tabel di database => name di form
-				'trial_code'        	=> $this->input->post('trial_code', TRUE),
-				'title'          		=> $this->input->post('title', TRUE),
-				'location' 				=> $this->input->post('location', TRUE),
-				'block'  				=> $this->input->post('block', TRUE),
-				'palm_age'        		=> $this->input->post('palm_age', TRUE),
-				'start'	    			=> $this->input->post('start', TRUE),
-				'finish'	    		=> $this->input->post('finish', TRUE),
-				'tot_treatment'	    	=> $this->input->post('tot_treatment', TRUE),
-				'tot_time_squence'	    => $this->input->post('tot_time_squence', TRUE),
-				'tot_habitat_type'	    => $this->input->post('tot_habitat_type', TRUE),
-				'tot_baits'	    		=> $this->input->post('tot_baits', TRUE),
-			 				 
-			);
-			$this->db->insert($this->table, $data);
-		}
-
-		function update()
-		{
-			$data = array(
-				'trial_code'        	=> $this->input->post('trial_code', TRUE),
-				'title'          		=> $this->input->post('title', TRUE),
-				'location' 				=> $this->input->post('location', TRUE),
-				'block'  				=> $this->input->post('block', TRUE),
-				'palm_age'        		=> $this->input->post('palm_age', TRUE),
-				'start'	    			=> $this->input->post('start', TRUE),
-				'finish'	    		=> $this->input->post('finish', TRUE),
-				'tot_treatment'	    	=> $this->input->post('tot_treatment', TRUE),
-				'tot_time_squence'	    => $this->input->post('tot_time_squence', TRUE),
-				'tot_habitat_type'	    => $this->input->post('tot_habitat_type', TRUE),
-				'tot_baits'	    		=> $this->input->post('tot_baits', TRUE),
-				 
-				'last_update'    		=> $this->input->post('last_update', TRUE),			
-			);
-		
-
-			$kode	= $this->input->post('trial_code');
-			$this->db->where('trial_code', $kode);
-			$this->db->update($this->table, $data);
-		}
+		 
 
 		// Fungsi untuk melakukan proses upload file
-	  	public function upload_file(){
+	  	public function upload_file($filename){
 		    $this->load->library('upload'); // Load librari upload
 		    
-			$filename =  $_FILES['file']['name'];
+			
 		  
 		 	$config['upload_path'] = './excel/';
     		$config['allowed_types'] = 'xlsx';
-    		$config['max_size']  = '1000480';
-   			$config['overwrite'] = false;
-			   $config['file_name'] = $filename;
-			   helper_log("import", "Import Data Excel  ", "Import", $filename);
-			 
+    		$config['max_size']  = '0';
+   			$config['overwrite'] = true;
+			$config['file_name'] = $filename;
+			$filenamee =  $_FILES['file']['name'];  
 		    $this->upload->initialize($config); // Load konfigurasi uploadnya
 		    if($this->upload->do_upload('file')){ // Lakukan upload dan Cek jika proses upload berhasil
 		      // Jika berhasil :
+			  helper_log("import", "Import Data Excel  ", "Import", $filenamee);
 			 
 		      $return = array('result' => 'success', 'file' => $this->upload->data(), 'error' => '');
 		      
