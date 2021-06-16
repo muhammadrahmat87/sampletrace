@@ -11,7 +11,7 @@
 			 
 			$this->db->from('tabel_data');
 			$this->db->join('biodata', 'biodata.nama=tabel_data.pengirim');
-			$this->db->where('status','Sample Diterima Admin');
+			$this->db->where('status','Sample Diterima LAB');
 			$query =  $this->db->get(); 
 			
 		return $query;
