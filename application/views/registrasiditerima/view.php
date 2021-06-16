@@ -73,7 +73,7 @@
                       </td>  
                       <td><?php echo $berkas; ?></td>    
                       <td>
-                      <a href="<?php echo base_url(); ?>registrasiditerima/import/<?php echo $kode; ?>"class="btn btn-xs btn-success" title="DELETE"><i onClick="return confirm('Yakin ingin menghapus Trial?')"> <i class="fa fa-upload fa-fw"></i></i></a>					       
+                      <a href="<?php echo base_url(); ?>registrasiditerima/import/<?php echo $kode; ?>"class="btn btn-xs btn-primary" title="IMPORT"><i onClick="return confirm('Yakin ingin menghapus Trial?')"> <i class="fa fa-upload fa-fw"></i></i></a>					       
                        </td>  
 					<!-- <td>
                       <a href="<?php echo base_url(); ?>registrasiditerima/delete/<?php echo $kode; ?>"class="btn btn-xs btn-danger" title="DELETE"><i onClick="return confirm('Yakin ingin menghapus Trial?')"> <i class="fa fa-trash fa-fw"></i></i></a>					       
@@ -89,7 +89,8 @@
             </div>
             
         
-        <?php
+       
+            <?php
               foreach($data->result_array() as $i):
                 $kode=$i['kode'];
                 $id_reg=$i['id_reg'];
@@ -108,13 +109,13 @@
 <div class="modal fade" id="modal_edit<?php echo $id_reg;?>" tabindex="-5" role="dialog" aria-labelledby="largeModal" aria-hidden="true">
        <div class="modal-dialog">
             <div class="modal-content">
-            <div class="modal-header">
+            <div class="modal-header bg-blue">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">X</button>
                 <h3 class="modal-title" >Edit Status</h3>
             </div>
-            <form class="form-horizontal" method="post" action="<?php echo base_url().'/registrasiditerima/edit'?>">
+            <form class="form-horizontal" method="post" action="<?php echo base_url().'/registrasi/edit'?>">
                  <div class="box box-primary"> 
-                 <div class="modal-body bg-primary">
+                 <div class="modal-body  ">
                 
                
                             <input name="kode" value="<?php echo $kode;?>" class="form-control" type="hidden" placeholder="Kode Barang..." readonly>
@@ -139,7 +140,7 @@
                         </div>
                         </div></div> <div class="box box-primary">
                         
-                        <div class="modal-footer">
+                        <div class="modal-footer ">
                         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                         <button type="submit" class="btn btn-primary"><i class="icon-checkmark-circle2"></i> Simpan</button>
                       </div>
@@ -166,15 +167,16 @@
                 $tgl_kirim=$i['tgl_kirim'];           
         ?>
 
-        <div class="modal fade" id="modal_urgen<?php echo $id_reg;?>" tabindex="-1" role="dialog" aria-labelledby="largeModal" aria-hidden="true">
-        <div class="modal-dialog">
+       <div class="modal fade" id="modal_urgen<?php echo $id_reg;?>" tabindex="-1" role="dialog" aria-labelledby="largeModal" aria-hidden="true">
+       <div class="modal-dialog">
             <div class="modal-content">
-            <div class="modal-header">
+            <div class="modal-header bg-blue">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">X</button>
                 <h4 class="modal-title" >Edit Status</h4>
             </div>
-            <form class="form-horizontal" method="post" action="<?php echo base_url().'/registrasiditerima/editurgensi'?>">
-                <div class="modal-body">
+            <form class="form-horizontal" method="post" action="<?php echo base_url().'/registrasi/editurgensi'?>">
+            <div class="box box-primary"> 
+                 <div class="modal-body  ">
 
                             <input name="kode" value="<?php echo $kode;?>" class="form-control" type="hidden" placeholder="Kode Barang..." readonly>
                          
@@ -192,18 +194,19 @@
                             <option value="Normal">Normal</option>
                             <option value="High Priority">High Priority</option>
                             </select>
-                        </div>
-                        </div>
                         
+                        </div>
+                        </div></div> <div class="box box-primary">
                         <div class="modal-footer">
                         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-success"><i class="icon-checkmark-circle2"></i> Simpan</button>
+                        <button type="submit" class="btn btn-primary"><i class="icon-checkmark-circle2"></i> Simpan</button>
                       </div>
             </form>
             </div>
             </div>
-        </div> </div>   
+        </div>   </div>    </div>
         <?php endforeach;?>
+
 
         <?php
               foreach($data->result_array() as $i):
@@ -221,16 +224,16 @@
                 $tgl_kirim=$i['tgl_kirim'];           
         ?>
 
-       <div class="modal fade" id="modal_detail<?php echo $id_reg;?>" tabindex="-1" role="dialog" aria-labelledby="largeModal" aria-hidden="true">
+<div class="modal fade" id="modal_detail<?php echo $id_reg;?>" tabindex="-1" role="dialog" aria-labelledby="largeModal" aria-hidden="true">
        <div class="modal-dialog">
             <div class="modal-content">
-            <div class="modal-header">
+            <div class="modal-header bg-blue">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">X</button>
                 <h4 class="modal-title" >Biodata</h4>
             </div>
-            <form class="form-horizontal" method="post" action="<?php echo base_url().'/registrasiditerima/edit'?>">
-                <div class="modal-body">
-     
+            <form class="form-horizontal" method="post" action="<?php echo base_url().'/registrasi/edit'?>">
+            <div class="box box-primary"> 
+                 <div class="modal-body  ">
                     <div class="form-group">
                         <label class="control-label col-xs-5" >Nama : </label>
                         <div class="col-xs-5"><b><?php echo $nama;?></b>
@@ -250,18 +253,15 @@
                         <label class="control-label col-xs-5" >No. Hp : </label>
                         <div class="col-xs-5"><?php echo $hp;?>
                         </div>
-                    </div>
-
-                        <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-success"><i class="icon-checkmark-circle2"></i> Simpan</button>
-                      </div>
+                   
+                    </div></div> <div class="box box-primary">
+                         
             </form>
             </div>
             </div>
-        </div> 
-        </div>   
+        </div>   </div>    </div>
         <?php endforeach;?>
+
 
  
 </section>

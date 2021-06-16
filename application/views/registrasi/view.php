@@ -8,7 +8,7 @@
             </div>
             <!-- /.box-header -->
             <div class="box-body">
-
+<br><br>
             <!-- button add -->
             <?php
                 echo anchor('registrasi/add', '<button class="btn-lg btn-success fa fa-plus"> Registrasi</button>');     
@@ -276,14 +276,10 @@
 <script>  
      
      $(document).ready(function() {
-    var table = $('#example').DataTable( {
-        scrollY:        "450px",
-        scrollX:        true,  
-        paging:         false,
- 
+    var table = $('#example').DataTable( {   
        
-        }
     } );
+    
 } );
 
 </script>

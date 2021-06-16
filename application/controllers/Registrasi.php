@@ -29,17 +29,59 @@
 		function add()
 		{
 			if (isset($_POST['submit'])) {
-				$uploadFoto = $this->upload_foto_data();
-				$this->model_registrasi->save($uploadFoto);
+				$upload = $this->uploadexcel();
+				$this->model_registrasi->save($upload);
 				helper_log("add", "Menambahkan Trial", "Data");
 				redirect('registrasi');				
 			} else {
 				$data['kodeunik'] = $this->model_registrasi->buat_kode();
 				$data['data'] = $this->model_registrasi->get_nama();
+				
 				$this->template->load('template', 'registrasi/add', $data);
 			}
 		}
 
+		function uploadexcel ()
+		{
+			
+			
+			$config['allowed_types'] 	= 'xlsx|xls';
+			$config['file_name'] = $this->input->post('id_reg').$_FILES['upload']['name'];
+			$config['overwrite'] = true;
+			$config['upload_path']   	= './uploads/';
+            $this->load->library('upload', $config);
+			$this->upload->initialize($config);
+			if ( ! $this->upload->do_upload('upload')) { 
+				$error = array('error' => $this->upload->display_errors()); 
+				print_r($error); 
+			  } else { 
+				$data = array('upload_data' => $this->upload->data()); 
+			  } 
+			  $pet = $config['file_name']; 
+			  
+			  $data = [ 
+				'pengirim'        	=> $this->input->post('pengirim', TRUE),		
+				'id_reg'          		=> $this->input->post('id_reg', TRUE),	
+				'no_permintaan'          		=> $this->input->post('no_permintaan', TRUE),
+				'tgl_surat'          		=> $this->input->post('tgl_surat', TRUE),
+				'kategori'          	=> $this->input->post('kategori', TRUE),
+				'urgensi' 				=> $this->input->post('urgensi', TRUE),
+				'jumlah'	    			=> $this->input->post('jumlah', TRUE),
+				'jenis' 				=> $this->input->post('jenis', TRUE),
+				'lokasi'	    			=> $this->input->post('lokasi', TRUE),
+				'tgl_kirim'	    		=> $this->input->post('tgl_kirim', TRUE),
+				'status'	    		=> $this->input->post('status', TRUE),
+				'berkas' => $pet 
+				]; 
+				$this->model_registrasi->save($data); 
+				$this->session->set_flashdata('flash', 'Ditambah'); 
+				redirect('registrasi'); 
+          
+		}
+
+		 
+
+		
 		public function edit()
     {
         $this->form_validation->set_rules('kode', 'kode', 'required');

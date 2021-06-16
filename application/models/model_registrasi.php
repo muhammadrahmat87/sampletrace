@@ -22,22 +22,24 @@
 			return $query;
 		   }
 
-		function save()
+		function save($data)
 		{
-			$data = array(
-				//tabel di database => name di form
-				'pengirim'        	=> $this->input->post('pengirim', TRUE),		
-				'id_reg'          		=> $this->input->post('id_reg', TRUE),	
-				'no_permintaan'          		=> $this->input->post('no_permintaan', TRUE),
-				'tgl_surat'          		=> $this->input->post('tgl_surat', TRUE),
-				'kategori'          	=> $this->input->post('kategori', TRUE),
-				'urgensi' 				=> $this->input->post('urgensi', TRUE),
-				'jumlah'	    			=> $this->input->post('jumlah', TRUE),
-				'jenis' 				=> $this->input->post('jenis', TRUE),
-				'lokasi'	    			=> $this->input->post('lokasi', TRUE),
-				'tgl_kirim'	    		=> $this->input->post('tgl_kirim', TRUE),
-				'status'	    		=> $this->input->post('status', TRUE),
-			);
+			
+			// $data = array(
+			// 	//tabel di database => name di form
+			// 	'berkas' => $filename,
+			// 	'pengirim'        	=> $this->input->post('pengirim', TRUE),		
+			// 	'id_reg'          		=> $this->input->post('id_reg', TRUE),	
+			// 	'no_permintaan'          		=> $this->input->post('no_permintaan', TRUE),
+			// 	'tgl_surat'          		=> $this->input->post('tgl_surat', TRUE),
+			// 	'kategori'          	=> $this->input->post('kategori', TRUE),
+			// 	'urgensi' 				=> $this->input->post('urgensi', TRUE),
+			// 	'jumlah'	    			=> $this->input->post('jumlah', TRUE),
+			// 	'jenis' 				=> $this->input->post('jenis', TRUE),
+			// 	'lokasi'	    			=> $this->input->post('lokasi', TRUE),
+			// 	'tgl_kirim'	    		=> $this->input->post('tgl_kirim', TRUE),
+			// 	'status'	    		=> $this->input->post('status', TRUE),
+			// );
 			$this->db->insert($this->table, $data);
 
 		

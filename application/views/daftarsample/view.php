@@ -20,6 +20,7 @@
 		          <tr class="bg-green">               
 						  <th class="bg-blue" data-sortable="true" width="1%">No</th>
               <th class="bg-blue" data-sortable="true" width="12%">ID Registrasi</th>
+              <th class="bg-blue" data-sortable="true" width="12%">ID Labor</th>
               <th class="bg-blue" data-sortable="true" width="12%">Pengirim</th>
               <th   data-sortable="true" width="13%">No. Permintaan</th>
               <th data-sortable="true" width="13%">Tanggal Surat</th>
@@ -72,6 +73,7 @@
 			 
 			          <td><?php echo $no; ?></td>
                 <td><?php echo $t['id_reg'];?></td>
+                <td><?php echo $t['id_labor'];?></td>
                 <td><a class="btn btn-xl" data-toggle="modal" data-target="#modal_detail<?php echo $t['id_reg']; ?>"><?php echo $t['pengirim']; ?> </a>                     
                       </td>
                       <td><?php echo $t['no_permintaan']; ?></td>
