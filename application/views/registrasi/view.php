@@ -1,86 +1,115 @@
 <section class="content">
     <div class="row">
         <div class="col-xs-12">
-
-          <div class="box box-success">
-            <div class="box-header  with-border">
-              <h3 class="box-title">Daftar Registrasi</h3>
-            </div>
-            <!-- /.box-header -->
+            <div class="box box-success">
+                <div class="box-header  with-border">
+                <h3 class="box-title">Daftar Registrasi Masuk</h3>
+                </div> 
+             
+	
+             
             <div class="box-body">
-<br><br>
-            <!-- button add -->
-            <?php
-                echo anchor('registrasi/add', '<button class="btn-lg btn-success fa fa-plus"> Registrasi</button>');     
-				
-            ?>
-<br><br> 
-              <table id="example" class="table table-striped table-bordered table-hover table-full-width dataTable"  >
+            <br><br> 
+             
+            <div class="col-lg-12 ">
+                <button onclick="window.location.href='/sampletrace/registrasi'" class="btn btn-success   btn-social  " type="button"> <i class="fa fa-envelope"></i> Registrasi Masuk <span class="badge"><?php echo $suratmasuk['hasil']; ?></span>
+                </button>  
+                <button onclick="window.location.href='/sampletrace/registrasiditerima'" class="btn btn-primary btn-social " type="button"><i class="fa fa-check"></i> Registrasi Diterima <span class="badge"><?php echo $suratditerima['hasil']; ?></span>
+                </button>  
+                <button onclick="window.location.href='/sampletrace/daftarsample'" class="btn btn-warning btn-social " type="button"><i class="fa fa-list"></i> Surat Sample Masuk <span class="badge"><?php echo $suratdisample['hasil']; ?></span>
+                </button>  
+                <button onclick="window.location.href='/sampletrace/daftarsample'" class="btn btn-danger btn-social " type="button"> <i class="fa fa-list"></i>Sample Masuk <span class="badge"><?php echo $samplemasuk['hasil']; ?></span>
+                </button>  <br>   
+            </div> 
+            </div>
+            </div>      
+          
+            <div class="row">
+            <div class="col-xs-12">
+            <div class="box box-success">
+            <div class="box-header  with-border">
+            <br>  
+                <button   class="btn btn-success   btn-social" type="button"  onclick="window.location.href='registrasi/add'"> <i class="fa fa-plus"></i> Registrasi 
+                </button>  
+ 
+                <table id="example" class="table table-striped table-bordered table-hover table-full-width dataTable"  >
                 <thead>
-                    <tr class="bg-green">
+                    <tr class="bg-olive">
 						 
-                        <th data-sortable="true">No</th> 
-                        <th data-sortable="true">ID Reg</th>
-                        <th data-sortable="true">Pengirim</th>
-                        <th data-sortable="true">No. Permintaan</th>
-                        <th data-sortable="true">Tanggal Surat</th>
-					    <th data-sortable="true">Kategori</th>
-                        <th data-sortable="true">Urgensi</th>
-                        <th >Jumlah Sample</th>
-                        <th data-sortable="true">Jenis Analisa</th>
-                        <th >Lokasi</th>   
-                        <th>Tanggal Kirim</th>
-                        <th>Status</th>
-                        <th>Berkas</th>
-                         
-                        <th >Action</th>
+                    <th width="1%">No</th> 
+                    <th width="2%">ID Reg</th>
+                    <th width="1%">Pengirim</th>
+                    <th width="1%">No. Permintaan</th>
+                    <th width="1%">Tanggal Surat</th>
+                    <th width="1%">Kategori</th>
+                    <th width="1%">Urgensi</th>
+                    <th width="1%"> Sample</th>
+                    <th width="1%">Jenis Analisa</th>
+                    <th width="1%">Lokasi</th>   
+                    <th width="1%">Tanggal Kirim</th>
+                    <th width="1%">Status</th>
+                    <th width="1%">Berkas</th>                
+                    <th >Upload Berkas</th>
+                    <th >Delete</th>
                     </tr>
                 </thead>
 				
 				<tbody>
-        <?php 
+                    <?php 
                     $no = 0;
-				    foreach($data->result_array() as $i):
-					$kode=$i['kode'];
+				            foreach($data->result_array() as $i):
+					          $kode=$i['kode'];
                     $id_reg=$i['id_reg'];
-					$pengirim=$i['pengirim'];
-					$no_permintaan=$i['no_permintaan'];
-					$tgl_surat=$i['tgl_surat'];
+                    $pengirim=$i['pengirim'];
+                    $no_permintaan=$i['no_permintaan'];
+                    $tgl_surat=$i['tgl_surat'];
                     $kategori=$i['kategori'];
-					$urgensi=$i['urgensi'];
-					$jumlah=$i['jumlah'];
+                    $urgensi=$i['urgensi'];
+                    $jumlah=$i['jumlah'];
                     $lokasi=$i['lokasi'];
                     $status=$i['status'];
-                    $berkas=$i['berkas'];
-                    
-					$jenis=$i['jenis'];
+                    $berkas=$i['berkas'];                  
+					          $jenis=$i['jenis'];
                     $tgl_kirim=$i['tgl_kirim'];
                     $no++;
-			?>
+			        ?>
                
                     <tr>
-                      <td><?php echo $no; ?></td>
-                      <td><?php echo $id_reg; ?></td>
-                      <td><a class="btn btn-xs" data-toggle="modal" data-target="#modal_detail<?php echo $id_reg; ?>"><b><?php echo $pengirim; ?> </b></a>                     
-                      </td>
-                      <td><?php echo $no_permintaan; ?></td>
-                      <td><?php echo format_indo($tgl_surat);  ?></td>	
-                      <td><?php echo $kategori; ?></td>
-                      <td> <a class="btn btn-xs bg-fuchsia" data-toggle="modal" data-target="#modal_urgen<?php echo $id_reg; ?>"><?php echo $urgensi; ?> </a>                     
-                    </td>
-                      <td><?php echo $jumlah;  ?></td>	                    
-                      <td><?php echo $jenis; ?></td>
-                      <td><?php echo $lokasi; ?></td>
-                      <td><?php echo format_indo($tgl_kirim);  ?></td>	
-                      <td>
-                        <a class="btn btn-xs bg-fuchsia" data-toggle="modal" data-target="#modal_edit<?php echo $id_reg; ?>"><?php echo $status; ?> </a>                     
-                      </td>  
-                      <td><?php echo $berkas; ?></td>    
-                      
-					<td>
-                      <a href="<?php echo base_url(); ?>registrasi/delete/<?php echo $kode; ?>"class="btn btn-xs btn-danger" title="DELETE"><i onClick="return confirm('Yakin ingin menghapus Trial?')"> <i class="fa fa-trash fa-fw"></i></i></a>					       
-                       </td>
-				            </tr>
+                        <td><?php echo $no; ?></td>
+                        <td><?php echo $id_reg; ?></td>
+                        <td><a class="btn btn-xs" data-toggle="modal" data-target="#modal_detail<?php echo $id_reg; ?>"><b><?php echo $pengirim; ?> </b></a>                     
+                        </td>
+                        <td><?php echo $no_permintaan; ?></td>
+                        <td><?php echo format_indo($tgl_surat);  ?></td>	
+                        <td><?php echo $kategori; ?></td>
+                        <td> <a class="btn btn-xs bg-orange" data-toggle="modal" data-target="#modal_urgen<?php echo $id_reg; ?>"><?php echo $urgensi; ?> </a>                     
+                        </td>
+                        <td><?php echo $jumlah;  ?></td>	                    
+                        <td><?php echo $jenis; ?></td>
+                        <td><?php echo $lokasi; ?></td>
+                        <td><?php echo format_indo($tgl_kirim);  ?></td>	
+                        <td>
+                            <a class="btn btn-xs bg-fuchsia" data-toggle="modal" data-target="#modal_edit<?php echo $id_reg; ?>"><?php echo $status; ?> </a>                     
+                        </td>  
+                        <td><?php echo $berkas; ?></td>                      
+                        <td>
+                        <?php
+                     
+                        if (is_null($berkas))
+                        {
+                        echo '<a class="btn btn-xs bg-primary" data-toggle="modal" data-target="#modal_upload<?php echo $id_reg; ?>">UPLOAD </a> 
+                        ';
+                        }
+                        else {
+                            echo "";
+                        } 
+                        ?> 
+                        </td>
+                        <td>
+                        
+                        <a href="<?php echo base_url(); ?>registrasi/delete/<?php echo $kode; ?>"class="btn btn-xs btn-danger" title="DELETE"><i onClick="return confirm('Yakin ingin menghapus Surat?')"> <i class="fa fa-trash fa-fw"></i></i></a>					       
+                        </td>
+				    </tr>
                   <?php endforeach; ?>
                 </tbody>
               </table>
@@ -91,7 +120,8 @@
             </div>
             
         
-        <?php
+       
+            <?php
               foreach($data->result_array() as $i):
                 $kode=$i['kode'];
                 $id_reg=$i['id_reg'];
@@ -110,11 +140,70 @@
 <div class="modal fade" id="modal_edit<?php echo $id_reg;?>" tabindex="-5" role="dialog" aria-labelledby="largeModal" aria-hidden="true">
        <div class="modal-dialog">
             <div class="modal-content">
-            <div class="modal-header">
+            <div class="modal-header bg-blue">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">X</button>
                 <h3 class="modal-title" >Edit Status</h3>
             </div>
             <form class="form-horizontal" method="post" action="<?php echo base_url().'/registrasi/edit'?>">
+                 <div class="box box-primary"> 
+                 <div class="modal-body  ">
+                
+               
+                    <input name="kode" value="<?php echo $kode;?>" class="form-control" type="hidden" placeholder="Kode Barang..." readonly>
+                         
+                    <div class="form-group">
+                        <label class="control-label col-xs-3" >ID Reg</label>
+                        <div class="col-xs-8">
+                            <input name="id_reg" value="<?php echo $id_reg;?>" class="form-control" type="text" readonly>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label col-xs-3" >Status</label>
+                        <div class="col-xs-8">
+                            <select name="status" class="form-control" type="text">                   
+                            
+                            <option value="Sample Diterima Admin">Sample Diterima Admin</option>
+                                
+                            </select>
+                        </div>
+                        </div></div> <div class="box box-primary">
+                        
+                        <div class="modal-footer ">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary"><i class="icon-checkmark-circle2"></i> Simpan</button>
+                      </div>
+            </form>
+            </div>
+            </div>
+        </div>   </div>    </div>
+  
+        <?php endforeach;?>
+
+        <?php
+              foreach($data->result_array() as $i):
+                $kode=$i['kode'];
+                $id_reg=$i['id_reg'];
+                $pengirim=$i['pengirim'];
+                $no_permintaan=$i['no_permintaan'];
+                $tgl_surat=$i['tgl_surat'];
+                $kategori=$i['kategori'];
+                $urgensi=$i['urgensi'];
+                $jumlah=$i['jumlah'];
+                $lokasi=$i['lokasi'];
+                $status=$i['status'];
+                $jenis=$i['jenis'];
+                $tgl_kirim=$i['tgl_kirim'];           
+        ?>
+
+<div class="modal fade" id="modal_upload<?php echo $id_reg;?>" tabindex="-5" role="dialog" aria-labelledby="largeModal" aria-hidden="true">
+       <div class="modal-dialog">
+            <div class="modal-content">
+            <div class="modal-header bg-blue">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">X</button>
+                <h3 class="modal-title" >Edit Status</h3>
+            </div>
+            <form class="form-horizontal" method="post" action="<?php echo base_url().'/registrasi/editberkas'?>">
                  <div class="box box-primary"> 
                  <div class="modal-body  ">
                 
@@ -128,22 +217,20 @@
                         </div>
                     </div>
 
+                    <input name="status" value="<?php echo $status;?>" class="form-control" type="hidden" placeholder="Kode Barang..." readonly>
+                         
+
                     <div class="form-group">
-                        <label class="control-label col-xs-3" >Status</label>
-                        <div class="col-xs-8">
-                            <select name="status" class="form-control" type="text">                   
-                            <option value="Menunggu">Menunggu</option>
-                            <option value="Sample Diterima Admin">Sample Diterima Admin</option>
-                            <option value="Sample Diterima LAB">Sample Diterima LAB</option>
-                            <option value="Analisa">Analisa</option>
-                            <option value="Selesai">Selesai</option>
-                            </select>
-                        </div>
-                        </div></div> <div class="box box-primary">
+              <label class="col-sm-3 control-label">Upload Berkas (.xlxs)</label>
+				      <div class="col-sm-8">
+              <input class="form-control" type="file" name="berkas" size="20"/>        
+              </div> 
+          </div>
+                        </div> <div class="box box-primary">
                         
-                        <div class="modal-footer">
+                        <div class="modal-footer ">
                         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-success"><i class="icon-checkmark-circle2"></i> Simpan</button>
+                        <button type="submit" class="btn btn-primary"><i class="icon-checkmark-circle2"></i> Simpan</button>
                       </div>
             </form>
             </div>
@@ -171,9 +258,9 @@
        <div class="modal fade" id="modal_urgen<?php echo $id_reg;?>" tabindex="-1" role="dialog" aria-labelledby="largeModal" aria-hidden="true">
        <div class="modal-dialog">
             <div class="modal-content">
-            <div class="modal-header">
+            <div class="modal-header bg-blue">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">X</button>
-                <h4 class="modal-title" >Edit Status</h4>
+                <h4 class="modal-title" >Edit Urgensi</h4>
             </div>
             <form class="form-horizontal" method="post" action="<?php echo base_url().'/registrasi/editurgensi'?>">
             <div class="box box-primary"> 
@@ -200,13 +287,14 @@
                         </div></div> <div class="box box-primary">
                         <div class="modal-footer">
                         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-success"><i class="icon-checkmark-circle2"></i> Simpan</button>
+                        <button type="submit" class="btn btn-primary"><i class="icon-checkmark-circle2"></i> Simpan</button>
                       </div>
             </form>
             </div>
             </div>
-        </div> </div>    </div> 
+        </div>   </div>    </div>
         <?php endforeach;?>
+
 
         <?php
               foreach($data->result_array() as $i):
@@ -224,10 +312,10 @@
                 $tgl_kirim=$i['tgl_kirim'];           
         ?>
 
-       <div class="modal fade" id="modal_detail<?php echo $id_reg;?>" tabindex="-1" role="dialog" aria-labelledby="largeModal" aria-hidden="true">
+<div class="modal fade" id="modal_detail<?php echo $id_reg;?>" tabindex="-1" role="dialog" aria-labelledby="largeModal" aria-hidden="true">
        <div class="modal-dialog">
             <div class="modal-content">
-            <div class="modal-header">
+            <div class="modal-header bg-blue">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">X</button>
                 <h4 class="modal-title" >Biodata</h4>
             </div>
@@ -255,16 +343,13 @@
                         </div>
                    
                     </div></div> <div class="box box-primary">
-                        <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-success"><i class="icon-checkmark-circle2"></i> Simpan</button>
-                      </div>
+                         
             </form>
             </div>
             </div>
-        </div> 
-        </div>   
+        </div>   </div>    </div>
         <?php endforeach;?>
+
 
  
 </section>
@@ -276,10 +361,14 @@
 <script>  
      
      $(document).ready(function() {
-    var table = $('#example').DataTable( {   
-       
+      $('#example').DataTable( {
+        "scrollY": 550,
+        "scrollX": true,
+        paging : false,
+         
+        
+        
     } );
-    
 } );
 
 </script>

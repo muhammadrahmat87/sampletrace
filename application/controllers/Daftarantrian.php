@@ -13,8 +13,21 @@
 		}
 		
 		function index()
-    	{		
-        $data['data'] = $this->model_daftarantrian->tampil_daftarantrian();	 
+    	{	
+
+            $quser = 'SELECT COUNT(*) AS hasil FROM tabel_data where status = "Menunggu"';
+            $data['suratmasuk'] = $this->db->query($quser)->row_array();
+        
+            $quser = 'SELECT COUNT(*) AS hasil FROM tabel_data where status = "Sample Diterima Admin"';
+            $data['suratditerima'] = $this->db->query($quser)->row_array();
+    
+            $quser = 'SELECT COUNT(*) AS hasil FROM tabel_data where status = "Menunggu Konfirmasi Batch"';
+            $data['suratdisample'] = $this->db->query($quser)->row_array();
+    
+            $quser = 'SELECT COUNT(*) AS hasil FROM table_sample';
+            $data['samplemasuk'] = $this->db->query($quser)->row_array();
+
+        $data['data'] = $this->model_daftarantrian->tampil_daftarsample();	 
         $this->template->load('template', 'daftarantrian/view', $data);		
     	}	
 		

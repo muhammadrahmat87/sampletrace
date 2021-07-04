@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 16, 2021 at 10:24 AM
+-- Generation Time: Jul 04, 2021 at 08:33 AM
 -- Server version: 10.1.19-MariaDB
 -- PHP Version: 5.6.28
 
@@ -40,7 +40,9 @@ CREATE TABLE `biodata` (
 
 INSERT INTO `biodata` (`id`, `nama`, `nik`, `section`, `hp`) VALUES
 (1, 'Muhammad Rahmat', 14011111, 'ABC', '082222222222'),
-(2, 'R. Adhi Nugroho', 232321334, 'SSQC', '082222222222');
+(2, 'R. Adhi Nugroho', 232321334, 'SSQC', '082222222222'),
+(3, 'Ichsan Rezky .P', 0, 'Contoh', 'Contoh'),
+(4, 'CONTOH 1', 0, 'Contoh', 'Contoh');
 
 -- --------------------------------------------------------
 
@@ -70,8 +72,10 @@ CREATE TABLE `tabel_data` (
 --
 
 INSERT INTO `tabel_data` (`kode`, `id_reg`, `pengirim`, `no_permintaan`, `tgl_surat`, `kategori`, `urgensi`, `jenis`, `lokasi`, `jumlah`, `permintaan`, `tgl_kirim`, `berkas`, `status`) VALUES
-(94, 'STS2021-00001', 'Muhammad Rahmat', 'MPD/12/LAB', '2021-06-01', 'Trial', 'Normal', 'LSU', 'SRKE', 10, '', '2021-06-16', 'STS2021-00001', 'Sample Diterima Admin'),
-(95, 'STS2021-00002', 'R. Adhi Nugroho', 'MPD/13-2021/LAB', '2021-03-01', 'Trial', 'Normal', 'LSU', 'LIBE', 21, '', '2021-06-16', 'STS2021-00002', 'Sample Diterima Admin');
+(99, 'STS2021-00005', 'Ichsan Rezky .P', '120/LSU', '2021-06-05', 'Komersial', 'Normal', 'LSU', 'HNAE', 27, '', '2021-06-17', 'STS2021-00005036 Surat Permintaan Analisa LSU HNAE.xls', 'Menunggu Konfirmasi Batch'),
+(109, 'STS2021-00006', 'Muhammad Rahmat', '', '2021-06-06', '', 'Normal', 'LSU', '', 0, '', '2021-06-18', '2021-06-18-Contoh_Import_LSU.xls', 'Menunggu Konfirmasi Batch'),
+(110, 'STS2021-00007', 'R. Adhi Nugroho', '', '2021-06-06', '', 'Normal', 'LSU', '', 0, '', '2021-06-18', '2021-06-18-Contoh.xlsx', 'Menunggu Konfirmasi Batch'),
+(114, 'STS2021-00008', 'CONTOH 1', '', '2021-06-14', '', 'Normal', 'LSU', '', 0, '', '2021-06-21', NULL, 'Sample Diterima Admin');
 
 -- --------------------------------------------------------
 
@@ -232,7 +236,57 @@ INSERT INTO `tabel_log` (`log_id`, `log_date`, `log_time`, `log_user`, `log_tipe
 (601, '2021-06-16 05:04:46', '2021-06-16 05:04:46', 'Rahmat STS', 5, 'Menghapus Data Trial', 'All data', ''),
 (602, '2021-06-16 05:05:12', '2021-06-16 05:05:12', 'Rahmat STS', 5, 'Menghapus Data Trial', 'All data', ''),
 (603, '2021-06-16 05:05:14', '2021-06-16 05:05:14', 'Rahmat STS', 5, 'Menghapus Data Trial', 'All data', ''),
-(604, '2021-06-16 06:50:06', '2021-06-16 06:50:06', 'Rahmat STS', 0, 'Login Aplikasi ', 'Login', '');
+(604, '2021-06-16 06:50:06', '2021-06-16 06:50:06', 'Rahmat STS', 0, 'Login Aplikasi ', 'Login', ''),
+(605, '2021-06-16 15:16:59', '2021-06-16 15:16:59', 'Rahmat STS', 0, 'Login Aplikasi ', 'Login', ''),
+(606, '2021-06-17 00:11:50', '2021-06-17 00:11:50', 'Rahmat STS', 0, 'Login Aplikasi ', 'Login', ''),
+(607, '2021-06-17 03:53:50', '2021-06-17 03:53:50', 'Rahmat STS', 5, 'Menghapus Data Trial', 'All data', ''),
+(608, '2021-06-17 07:24:00', '2021-06-17 07:24:00', 'Admin', 0, 'Login Aplikasi ', 'Login', ''),
+(609, '2021-06-17 07:24:23', '2021-06-17 07:24:23', 'Rahmat STS', 0, 'Login Aplikasi ', 'Login', ''),
+(610, '2021-06-17 07:25:09', '2021-06-17 07:25:09', 'Admin', 0, 'Login Aplikasi ', 'Login', ''),
+(611, '2021-06-17 07:25:25', '2021-06-17 07:25:25', 'Rahmat STS', 0, 'Login Aplikasi ', 'Login', ''),
+(612, '2021-06-17 07:25:53', '2021-06-17 07:25:53', 'Super Admin', 0, 'Login Aplikasi ', 'Login', ''),
+(613, '2021-06-17 08:11:36', '2021-06-17 08:11:36', 'Rahmat STS', 0, 'Login Aplikasi ', 'Login', ''),
+(614, '2021-06-18 01:20:59', '2021-06-18 01:20:59', 'Rahmat STS', 0, 'Login Aplikasi ', 'Login', ''),
+(615, '2021-06-18 07:15:44', '2021-06-18 07:15:44', 'Rahmat STS', 0, 'Login Aplikasi ', 'Login', ''),
+(616, '2021-06-19 00:24:06', '2021-06-19 00:24:06', 'Rahmat STS', 0, 'Login Aplikasi ', 'Login', ''),
+(617, '2021-06-19 02:06:12', '2021-06-19 02:06:12', 'Rahmat STS', 0, 'Login Aplikasi ', 'Login', ''),
+(618, '2021-06-21 00:12:01', '2021-06-21 00:12:01', 'Rahmat STS', 0, 'Login Aplikasi ', 'Login', ''),
+(619, '2021-06-21 00:16:33', '2021-06-21 00:16:33', 'Super Admin', 0, 'Login Aplikasi ', 'Login', ''),
+(620, '2021-06-21 02:42:25', '2021-06-21 02:42:25', 'Rahmat STS', 5, 'Menghapus Data Trial', 'All data', ''),
+(621, '2021-06-21 02:43:41', '2021-06-21 02:43:41', 'Rahmat STS', 5, 'Menghapus Data Trial', 'All data', ''),
+(622, '2021-06-21 02:43:43', '2021-06-21 02:43:43', 'Rahmat STS', 5, 'Menghapus Data Trial', 'All data', ''),
+(623, '2021-06-21 04:56:17', '2021-06-21 04:56:17', 'Rahmat STS', 0, 'Login Aplikasi ', 'Login', ''),
+(624, '2021-06-22 12:36:59', '2021-06-22 12:36:59', 'Rahmat STS', 0, 'Login Aplikasi ', 'Login', ''),
+(625, '2021-06-23 00:13:31', '2021-06-23 00:13:31', 'Rahmat STS', 0, 'Login Aplikasi ', 'Login', ''),
+(626, '2021-06-23 00:49:01', '2021-06-23 00:49:01', 'Rahmat STS', 0, 'Login Aplikasi ', 'Login', ''),
+(627, '2021-06-23 01:22:50', '2021-06-23 01:22:50', 'Rahmat STS', 0, 'Login Aplikasi ', 'Login', ''),
+(628, '2021-06-23 07:42:49', '2021-06-23 07:42:49', 'Rahmat STS', 0, 'Login Aplikasi ', 'Login', ''),
+(629, '2021-06-24 00:13:39', '2021-06-24 00:13:39', 'Rahmat STS', 0, 'Login Aplikasi ', 'Login', ''),
+(630, '2021-06-25 00:26:51', '2021-06-25 00:26:51', 'Rahmat STS', 0, 'Login Aplikasi ', 'Login', ''),
+(631, '2021-06-25 01:47:01', '2021-06-25 01:47:01', 'Rahmat STS', 0, 'Login Aplikasi ', 'Login', ''),
+(632, '2021-06-25 02:47:59', '2021-06-25 02:47:59', 'Rahmat STS', 0, 'Login Aplikasi ', 'Login', ''),
+(633, '2021-06-25 07:35:44', '2021-06-25 07:35:44', 'Admin', 0, 'Login Aplikasi ', 'Login', ''),
+(634, '2021-06-26 01:12:34', '2021-06-26 01:12:34', 'Rahmat STS', 0, 'Login Aplikasi ', 'Login', ''),
+(635, '2021-06-26 03:48:34', '2021-06-26 03:48:34', 'Rahmat STS', 0, 'Login Aplikasi ', 'Login', ''),
+(636, '2021-06-26 12:36:42', '2021-06-26 12:36:42', 'Rahmat STS', 0, 'Login Aplikasi ', 'Login', ''),
+(637, '2021-06-27 02:13:41', '2021-06-27 02:13:41', 'Rahmat STS', 0, 'Login Aplikasi ', 'Login', ''),
+(638, '2021-06-28 00:12:08', '2021-06-28 00:12:08', 'Rahmat STS', 0, 'Login Aplikasi ', 'Login', ''),
+(639, '2021-06-28 00:12:47', '2021-06-28 00:12:47', 'Rahmat STS', 0, 'Login Aplikasi ', 'Login', ''),
+(640, '2021-06-28 02:43:14', '2021-06-28 02:43:14', 'Super Admin', 0, 'Login Aplikasi ', 'Login', ''),
+(641, '2021-06-28 03:35:38', '2021-06-28 03:35:38', 'Super Admin', 0, 'Login Aplikasi ', 'Login', ''),
+(642, '2021-06-28 04:37:57', '2021-06-28 04:37:57', 'Rahmat STS', 0, 'Login Aplikasi ', 'Login', ''),
+(643, '2021-06-29 00:38:22', '2021-06-29 00:38:22', 'Super Admin', 0, 'Login Aplikasi ', 'Login', ''),
+(644, '2021-06-29 00:45:41', '2021-06-29 00:45:41', 'Rahmat STS', 0, 'Login Aplikasi ', 'Login', ''),
+(645, '2021-06-29 06:56:43', '2021-06-29 06:56:43', 'Super Admin', 0, 'Login Aplikasi ', 'Login', ''),
+(646, '2021-06-30 00:37:52', '2021-06-30 00:37:52', 'Super Admin', 0, 'Login Aplikasi ', 'Login', ''),
+(647, '2021-06-30 06:55:55', '2021-06-30 06:55:55', 'Super Admin', 0, 'Login Aplikasi ', 'Login', ''),
+(648, '2021-07-01 00:16:14', '2021-07-01 00:16:14', 'Super Admin', 0, 'Login Aplikasi ', 'Login', ''),
+(649, '2021-07-02 00:06:46', '2021-07-02 00:06:46', 'Super Admin', 0, 'Login Aplikasi ', 'Login', ''),
+(650, '2021-07-02 08:05:37', '2021-07-02 08:05:37', 'Super Admin', 0, 'Login Aplikasi ', 'Login', ''),
+(651, '2021-07-02 12:30:02', '2021-07-02 12:30:02', 'Super Admin', 0, 'Login Aplikasi ', 'Login', ''),
+(652, '2021-07-03 04:43:34', '2021-07-03 04:43:34', 'Super Admin', 0, 'Login Aplikasi ', 'Login', ''),
+(653, '2021-07-04 00:08:23', '2021-07-04 00:08:23', 'Super Admin', 0, 'Login Aplikasi ', 'Login', ''),
+(654, '2021-07-04 06:10:30', '2021-07-04 06:10:30', 'Super Admin', 0, 'Login Aplikasi ', 'Login', '');
 
 -- --------------------------------------------------------
 
@@ -260,12 +314,70 @@ INSERT INTO `tabel_menu` (`id`, `nama_menu`, `link`, `icon`, `is_main_menu`) VAL
 (12, 'Registrasi Diterima', 'registrasiditerima', 'fa fa-check', 0),
 (13, 'Daftar Sample', 'daftarsample', 'fa fa-list', 0),
 (14, 'Daftar Antrian', 'daftarantrian', 'fa fa-list-ol', 0),
-(15, 'Daftar Batch', 'daftarantrian', 'fa fa-table', 0),
+(15, 'Daftar Batch', 'daftarbatch', 'fa fa-table', 0),
 (19, 'Download File', 'download', 'fa fa-download', 0),
 (20, 'User Management', 'user', 'fa fa-id-badge', 0),
 (21, 'Menu', 'menu', 'fa fa-list', 0),
 (70, 'Data Monitoring Admin', 'dataadmin', 'fa fa-id-card', 0),
 (71, 'Biodata', 'biodata', 'fa fa-address-card', 0);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `table_batch`
+--
+
+CREATE TABLE `table_batch` (
+  `kode` int(10) NOT NULL,
+  `id_reg` varchar(20) NOT NULL,
+  `no_sample` varchar(20) NOT NULL,
+  `no_urut` int(30) NOT NULL,
+  `batch` varchar(10) NOT NULL,
+  `id_labor` int(10) NOT NULL,
+  `no_pos` int(10) NOT NULL,
+  `date_sampling` varchar(20) NOT NULL,
+  `fn` varchar(20) NOT NULL,
+  `plot` varchar(20) NOT NULL,
+  `kode_sample` varchar(20) NOT NULL,
+  `pengirim` varchar(200) NOT NULL DEFAULT '0',
+  `no_permintaan` varchar(200) NOT NULL,
+  `tgl_surat` date NOT NULL,
+  `kategori` enum('Trial','Komersial','Studi Kasus') NOT NULL,
+  `urgensi` enum('Normal','High Priority') NOT NULL,
+  `jenis` varchar(30) NOT NULL,
+  `lokasi` varchar(30) NOT NULL,
+  `jumlah` int(11) NOT NULL DEFAULT '0',
+  `permintaan` varchar(50) NOT NULL DEFAULT '',
+  `tgl_kirim` date NOT NULL,
+  `division` varchar(50) NOT NULL,
+  `complex` varchar(50) NOT NULL,
+  `block` varchar(50) NOT NULL,
+  `topography` varchar(50) NOT NULL,
+  `fert` varchar(50) NOT NULL,
+  `soil_type` varchar(50) NOT NULL,
+  `leader_lsu` varchar(50) NOT NULL,
+  `group_lsu` varchar(50) NOT NULL,
+  `sample_code` varchar(50) NOT NULL,
+  `lab_code` varchar(50) NOT NULL,
+  `sample_date` varchar(15) NOT NULL,
+  `frond_no` varchar(50) NOT NULL,
+  `n` varchar(50) DEFAULT NULL,
+  `p` varchar(50) DEFAULT NULL,
+  `k` varchar(50) DEFAULT NULL,
+  `mg` varchar(50) DEFAULT NULL,
+  `ca` varchar(50) DEFAULT NULL,
+  `mn` varchar(50) DEFAULT NULL,
+  `b` varchar(50) DEFAULT NULL,
+  `zn` varchar(50) DEFAULT NULL,
+  `cu` varchar(50) DEFAULT NULL,
+  `ci` varchar(50) DEFAULT NULL,
+  `fe` varchar(50) DEFAULT NULL,
+  `na` varchar(50) DEFAULT NULL,
+  `ref_rfc` varchar(50) NOT NULL,
+  `ref_lab` varchar(50) NOT NULL,
+  `berkas` text,
+  `status` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -276,6 +388,11 @@ INSERT INTO `tabel_menu` (`id`, `nama_menu`, `link`, `icon`, `is_main_menu`) VAL
 CREATE TABLE `table_sample` (
   `kode` int(10) NOT NULL,
   `id_reg` varchar(20) NOT NULL,
+  `no_sample` varchar(20) NOT NULL,
+  `date_sampling` varchar(20) NOT NULL,
+  `fn` varchar(20) NOT NULL,
+  `plot` varchar(20) NOT NULL,
+  `kode_sample` varchar(20) NOT NULL,
   `id_labor` varchar(30) NOT NULL,
   `pengirim` varchar(200) NOT NULL DEFAULT '0',
   `no_permintaan` varchar(200) NOT NULL,
@@ -297,25 +414,85 @@ CREATE TABLE `table_sample` (
   `group_lsu` varchar(50) NOT NULL,
   `sample_code` varchar(50) NOT NULL,
   `lab_code` varchar(50) NOT NULL,
-  `sample_date` varchar(50) NOT NULL,
+  `sample_date` varchar(15) NOT NULL,
   `frond_no` varchar(50) NOT NULL,
-  `n` varchar(50) NOT NULL,
-  `p` varchar(50) NOT NULL,
-  `k` varchar(50) NOT NULL,
-  `mg` varchar(50) NOT NULL,
-  `ca` varchar(50) NOT NULL,
-  `mn` varchar(50) NOT NULL,
-  `b` varchar(50) NOT NULL,
-  `zn` varchar(50) NOT NULL,
-  `cu` varchar(50) NOT NULL,
-  `ci` varchar(50) NOT NULL,
-  `fe` varchar(50) NOT NULL,
-  `na` varchar(50) NOT NULL,
+  `n` varchar(50) DEFAULT NULL,
+  `p` varchar(50) DEFAULT NULL,
+  `k` varchar(50) DEFAULT NULL,
+  `mg` varchar(50) DEFAULT NULL,
+  `ca` varchar(50) DEFAULT NULL,
+  `mn` varchar(50) DEFAULT NULL,
+  `b` varchar(50) DEFAULT NULL,
+  `zn` varchar(50) DEFAULT NULL,
+  `cu` varchar(50) DEFAULT NULL,
+  `ci` varchar(50) DEFAULT NULL,
+  `fe` varchar(50) DEFAULT NULL,
+  `na` varchar(50) DEFAULT NULL,
   `ref_rfc` varchar(50) NOT NULL,
   `ref_lab` varchar(50) NOT NULL,
   `berkas` text,
   `status` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `table_sample`
+--
+
+INSERT INTO `table_sample` (`kode`, `id_reg`, `no_sample`, `date_sampling`, `fn`, `plot`, `kode_sample`, `id_labor`, `pengirim`, `no_permintaan`, `tgl_surat`, `kategori`, `urgensi`, `jenis`, `lokasi`, `jumlah`, `permintaan`, `tgl_kirim`, `division`, `complex`, `block`, `topography`, `fert`, `soil_type`, `leader_lsu`, `group_lsu`, `sample_code`, `lab_code`, `sample_date`, `frond_no`, `n`, `p`, `k`, `mg`, `ca`, `mn`, `b`, `zn`, `cu`, `ci`, `fe`, `na`, `ref_rfc`, `ref_lab`, `berkas`, `status`) VALUES
+(18291, 'STS2021-00005', '1', '14-05-2021', 'HNAE1C-01/1', '1/HNAE1C-01/1', '', '2021000001', 'Ichsan Rezky .P', '120/LSU', '2021-06-05', 'Komersial', 'Normal', 'LSU', 'HNAE', 27, '', '2021-06-17', 'HNAE1', 'HNAE95D03', 'HNAE1C-01', 'D', '060101010101/Replanting', '2/S2-MIN', '1', '1', '1', '0', '14-05-2021', '17', 'x', 'x', 'x', 'x', 'x', NULL, 'x', NULL, NULL, 'x', NULL, NULL, '036/RFC SMARTRI-HNAE/LSU.C/V/2021', '-', 'STS2021-00005036 Surat Permintaan Analisa LSU HNAE.xls', 'Menunggu Konfirmasi Batch'),
+(18292, 'STS2021-00005', '2', '14-05-2021', 'HNAE1B-01/9', '2/HNAE1B-01/9', '', '2021000002', 'Ichsan Rezky .P', '120/LSU', '2021-06-05', 'Komersial', 'Normal', 'LSU', 'HNAE', 27, '', '2021-06-17', 'HNAE1', 'HNAE96D22', 'HNAE1B-01', 'D', '010204020202/Anorganic-by Fertilizer Spreader', '3/S3-MIN', '1', '1', '9', '0', '14-05-2021', '17', 'x', 'x', 'x', 'x', 'x', NULL, 'x', NULL, NULL, 'x', NULL, NULL, '036/RFC SMARTRI-HNAE/LSU.C/V/2021', '-', 'STS2021-00005036 Surat Permintaan Analisa LSU HNAE.xls', 'Menunggu Konfirmasi Batch'),
+(18293, 'STS2021-00005', '3', '17-04-2021', 'HNAE1B-04/10', '3/HNAE1B-04/10', '', '2021000003', 'Ichsan Rezky .P', '120/LSU', '2021-06-05', 'Komersial', 'Normal', 'LSU', 'HNAE', 27, '', '2021-06-17', 'HNAE1', 'HNAE96D22', 'HNAE1B-04', 'D', '010204020202/Anorganic-by Fertilizer Spreader', '2/S2-MIN', '1', '1', '10', '0', '17-04-2021', '17', 'x', 'x', 'x', 'x', 'x', NULL, 'x', NULL, NULL, 'x', NULL, NULL, '036/RFC SMARTRI-HNAE/LSU.C/V/2021', '-', 'STS2021-00005036 Surat Permintaan Analisa LSU HNAE.xls', 'Menunggu Konfirmasi Batch'),
+(18294, 'STS2021-00005', '4', '20-04-2021', 'HNAE1B-06/11', '4/HNAE1B-06/11', '', '2021000004', 'Ichsan Rezky .P', '120/LSU', '2021-06-05', 'Komersial', 'Normal', 'LSU', 'HNAE', 27, '', '2021-06-17', 'HNAE1', 'HNAE96D22', 'HNAE1B-06', 'D', '010204020202/Anorganic-by Fertilizer Spreader', '2/S2-MIN', '1', '1', '11', '0', '20-04-2021', '17', 'x', 'x', 'x', 'x', 'x', NULL, 'x', NULL, NULL, 'x', NULL, NULL, '036/RFC SMARTRI-HNAE/LSU.C/V/2021', '-', 'STS2021-00005036 Surat Permintaan Analisa LSU HNAE.xls', 'Menunggu Konfirmasi Batch'),
+(18295, 'STS2021-00005', '5', '07-04-2021', 'HNAE2E-01/12', '5/HNAE2E-01/12', '', '2021000005', 'Ichsan Rezky .P', '120/LSU', '2021-06-05', 'Komersial', 'Normal', 'LSU', 'HNAE', 27, '', '2021-06-17', 'HNAE2', 'HNAE96D05', 'HNAE2E-01', 'D', '010204020202/Anorganic-by Fertilizer Spreader', '2/S2-MIN', '1', '12', '12', '0', '07-04-2021', '17', 'x', 'x', 'x', 'x', 'x', NULL, 'x', NULL, NULL, 'x', NULL, NULL, '036/RFC SMARTRI-HNAE/LSU.C/V/2021', '-', 'STS2021-00005036 Surat Permintaan Analisa LSU HNAE.xls', 'Menunggu Konfirmasi Batch'),
+(18296, 'STS2021-00005', '6', '15-04-2021', 'HNAE2G-03/16', '6/HNAE2G-03/16', '', '2021000006', 'Ichsan Rezky .P', '120/LSU', '2021-06-05', 'Komersial', 'Normal', 'LSU', 'HNAE', 27, '', '2021-06-17', 'HNAE2', 'HNAE96D23', 'HNAE2G-03', 'D', '010202020202/Anorganic-Manual spread', '2/S2-MIN', '1', '16', '16', '0', '15-04-2021', '17', 'x', 'x', 'x', 'x', 'x', NULL, 'x', NULL, NULL, 'x', NULL, NULL, '036/RFC SMARTRI-HNAE/LSU.C/V/2021', '-', 'STS2021-00005036 Surat Permintaan Analisa LSU HNAE.xls', 'Menunggu Konfirmasi Batch'),
+(18297, 'STS2021-00005', '7', '17-04-2021', 'HNAE2H-01/18', '7/HNAE2H-01/18', '', '2021000007', 'Ichsan Rezky .P', '120/LSU', '2021-06-05', 'Komersial', 'Normal', 'LSU', 'HNAE', 27, '', '2021-06-17', 'HNAE2', 'HNAE96D23', 'HNAE2H-01', 'D', '010204020202/Anorganic-by Fertilizer Spreader', '2/S2-MIN', '1', '18', '18', '0', '17-04-2021', '17', 'x', 'x', 'x', 'x', 'x', NULL, 'x', NULL, NULL, 'x', NULL, NULL, '036/RFC SMARTRI-HNAE/LSU.C/V/2021', '-', 'STS2021-00005036 Surat Permintaan Analisa LSU HNAE.xls', 'Menunggu Konfirmasi Batch'),
+(18298, 'STS2021-00005', '8', '19-04-2021', 'HNAE2H-03/19', '8/HNAE2H-03/19', '', '2021000008', 'Ichsan Rezky .P', '120/LSU', '2021-06-05', 'Komersial', 'Normal', 'LSU', 'HNAE', 27, '', '2021-06-17', 'HNAE2', 'HNAE96D23', 'HNAE2H-03', 'D', '010204020202/Anorganic-by Fertilizer Spreader', '2/S2-MIN', '1', '19', '19', '0', '19-04-2021', '17', 'x', 'x', 'x', 'x', 'x', NULL, 'x', NULL, NULL, 'x', NULL, NULL, '036/RFC SMARTRI-HNAE/LSU.C/V/2021', '-', 'STS2021-00005036 Surat Permintaan Analisa LSU HNAE.xls', 'Menunggu Konfirmasi Batch'),
+(18299, 'STS2021-00005', '9', '17-04-2021', 'HNAE3J-05/23', '9/HNAE3J-05/23', '', '2021000009', 'Ichsan Rezky .P', '120/LSU', '2021-06-05', 'Komersial', 'Normal', 'LSU', 'HNAE', 27, '', '2021-06-17', 'HNAE3', 'HNAE96D12', 'HNAE3J-05', 'D', '010204020202/Anorganic-by Fertilizer Spreader', '2/S2-MIN', '1', '23', '23', '0', '17-04-2021', '17', 'x', 'x', 'x', 'x', 'x', NULL, 'x', NULL, NULL, 'x', NULL, NULL, '036/RFC SMARTRI-HNAE/LSU.C/V/2021', '-', 'STS2021-00005036 Surat Permintaan Analisa LSU HNAE.xls', 'Menunggu Konfirmasi Batch'),
+(18300, 'STS2021-00005', '10', '20-04-2021', 'HNAE3K-05/24', '10/HNAE3K-05/24', '', '2021000010', 'Ichsan Rezky .P', '120/LSU', '2021-06-05', 'Komersial', 'Normal', 'LSU', 'HNAE', 27, '', '2021-06-17', 'HNAE3', 'HNAE96D12', 'HNAE3K-05', 'D', '010204020202/Anorganic-by Fertilizer Spreader', '2/S2-MIN', '1', '24', '24', '0', '20-04-2021', '17', 'x', 'x', 'x', 'x', 'x', NULL, 'x', NULL, NULL, 'x', NULL, NULL, '036/RFC SMARTRI-HNAE/LSU.C/V/2021', '-', 'STS2021-00005036 Surat Permintaan Analisa LSU HNAE.xls', 'Menunggu Konfirmasi Batch'),
+(18301, 'STS2021-00005', '11', '14-04-2021', 'HNAE4A-08/37', '11/HNAE4A-08/37', '', '2021000011', 'Ichsan Rezky .P', '120/LSU', '2021-06-05', 'Komersial', 'Normal', 'LSU', 'HNAE', 27, '', '2021-06-17', 'HNAE4', 'HNAE96D13', 'HNAE4A-08', 'D', '010204020202/Anorganic-by Fertilizer Spreader', '2/S2-MIN', '1', '37', '37', '0', '14-04-2021', '17', 'x', 'x', 'x', 'x', 'x', NULL, 'x', NULL, NULL, 'x', NULL, NULL, '036/RFC SMARTRI-HNAE/LSU.C/V/2021', '-', 'STS2021-00005036 Surat Permintaan Analisa LSU HNAE.xls', 'Menunggu Konfirmasi Batch'),
+(18302, 'STS2021-00005', '12', '15-04-2021', 'HNAE4B-09/38', '12/HNAE4B-09/38', '', '2021000012', 'Ichsan Rezky .P', '120/LSU', '2021-06-05', 'Komersial', 'Normal', 'LSU', 'HNAE', 27, '', '2021-06-17', 'HNAE4', 'HNAE96D13', 'HNAE4B-09', 'D', '010204020202/Anorganic-by Fertilizer Spreader', '2/S2-MIN', '1', '38', '38', '0', '15-04-2021', '17', 'x', 'x', 'x', 'x', 'x', NULL, 'x', NULL, NULL, 'x', NULL, NULL, '036/RFC SMARTRI-HNAE/LSU.C/V/2021', '-', 'STS2021-00005036 Surat Permintaan Analisa LSU HNAE.xls', 'Menunggu Konfirmasi Batch'),
+(18303, 'STS2021-00005', '13', '16-04-2021', 'HNAE4C-07/39', '13/HNAE4C-07/39', '', '2021000013', 'Ichsan Rezky .P', '120/LSU', '2021-06-05', 'Komersial', 'Normal', 'LSU', 'HNAE', 27, '', '2021-06-17', 'HNAE4', 'HNAE96D14', 'HNAE4C-07', 'D', '010204020202/Anorganic-by Fertilizer Spreader', '2/S2-MIN', '1', '39', '39', '0', '16-04-2021', '17', 'x', 'x', 'x', 'x', 'x', NULL, 'x', NULL, NULL, 'x', NULL, NULL, '036/RFC SMARTRI-HNAE/LSU.C/V/2021', '-', 'STS2021-00005036 Surat Permintaan Analisa LSU HNAE.xls', 'Menunggu Konfirmasi Batch'),
+(18304, 'STS2021-00005', '14', '16-04-2021', 'HNAE4D-08/41', '14/HNAE4D-08/41', '', '2021000014', 'Ichsan Rezky .P', '120/LSU', '2021-06-05', 'Komersial', 'Normal', 'LSU', 'HNAE', 27, '', '2021-06-17', 'HNAE4', 'HNAE96D14', 'HNAE4D-08', 'D', '010202020202/Anorganic-Manual spread', '3/S3-MIN', '1', '41', '41', '0', '16-04-2021', '17', 'x', 'x', 'x', 'x', 'x', NULL, 'x', NULL, NULL, 'x', NULL, NULL, '036/RFC SMARTRI-HNAE/LSU.C/V/2021', '-', 'STS2021-00005036 Surat Permintaan Analisa LSU HNAE.xls', 'Menunggu Konfirmasi Batch'),
+(18305, 'STS2021-00005', '15', '20-04-2021', 'HNAE4D-10/42', '15/HNAE4D-10/42', '', '2021000015', 'Ichsan Rezky .P', '120/LSU', '2021-06-05', 'Komersial', 'Normal', 'LSU', 'HNAE', 27, '', '2021-06-17', 'HNAE4', 'HNAE96D14', 'HNAE4D-10', 'D', '010204020202/Anorganic-by Fertilizer Spreader', '2/S2-MIN', '1', '42', '42', '0', '20-04-2021', '17', 'x', 'x', 'x', 'x', 'x', NULL, 'x', NULL, NULL, 'x', NULL, NULL, '036/RFC SMARTRI-HNAE/LSU.C/V/2021', '-', 'STS2021-00005036 Surat Permintaan Analisa LSU HNAE.xls', 'Menunggu Konfirmasi Batch'),
+(18306, 'STS2021-00005', '16', '17-04-2021', 'HNAE4C-12/43', '16/HNAE4C-12/43', '', '2021000016', 'Ichsan Rezky .P', '120/LSU', '2021-06-05', 'Komersial', 'Normal', 'LSU', 'HNAE', 27, '', '2021-06-17', 'HNAE4', 'HNAE97D15', 'HNAE4C-12', 'D', '010304040403/Anorganic-Fertilizer Spreader&EFB-Ext', '9/SANDY SOIL', '1', '43', '43', '0', '17-04-2021', '17', 'x', 'x', 'x', 'x', 'x', 'x', 'x', 'x', 'x', 'x', 'x', NULL, '036/RFC SMARTRI-HNAE/LSU.C/V/2021', '-', 'STS2021-00005036 Surat Permintaan Analisa LSU HNAE.xls', 'Menunggu Konfirmasi Batch'),
+(18307, 'STS2021-00005', '17', '21-04-2021', 'HNAE5E-10/54', '17/HNAE5E-10/54', '', '2021000017', 'Ichsan Rezky .P', '120/LSU', '2021-06-05', 'Komersial', 'Normal', 'LSU', 'HNAE', 27, '', '2021-06-17', 'HNAE5', 'HNAE97D16', 'HNAE5E-10', 'D', '060101010101/Replanting', '2/S2-MIN', '1', '54', '54', '0', '21-04-2021', '17', 'x', 'x', 'x', 'x', 'x', NULL, 'x', NULL, NULL, 'x', NULL, NULL, '036/RFC SMARTRI-HNAE/LSU.C/V/2021', '-', 'STS2021-00005036 Surat Permintaan Analisa LSU HNAE.xls', 'Menunggu Konfirmasi Batch'),
+(18308, 'STS2021-00005', '18', '19-04-2021', 'HNAE5F-13/55', '18/HNAE5F-13/55', '', '2021000018', 'Ichsan Rezky .P', '120/LSU', '2021-06-05', 'Komersial', 'Normal', 'LSU', 'HNAE', 27, '', '2021-06-17', 'HNAE5', 'HNAE97D16', 'HNAE5F-13', 'D', '060101010101/Replanting', '9/SANDY SOIL', '1', '55', '55', '0', '19-04-2021', '17', 'x', 'x', 'x', 'x', 'x', 'x', 'x', 'x', 'x', 'x', 'x', NULL, '036/RFC SMARTRI-HNAE/LSU.C/V/2021', '-', 'STS2021-00005036 Surat Permintaan Analisa LSU HNAE.xls', 'Menunggu Konfirmasi Batch'),
+(18309, 'STS2021-00005', '19', '19-04-2021', 'HNAE5E-14/52', '19/HNAE5E-14/52', '', '2021000019', 'Ichsan Rezky .P', '120/LSU', '2021-06-05', 'Komersial', 'Normal', 'LSU', 'HNAE', 27, '', '2021-06-17', 'HNAE5', 'HNAE97D18', 'HNAE5E-14', 'D', '010204020202/Anorganic-by Fertilizer Spreader', '2/S2-MIN', '1', '52', '52', '0', '19-04-2021', '17', 'x', 'x', 'x', 'x', 'x', NULL, 'x', NULL, NULL, 'x', NULL, NULL, '036/RFC SMARTRI-HNAE/LSU.C/V/2021', '-', 'STS2021-00005036 Surat Permintaan Analisa LSU HNAE.xls', 'Menunggu Konfirmasi Batch'),
+(18310, 'STS2021-00005', '20', '15-04-2021', 'HNAE5F-15/57', '20/HNAE5F-15/57', '', '2021000020', 'Ichsan Rezky .P', '120/LSU', '2021-06-05', 'Komersial', 'Normal', 'LSU', 'HNAE', 27, '', '2021-06-17', 'HNAE5', 'HNAE97D18', 'HNAE5F-15', 'D', '010304040403/Anorganic-Fertilizer Spreader&EFB-Ext', '9/SANDY SOIL', '1', '57', '57', '0', '15-04-2021', '17', 'x', 'x', 'x', 'x', 'x', 'x', 'x', 'x', 'x', 'x', 'x', NULL, '036/RFC SMARTRI-HNAE/LSU.C/V/2021', '-', 'STS2021-00005036 Surat Permintaan Analisa LSU HNAE.xls', 'Menunggu Konfirmasi Batch'),
+(18311, 'STS2021-00005', '21', '16-04-2021', 'HNAE5F-16/58', '21/HNAE5F-16/58', '', '2021000021', 'Ichsan Rezky .P', '120/LSU', '2021-06-05', 'Komersial', 'Normal', 'LSU', 'HNAE', 27, '', '2021-06-17', 'HNAE5', 'HNAE97D18', 'HNAE5F-16', 'D', '010304040403/Anorganic-Fertilizer Spreader&EFB-Ext', '9/SANDY SOIL', '1', '58', '58', '0', '16-04-2021', '17', 'x', 'x', 'x', 'x', 'x', 'x', 'x', 'x', 'x', 'x', 'x', NULL, '036/RFC SMARTRI-HNAE/LSU.C/V/2021', '-', 'STS2021-00005036 Surat Permintaan Analisa LSU HNAE.xls', 'Menunggu Konfirmasi Batch'),
+(18312, 'STS2021-00005', '22', '17-04-2021', 'HNAE5G-15/59', '22/HNAE5G-15/59', '', '2021000022', 'Ichsan Rezky .P', '120/LSU', '2021-06-05', 'Komersial', 'Normal', 'LSU', 'HNAE', 27, '', '2021-06-17', 'HNAE5', 'HNAE97D18', 'HNAE5G-15', 'D', '010304040403/Anorganic-Fertilizer Spreader&EFB-Ext', '9/SANDY SOIL', '1', '59', '59', '0', '17-04-2021', '17', 'x', 'x', 'x', 'x', 'x', 'x', 'x', 'x', 'x', 'x', 'x', NULL, '036/RFC SMARTRI-HNAE/LSU.C/V/2021', '-', 'STS2021-00005036 Surat Permintaan Analisa LSU HNAE.xls', 'Menunggu Konfirmasi Batch'),
+(18313, 'STS2021-00005', '23', '14-04-2021', 'HNAE6J-09/63', '23/HNAE6J-09/63', '', '2021000023', 'Ichsan Rezky .P', '120/LSU', '2021-06-05', 'Komersial', 'Normal', 'LSU', 'HNAE', 27, '', '2021-06-17', 'HNAE6', 'HNAE96D20', 'HNAE6J-09', 'D', '010204020202/Anorganic-by Fertilizer Spreader', '2/S2-MIN', '1', '63', '63', '0', '14-04-2021', '17', 'x', 'x', 'x', 'x', 'x', NULL, 'x', NULL, NULL, 'x', NULL, NULL, '036/RFC SMARTRI-HNAE/LSU.C/V/2021', '-', 'STS2021-00005036 Surat Permintaan Analisa LSU HNAE.xls', 'Menunggu Konfirmasi Batch'),
+(18314, 'STS2021-00005', '24', '15-04-2021', 'HNAE6G-07/64', '24/HNAE6G-07/64', '', '2021000024', 'Ichsan Rezky .P', '120/LSU', '2021-06-05', 'Komersial', 'Normal', 'LSU', 'HNAE', 27, '', '2021-06-17', 'HNAE6', 'HNAE97D19', 'HNAE6G-07', 'D', '010204020202/Anorganic-by Fertilizer Spreader', '2/S2-MIN', '1', '64', '64', '0', '15-04-2021', '17', 'x', 'x', 'x', 'x', 'x', NULL, 'x', NULL, NULL, 'x', NULL, NULL, '036/RFC SMARTRI-HNAE/LSU.C/V/2021', '-', 'STS2021-00005036 Surat Permintaan Analisa LSU HNAE.xls', 'Menunggu Konfirmasi Batch'),
+(18315, 'STS2021-00005', '25', '16-04-2021', 'HNAE6G-09/65', '25/HNAE6G-09/65', '', '2021000025', 'Ichsan Rezky .P', '120/LSU', '2021-06-05', 'Komersial', 'Normal', 'LSU', 'HNAE', 27, '', '2021-06-17', 'HNAE6', 'HNAE97D19', 'HNAE6G-09', 'D', '010304040403/Anorganic-Fertilizer Spreader&EFB-Ext', '9/SANDY SOIL', '1', '65', '65', '0', '16-04-2021', '17', 'x', 'x', 'x', 'x', 'x', 'x', 'x', 'x', 'x', 'x', 'x', NULL, '036/RFC SMARTRI-HNAE/LSU.C/V/2021', '-', 'STS2021-00005036 Surat Permintaan Analisa LSU HNAE.xls', 'Menunggu Konfirmasi Batch'),
+(18316, 'STS2021-00005', '26', '17-04-2021', 'HNAE6H-08/66', '26/HNAE6H-08/66', '', '2021000026', 'Ichsan Rezky .P', '120/LSU', '2021-06-05', 'Komersial', 'Normal', 'LSU', 'HNAE', 27, '', '2021-06-17', 'HNAE6', 'HNAE97D19', 'HNAE6H-08', 'D', '010204020202/Anorganic-by Fertilizer Spreader', '2/S2-MIN', '1', '66', '66', '0', '17-04-2021', '17', 'x', 'x', 'x', 'x', 'x', NULL, 'x', NULL, NULL, 'x', NULL, NULL, '036/RFC SMARTRI-HNAE/LSU.C/V/2021', '-', 'STS2021-00005036 Surat Permintaan Analisa LSU HNAE.xls', 'Menunggu Konfirmasi Batch'),
+(18317, 'STS2021-00005', '27', '20-04-2021', 'HNAE6H-09/67', '27/HNAE6H-09/67', '', '2021000027', 'Ichsan Rezky .P', '120/LSU', '2021-06-05', 'Komersial', 'Normal', 'LSU', 'HNAE', 27, '', '2021-06-17', 'HNAE6', 'HNAE97D19', 'HNAE6H-09', 'D', '010204020202/Anorganic-by Fertilizer Spreader', '2/S2-MIN', '1', '67', '67', '0', '20-04-2021', '17', 'x', 'x', 'x', 'x', 'x', NULL, 'x', NULL, NULL, 'x', NULL, NULL, '036/RFC SMARTRI-HNAE/LSU.C/V/2021', '-', 'STS2021-00005036 Surat Permintaan Analisa LSU HNAE.xls', 'Menunggu Konfirmasi Batch'),
+(18318, 'STS2021-00005', '28', '14-05-2021', 'HNAE1C-01/1', '28/HNAE1C-01/1', '', '2021000028', 'Ichsan Rezky .P', '120/LSU', '2021-06-05', 'Komersial', 'Normal', 'LSU', 'HNAE', 27, '', '2021-06-17', 'HNAE1', 'HNAE95D03', 'HNAE1C-01', 'D', '060101010101/Replanting', '2/S2-MIN', '1', '1', '1', '0', '14-05-2021', '17', 'x', 'x', 'x', 'x', 'x', NULL, 'x', NULL, NULL, 'x', NULL, NULL, '036/RFC SMARTRI-HNAE/LSU.C/V/2021', '-', 'STS2021-00005036 Surat Permintaan Analisa LSU HNAE.xls', 'Menunggu Konfirmasi Batch'),
+(18319, 'STS2021-00005', '29', '14-05-2021', 'HNAE1B-01/9', '29/HNAE1B-01/9', '', '2021000029', 'Ichsan Rezky .P', '120/LSU', '2021-06-05', 'Komersial', 'Normal', 'LSU', 'HNAE', 27, '', '2021-06-17', 'HNAE1', 'HNAE96D22', 'HNAE1B-01', 'D', '010204020202/Anorganic-by Fertilizer Spreader', '3/S3-MIN', '1', '1', '9', '0', '14-05-2021', '17', 'x', 'x', 'x', 'x', 'x', NULL, 'x', NULL, NULL, 'x', NULL, NULL, '036/RFC SMARTRI-HNAE/LSU.C/V/2021', '-', 'STS2021-00005036 Surat Permintaan Analisa LSU HNAE.xls', 'Menunggu Konfirmasi Batch'),
+(18320, 'STS2021-00005', '30', '17-04-2021', 'HNAE1B-04/10', '30/HNAE1B-04/10', '', '2021000030', 'Ichsan Rezky .P', '120/LSU', '2021-06-05', 'Komersial', 'Normal', 'LSU', 'HNAE', 27, '', '2021-06-17', 'HNAE1', 'HNAE96D22', 'HNAE1B-04', 'D', '010204020202/Anorganic-by Fertilizer Spreader', '2/S2-MIN', '1', '1', '10', '0', '17-04-2021', '17', 'x', 'x', 'x', 'x', 'x', NULL, 'x', NULL, NULL, 'x', NULL, NULL, '036/RFC SMARTRI-HNAE/LSU.C/V/2021', '-', 'STS2021-00005036 Surat Permintaan Analisa LSU HNAE.xls', 'Menunggu Konfirmasi Batch'),
+(18321, 'STS2021-00005', '31', '20-04-2021', 'HNAE1B-06/11', '31/HNAE1B-06/11', '', '2021000031', 'Ichsan Rezky .P', '120/LSU', '2021-06-05', 'Komersial', 'Normal', 'LSU', 'HNAE', 27, '', '2021-06-17', 'HNAE1', 'HNAE96D22', 'HNAE1B-06', 'D', '010204020202/Anorganic-by Fertilizer Spreader', '2/S2-MIN', '1', '1', '11', '0', '20-04-2021', '17', 'x', 'x', 'x', 'x', 'x', NULL, 'x', NULL, NULL, 'x', NULL, NULL, '036/RFC SMARTRI-HNAE/LSU.C/V/2021', '-', 'STS2021-00005036 Surat Permintaan Analisa LSU HNAE.xls', 'Menunggu Konfirmasi Batch'),
+(18322, 'STS2021-00005', '32', '07-04-2021', 'HNAE2E-01/12', '32/HNAE2E-01/12', '', '2021000032', 'Ichsan Rezky .P', '120/LSU', '2021-06-05', 'Komersial', 'Normal', 'LSU', 'HNAE', 27, '', '2021-06-17', 'HNAE2', 'HNAE96D05', 'HNAE2E-01', 'D', '010204020202/Anorganic-by Fertilizer Spreader', '2/S2-MIN', '1', '12', '12', '0', '07-04-2021', '17', 'x', 'x', 'x', 'x', 'x', NULL, 'x', NULL, NULL, 'x', NULL, NULL, '036/RFC SMARTRI-HNAE/LSU.C/V/2021', '-', 'STS2021-00005036 Surat Permintaan Analisa LSU HNAE.xls', 'Menunggu Konfirmasi Batch'),
+(18323, 'STS2021-00005', '33', '15-04-2021', 'HNAE2G-03/16', '33/HNAE2G-03/16', '', '2021000033', 'Ichsan Rezky .P', '120/LSU', '2021-06-05', 'Komersial', 'Normal', 'LSU', 'HNAE', 27, '', '2021-06-17', 'HNAE2', 'HNAE96D23', 'HNAE2G-03', 'D', '010202020202/Anorganic-Manual spread', '2/S2-MIN', '1', '16', '16', '0', '15-04-2021', '17', 'x', 'x', 'x', 'x', 'x', NULL, 'x', NULL, NULL, 'x', NULL, NULL, '036/RFC SMARTRI-HNAE/LSU.C/V/2021', '-', 'STS2021-00005036 Surat Permintaan Analisa LSU HNAE.xls', 'Menunggu Konfirmasi Batch'),
+(18324, 'STS2021-00005', '34', '17-04-2021', 'HNAE2H-01/18', '34/HNAE2H-01/18', '', '2021000034', 'Ichsan Rezky .P', '120/LSU', '2021-06-05', 'Komersial', 'Normal', 'LSU', 'HNAE', 27, '', '2021-06-17', 'HNAE2', 'HNAE96D23', 'HNAE2H-01', 'D', '010204020202/Anorganic-by Fertilizer Spreader', '2/S2-MIN', '1', '18', '18', '0', '17-04-2021', '17', 'x', 'x', 'x', 'x', 'x', NULL, 'x', NULL, NULL, 'x', NULL, NULL, '036/RFC SMARTRI-HNAE/LSU.C/V/2021', '-', 'STS2021-00005036 Surat Permintaan Analisa LSU HNAE.xls', 'Menunggu Konfirmasi Batch'),
+(18325, 'STS2021-00005', '35', '19-04-2021', 'HNAE2H-03/19', '35/HNAE2H-03/19', '', '2021000035', 'Ichsan Rezky .P', '120/LSU', '2021-06-05', 'Komersial', 'Normal', 'LSU', 'HNAE', 27, '', '2021-06-17', 'HNAE2', 'HNAE96D23', 'HNAE2H-03', 'D', '010204020202/Anorganic-by Fertilizer Spreader', '2/S2-MIN', '1', '19', '19', '0', '19-04-2021', '17', 'x', 'x', 'x', 'x', 'x', NULL, 'x', NULL, NULL, 'x', NULL, NULL, '036/RFC SMARTRI-HNAE/LSU.C/V/2021', '-', 'STS2021-00005036 Surat Permintaan Analisa LSU HNAE.xls', 'Menunggu Konfirmasi Batch'),
+(18326, 'STS2021-00005', '36', '17-04-2021', 'HNAE3J-05/23', '36/HNAE3J-05/23', '', '2021000036', 'Ichsan Rezky .P', '120/LSU', '2021-06-05', 'Komersial', 'Normal', 'LSU', 'HNAE', 27, '', '2021-06-17', 'HNAE3', 'HNAE96D12', 'HNAE3J-05', 'D', '010204020202/Anorganic-by Fertilizer Spreader', '2/S2-MIN', '1', '23', '23', '0', '17-04-2021', '17', 'x', 'x', 'x', 'x', 'x', NULL, 'x', NULL, NULL, 'x', NULL, NULL, '036/RFC SMARTRI-HNAE/LSU.C/V/2021', '-', 'STS2021-00005036 Surat Permintaan Analisa LSU HNAE.xls', 'Menunggu Konfirmasi Batch'),
+(18327, 'STS2021-00005', '37', '20-04-2021', 'HNAE3K-05/24', '37/HNAE3K-05/24', '', '2021000037', 'Ichsan Rezky .P', '120/LSU', '2021-06-05', 'Komersial', 'Normal', 'LSU', 'HNAE', 27, '', '2021-06-17', 'HNAE3', 'HNAE96D12', 'HNAE3K-05', 'D', '010204020202/Anorganic-by Fertilizer Spreader', '2/S2-MIN', '1', '24', '24', '0', '20-04-2021', '17', 'x', 'x', 'x', 'x', 'x', NULL, 'x', NULL, NULL, 'x', NULL, NULL, '036/RFC SMARTRI-HNAE/LSU.C/V/2021', '-', 'STS2021-00005036 Surat Permintaan Analisa LSU HNAE.xls', 'Menunggu Konfirmasi Batch'),
+(18328, 'STS2021-00005', '38', '14-04-2021', 'HNAE4A-08/37', '38/HNAE4A-08/37', '', '2021000038', 'Ichsan Rezky .P', '120/LSU', '2021-06-05', 'Komersial', 'Normal', 'LSU', 'HNAE', 27, '', '2021-06-17', 'HNAE4', 'HNAE96D13', 'HNAE4A-08', 'D', '010204020202/Anorganic-by Fertilizer Spreader', '2/S2-MIN', '1', '37', '37', '0', '14-04-2021', '17', 'x', 'x', 'x', 'x', 'x', NULL, 'x', NULL, NULL, 'x', NULL, NULL, '036/RFC SMARTRI-HNAE/LSU.C/V/2021', '-', 'STS2021-00005036 Surat Permintaan Analisa LSU HNAE.xls', 'Menunggu Konfirmasi Batch'),
+(18329, 'STS2021-00005', '39', '15-04-2021', 'HNAE4B-09/38', '39/HNAE4B-09/38', '', '2021000039', 'Ichsan Rezky .P', '120/LSU', '2021-06-05', 'Komersial', 'Normal', 'LSU', 'HNAE', 27, '', '2021-06-17', 'HNAE4', 'HNAE96D13', 'HNAE4B-09', 'D', '010204020202/Anorganic-by Fertilizer Spreader', '2/S2-MIN', '1', '38', '38', '0', '15-04-2021', '17', 'x', 'x', 'x', 'x', 'x', NULL, 'x', NULL, NULL, 'x', NULL, NULL, '036/RFC SMARTRI-HNAE/LSU.C/V/2021', '-', 'STS2021-00005036 Surat Permintaan Analisa LSU HNAE.xls', 'Menunggu Konfirmasi Batch'),
+(18330, 'STS2021-00005', '40', '16-04-2021', 'HNAE4C-07/39', '40/HNAE4C-07/39', '', '2021000040', 'Ichsan Rezky .P', '120/LSU', '2021-06-05', 'Komersial', 'Normal', 'LSU', 'HNAE', 27, '', '2021-06-17', 'HNAE4', 'HNAE96D14', 'HNAE4C-07', 'D', '010204020202/Anorganic-by Fertilizer Spreader', '2/S2-MIN', '1', '39', '39', '0', '16-04-2021', '17', 'x', 'x', 'x', 'x', 'x', NULL, 'x', NULL, NULL, 'x', NULL, NULL, '036/RFC SMARTRI-HNAE/LSU.C/V/2021', '-', 'STS2021-00005036 Surat Permintaan Analisa LSU HNAE.xls', 'Menunggu Konfirmasi Batch'),
+(18331, 'STS2021-00005', '41', '16-04-2021', 'HNAE4D-08/41', '41/HNAE4D-08/41', '', '2021000041', 'Ichsan Rezky .P', '120/LSU', '2021-06-05', 'Komersial', 'Normal', 'LSU', 'HNAE', 27, '', '2021-06-17', 'HNAE4', 'HNAE96D14', 'HNAE4D-08', 'D', '010202020202/Anorganic-Manual spread', '3/S3-MIN', '1', '41', '41', '0', '16-04-2021', '17', 'x', 'x', 'x', 'x', 'x', NULL, 'x', NULL, NULL, 'x', NULL, NULL, '036/RFC SMARTRI-HNAE/LSU.C/V/2021', '-', 'STS2021-00005036 Surat Permintaan Analisa LSU HNAE.xls', 'Menunggu Konfirmasi Batch'),
+(18332, 'STS2021-00005', '42', '20-04-2021', 'HNAE4D-10/42', '42/HNAE4D-10/42', '', '2021000042', 'Ichsan Rezky .P', '120/LSU', '2021-06-05', 'Komersial', 'Normal', 'LSU', 'HNAE', 27, '', '2021-06-17', 'HNAE4', 'HNAE96D14', 'HNAE4D-10', 'D', '010204020202/Anorganic-by Fertilizer Spreader', '2/S2-MIN', '1', '42', '42', '0', '20-04-2021', '17', 'x', 'x', 'x', 'x', 'x', NULL, 'x', NULL, NULL, 'x', NULL, NULL, '036/RFC SMARTRI-HNAE/LSU.C/V/2021', '-', 'STS2021-00005036 Surat Permintaan Analisa LSU HNAE.xls', 'Menunggu Konfirmasi Batch'),
+(18333, 'STS2021-00005', '43', '17-04-2021', 'HNAE4C-12/43', '43/HNAE4C-12/43', '', '2021000043', 'Ichsan Rezky .P', '120/LSU', '2021-06-05', 'Komersial', 'Normal', 'LSU', 'HNAE', 27, '', '2021-06-17', 'HNAE4', 'HNAE97D15', 'HNAE4C-12', 'D', '010304040403/Anorganic-Fertilizer Spreader&EFB-Ext', '9/SANDY SOIL', '1', '43', '43', '0', '17-04-2021', '17', 'x', 'x', 'x', 'x', 'x', 'x', 'x', 'x', 'x', 'x', 'x', NULL, '036/RFC SMARTRI-HNAE/LSU.C/V/2021', '-', 'STS2021-00005036 Surat Permintaan Analisa LSU HNAE.xls', 'Menunggu Konfirmasi Batch'),
+(18334, 'STS2021-00005', '44', '21-04-2021', 'HNAE5E-10/54', '44/HNAE5E-10/54', '', '2021000044', 'Ichsan Rezky .P', '120/LSU', '2021-06-05', 'Komersial', 'Normal', 'LSU', 'HNAE', 27, '', '2021-06-17', 'HNAE5', 'HNAE97D16', 'HNAE5E-10', 'D', '060101010101/Replanting', '2/S2-MIN', '1', '54', '54', '0', '21-04-2021', '17', 'x', 'x', 'x', 'x', 'x', NULL, 'x', NULL, NULL, 'x', NULL, NULL, '036/RFC SMARTRI-HNAE/LSU.C/V/2021', '-', 'STS2021-00005036 Surat Permintaan Analisa LSU HNAE.xls', 'Menunggu Konfirmasi Batch'),
+(18335, 'STS2021-00005', '45', '19-04-2021', 'HNAE5F-13/55', '45/HNAE5F-13/55', '', '2021000045', 'Ichsan Rezky .P', '120/LSU', '2021-06-05', 'Komersial', 'Normal', 'LSU', 'HNAE', 27, '', '2021-06-17', 'HNAE5', 'HNAE97D16', 'HNAE5F-13', 'D', '060101010101/Replanting', '9/SANDY SOIL', '1', '55', '55', '0', '19-04-2021', '17', 'x', 'x', 'x', 'x', 'x', 'x', 'x', 'x', 'x', 'x', 'x', NULL, '036/RFC SMARTRI-HNAE/LSU.C/V/2021', '-', 'STS2021-00005036 Surat Permintaan Analisa LSU HNAE.xls', 'Menunggu Konfirmasi Batch'),
+(18336, 'STS2021-00005', '46', '19-04-2021', 'HNAE5E-14/52', '46/HNAE5E-14/52', '', '2021000046', 'Ichsan Rezky .P', '120/LSU', '2021-06-05', 'Komersial', 'Normal', 'LSU', 'HNAE', 27, '', '2021-06-17', 'HNAE5', 'HNAE97D18', 'HNAE5E-14', 'D', '010204020202/Anorganic-by Fertilizer Spreader', '2/S2-MIN', '1', '52', '52', '0', '19-04-2021', '17', 'x', 'x', 'x', 'x', 'x', NULL, 'x', NULL, NULL, 'x', NULL, NULL, '036/RFC SMARTRI-HNAE/LSU.C/V/2021', '-', 'STS2021-00005036 Surat Permintaan Analisa LSU HNAE.xls', 'Menunggu Konfirmasi Batch'),
+(18337, 'STS2021-00005', '47', '15-04-2021', 'HNAE5F-15/57', '47/HNAE5F-15/57', '', '2021000047', 'Ichsan Rezky .P', '120/LSU', '2021-06-05', 'Komersial', 'Normal', 'LSU', 'HNAE', 27, '', '2021-06-17', 'HNAE5', 'HNAE97D18', 'HNAE5F-15', 'D', '010304040403/Anorganic-Fertilizer Spreader&EFB-Ext', '9/SANDY SOIL', '1', '57', '57', '0', '15-04-2021', '17', 'x', 'x', 'x', 'x', 'x', 'x', 'x', 'x', 'x', 'x', 'x', NULL, '036/RFC SMARTRI-HNAE/LSU.C/V/2021', '-', 'STS2021-00005036 Surat Permintaan Analisa LSU HNAE.xls', 'Menunggu Konfirmasi Batch'),
+(18338, 'STS2021-00005', '48', '16-04-2021', 'HNAE5F-16/58', '48/HNAE5F-16/58', '', '2021000048', 'Ichsan Rezky .P', '120/LSU', '2021-06-05', 'Komersial', 'Normal', 'LSU', 'HNAE', 27, '', '2021-06-17', 'HNAE5', 'HNAE97D18', 'HNAE5F-16', 'D', '010304040403/Anorganic-Fertilizer Spreader&EFB-Ext', '9/SANDY SOIL', '1', '58', '58', '0', '16-04-2021', '17', 'x', 'x', 'x', 'x', 'x', 'x', 'x', 'x', 'x', 'x', 'x', NULL, '036/RFC SMARTRI-HNAE/LSU.C/V/2021', '-', 'STS2021-00005036 Surat Permintaan Analisa LSU HNAE.xls', 'Menunggu Konfirmasi Batch'),
+(18339, 'STS2021-00005', '49', '17-04-2021', 'HNAE5G-15/59', '49/HNAE5G-15/59', '', '2021000049', 'Ichsan Rezky .P', '120/LSU', '2021-06-05', 'Komersial', 'Normal', 'LSU', 'HNAE', 27, '', '2021-06-17', 'HNAE5', 'HNAE97D18', 'HNAE5G-15', 'D', '010304040403/Anorganic-Fertilizer Spreader&EFB-Ext', '9/SANDY SOIL', '1', '59', '59', '0', '17-04-2021', '17', 'x', 'x', 'x', 'x', 'x', 'x', 'x', 'x', 'x', 'x', 'x', NULL, '036/RFC SMARTRI-HNAE/LSU.C/V/2021', '-', 'STS2021-00005036 Surat Permintaan Analisa LSU HNAE.xls', 'Menunggu Konfirmasi Batch'),
+(18340, 'STS2021-00005', '50', '14-04-2021', 'HNAE6J-09/63', '50/HNAE6J-09/63', '', '2021000050', 'Ichsan Rezky .P', '120/LSU', '2021-06-05', 'Komersial', 'Normal', 'LSU', 'HNAE', 27, '', '2021-06-17', 'HNAE6', 'HNAE96D20', 'HNAE6J-09', 'D', '010204020202/Anorganic-by Fertilizer Spreader', '2/S2-MIN', '1', '63', '63', '0', '14-04-2021', '17', 'x', 'x', 'x', 'x', 'x', NULL, 'x', NULL, NULL, 'x', NULL, NULL, '036/RFC SMARTRI-HNAE/LSU.C/V/2021', '-', 'STS2021-00005036 Surat Permintaan Analisa LSU HNAE.xls', 'Menunggu Konfirmasi Batch'),
+(18341, 'STS2021-00005', '51', '15-04-2021', 'HNAE6G-07/64', '51/HNAE6G-07/64', '', '2021000051', 'Ichsan Rezky .P', '120/LSU', '2021-06-05', 'Komersial', 'Normal', 'LSU', 'HNAE', 27, '', '2021-06-17', 'HNAE6', 'HNAE97D19', 'HNAE6G-07', 'D', '010204020202/Anorganic-by Fertilizer Spreader', '2/S2-MIN', '1', '64', '64', '0', '15-04-2021', '17', 'x', 'x', 'x', 'x', 'x', NULL, 'x', NULL, NULL, 'x', NULL, NULL, '036/RFC SMARTRI-HNAE/LSU.C/V/2021', '-', 'STS2021-00005036 Surat Permintaan Analisa LSU HNAE.xls', 'Menunggu Konfirmasi Batch'),
+(18342, 'STS2021-00005', '52', '16-04-2021', 'HNAE6G-09/65', '52/HNAE6G-09/65', '', '2021000052', 'Ichsan Rezky .P', '120/LSU', '2021-06-05', 'Komersial', 'Normal', 'LSU', 'HNAE', 27, '', '2021-06-17', 'HNAE6', 'HNAE97D19', 'HNAE6G-09', 'D', '010304040403/Anorganic-Fertilizer Spreader&EFB-Ext', '9/SANDY SOIL', '1', '65', '65', '0', '16-04-2021', '17', 'x', 'x', 'x', 'x', 'x', 'x', 'x', 'x', 'x', 'x', 'x', NULL, '036/RFC SMARTRI-HNAE/LSU.C/V/2021', '-', 'STS2021-00005036 Surat Permintaan Analisa LSU HNAE.xls', 'Menunggu Konfirmasi Batch'),
+(18343, 'STS2021-00005', '53', '17-04-2021', 'HNAE6H-08/66', '53/HNAE6H-08/66', '', '2021000053', 'Ichsan Rezky .P', '120/LSU', '2021-06-05', 'Komersial', 'Normal', 'LSU', 'HNAE', 27, '', '2021-06-17', 'HNAE6', 'HNAE97D19', 'HNAE6H-08', 'D', '010204020202/Anorganic-by Fertilizer Spreader', '2/S2-MIN', '1', '66', '66', '0', '17-04-2021', '17', 'x', 'x', 'x', 'x', 'x', NULL, 'x', NULL, NULL, 'x', NULL, NULL, '036/RFC SMARTRI-HNAE/LSU.C/V/2021', '-', 'STS2021-00005036 Surat Permintaan Analisa LSU HNAE.xls', 'Menunggu Konfirmasi Batch'),
+(18344, 'STS2021-00005', '54', '20-04-2021', 'HNAE6H-09/67', '54/HNAE6H-09/67', '', '2021000054', 'Ichsan Rezky .P', '120/LSU', '2021-06-05', 'Komersial', 'Normal', 'LSU', 'HNAE', 27, '', '2021-06-17', 'HNAE6', 'HNAE97D19', 'HNAE6H-09', 'D', '010204020202/Anorganic-by Fertilizer Spreader', '2/S2-MIN', '1', '67', '67', '0', '20-04-2021', '17', 'x', 'x', 'x', 'x', 'x', NULL, 'x', NULL, NULL, 'x', NULL, NULL, '036/RFC SMARTRI-HNAE/LSU.C/V/2021', '-', 'STS2021-00005036 Surat Permintaan Analisa LSU HNAE.xls', 'Menunggu Konfirmasi Batch');
 
 -- --------------------------------------------------------
 
@@ -359,7 +536,8 @@ CREATE TABLE `tbl_user` (
 INSERT INTO `tbl_user` (`id_user`, `nama_lengkap`, `username`, `password`, `id_level_user`, `foto`) VALUES
 (1, 'Admin', 'admin', '21232f297a57a5a743894a0e4a801fc3', 2, 'palm2.png'),
 (5, 'Operator', 'operator', '4b583376b2767b923c3e1da60d10de59', 3, 'palm2.png'),
-(7, 'Rahmat STS', 'rahmat', 'af2a4c9d4c4956ec9d6ba62213eed568', 1, '');
+(7, 'Rahmat STS', 'rahmat', 'af2a4c9d4c4956ec9d6ba62213eed568', 1, ''),
+(8, 'Super Admin', 'super', '1b3231655cebb7a1f783eddf27d254ca', 1, '');
 
 -- --------------------------------------------------------
 
@@ -427,7 +605,10 @@ INSERT INTO `tbl_user_rule` (`id_rule`, `id_menu`, `id_level_user`) VALUES
 (61, 8, 2),
 (62, 20, 1),
 (63, 21, 1),
-(64, 71, 1);
+(64, 71, 1),
+(65, 13, 2),
+(66, 14, 2),
+(67, 71, 2);
 
 -- --------------------------------------------------------
 
@@ -530,6 +711,12 @@ ALTER TABLE `tabel_menu`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `table_batch`
+--
+ALTER TABLE `table_batch`
+  ADD PRIMARY KEY (`kode`);
+
+--
 -- Indexes for table `table_sample`
 --
 ALTER TABLE `table_sample`
@@ -567,27 +754,32 @@ ALTER TABLE `trials`
 -- AUTO_INCREMENT for table `biodata`
 --
 ALTER TABLE `biodata`
-  MODIFY `id` int(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `tabel_data`
 --
 ALTER TABLE `tabel_data`
-  MODIFY `kode` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=110;
+  MODIFY `kode` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=115;
 --
 -- AUTO_INCREMENT for table `tabel_log`
 --
 ALTER TABLE `tabel_log`
-  MODIFY `log_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=605;
+  MODIFY `log_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=655;
 --
 -- AUTO_INCREMENT for table `tabel_menu`
 --
 ALTER TABLE `tabel_menu`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=72;
 --
+-- AUTO_INCREMENT for table `table_batch`
+--
+ALTER TABLE `table_batch`
+  MODIFY `kode` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18345;
+--
 -- AUTO_INCREMENT for table `table_sample`
 --
 ALTER TABLE `table_sample`
-  MODIFY `kode` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `kode` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18345;
 --
 -- AUTO_INCREMENT for table `tbl_level_user`
 --
@@ -597,12 +789,12 @@ ALTER TABLE `tbl_level_user`
 -- AUTO_INCREMENT for table `tbl_user`
 --
 ALTER TABLE `tbl_user`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 --
 -- AUTO_INCREMENT for table `tbl_user_rule`
 --
 ALTER TABLE `tbl_user_rule`
-  MODIFY `id_rule` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=65;
+  MODIFY `id_rule` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=68;
 --
 -- AUTO_INCREMENT for table `trials`
 --

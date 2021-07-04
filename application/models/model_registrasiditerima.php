@@ -8,10 +8,26 @@
 		function tampil_registrasiditerima(){
 			$this->db->select('*');
 			$this->db->group_by('id_reg');
+			$this->db->distinct('id_reg ');
+			$this->db->order_by('kategori', 'DESC');
+			$this->db->order_by('urgensi', 'DESC');
+			$this->db->order_by('tgl_kirim', 'DESC');
+			$this->db->from('tabel_data');
+			$this->db->join('biodata', 'biodata.nama=tabel_data.pengirim');
+			$this->db->where('status','Sample Diterima Admin');
+			$query =  $this->db->get(); 
+			
+		return $query;
+		}
+
+		function tampil_registrasiditerimabyid($id){
+			$this->db->select('*');
+			$this->db->group_by('id_reg');
 			$this->db->distinct('id_reg');
 			$this->db->from('tabel_data');
 			$this->db->join('biodata', 'biodata.nama=tabel_data.pengirim');
 			$this->db->where('status','Sample Diterima Admin');
+			$this->db->where('kode',$id);
 			$query =  $this->db->get(); 
 			
 		return $query;

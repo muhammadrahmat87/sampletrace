@@ -1,33 +1,83 @@
- 
-
 <section class="content">
     <div class="row">
         <div class="col-xs-12">
-
-          <div class="box box-success">
-            <div class="box-header  with-border">
-              <h3 class="box-title">Daftar Antrian</h3>
-            </div>
-            <!-- /.box-header -->
+            <div class="box box-success">
+                <div class="box-header  with-border">
+                <h3 class="box-title">Daftar Antrian Sample</h3>
+                </div> 
+             
             <div class="box-body">
+            <br><br> 
+             
+            <div class="col-lg-12 ">
+                <button onclick="window.location.href='/sampletrace/registrasi'" class="btn btn-success  btn-social  " type="button"> <i class="fa fa-envelope"></i> Registrasi Masuk <span class="badge"><?php echo $suratmasuk['hasil']; ?></span>
+                </button>  
+                <button onclick="window.location.href='/sampletrace/registrasiditerima'" class="btn  btn-primary btn-social " type="button"><i class="fa fa-check"></i> Registrasi Diterima <span class="badge"><?php echo $suratditerima['hasil']; ?></span>
+                </button>  
+                <button onclick="window.location.href='/sampletrace/daftarsample'" class="btn btn-warning btn-social " type="button"><i class="fa fa-list"></i> Surat Sample Masuk <span class="badge"><?php echo $suratdisample['hasil']; ?></span>
+                </button>  
+                <button onclick="window.location.href='/sampletrace/daftarsample'" class="btn btn-danger btn-social " type="button"> <i class="fa fa-list"></i>Sample Masuk <span class="badge"><?php echo $samplemasuk['hasil']; ?></span>
+                </button>  <br>   
+            </div> 
+            </div>
+            </div>      
+          
+            <div class="row">
+            <div class="col-xs-12">
+            <div class="box box-success">
+            <div class="box-header  with-border">
+            <br>  <br>   <br>  
 
-            <!-- button add -->
-            
-<br><br> 
-     <div class="table-responsive">
+            <form id="form-filter" class="form-horizontal" method="POST">
+              <div class="box-body">
+              <div class="form-group">
+                <label class="col-sm-2 control-label">Jumlah sample : </label>
+                <div class="col-sm-1">
+                  <input class="form-control" name="trial_code" id="trial_code">
+                  </select>
+                </div>
+                
+                <div class="col-sm-5">
+                  <button type="button" onclick="processFilter()" class="btn bg-fuchsia"">Konfirmasi Bacth</button>
+                </div>
+              </div>
+                  
+              <div class="table-responsive">
               <table id="example" class="table table-striped table-bordered table-hover table-full-width dataTable   dt-responsive nowrap" cellspacing="0" width="100%">
-    <thead>
-		          <tr class="bg-green">               
-						  <th class="bg-blue" data-sortable="true" width="1%">No</th>
-              <th class="bg-blue" data-sortable="true" width="12%">ID Registrasi</th>
-              <th class="bg-blue" data-sortable="true" width="12%">Pengirim</th>
-              <th   data-sortable="true" width="13%">No. Permintaan</th>
+                <thead>
+		          <tr class="">               
+						  <th data-sortable="true" width="1%">No</th>
+              <th data-sortable="true" width="12%">ID Registrasi</th>
+              <th data-sortable="true" width="12%">Pengirim</th>
+              <th data-sortable="true" width="12%">No. LAB</th>
+              <th data-sortable="true" width="12%">No Sample</th>
+              <th data-sortable="true" width="12%">Date Sampling</th>
+              <th >Location</th>
+              <th data-sortable="true" width="12%">Frond No</th>
+              <th data-sortable="true" width="12%">Plot</th>
+              <th data-sortable="true" width="`10%">N</th> 
+              <th data-sortable="true" width="`10%">P</th> 
+              <th data-sortable="true" width="`10%">K</th> 
+              <th data-sortable="true" width="`10%">Mg</th>
+              <th data-sortable="true" width="`10%">Ca</th> 
+              <th data-sortable="true" width="`10%">Mn</th> 
+              <th data-sortable="true" width="`10%">B</th> 
+              <th data-sortable="true" width="`10%">Zn</th> 
+              <th data-sortable="true" width="`10%">Cu</th> 
+              <th data-sortable="true" width="`10%">Ci</th> 
+              <th data-sortable="true" width="`10%">Fe</th> 
+              <th data-sortable="true" width="`10%">Na</th> 
+              <th data-sortable="true" width="12%">No. LAB</th>
+              <th data-sortable="true" width="12%">Kode Sample</th>
+
+              
+              <th data-sortable="true" width="13%">No. Permintaan</th>
               <th data-sortable="true" width="13%">Tanggal Surat</th>
 					    <th data-sortable="true" width="10%">Kategori</th>
               <th data-sortable="true" width="`10%">Urgensi</th>
                        
               <th data-sortable="true" width="10%">Jenis Analisa</th>
-              <th data-sortable="true" width="`10%">Lokasi</th>
+             
               <th data-sortable="true" width="`10%">Tanggal Kirim</th>
               <th data-sortable="true" width="`10%">Division</th> 
               <th data-sortable="true" width="`10%">Complex</th> 
@@ -41,21 +91,14 @@
               <th data-sortable="true" width="`10%">LAB Code</th> 
               <th data-sortable="true" width="`10%">Sample Date</th> 
               <th data-sortable="true" width="`10%">Frond No</th> 
-              <th data-sortable="true" width="`10%">N (%)</th> 
-              <th data-sortable="true" width="`10%">P (%)</th> 
-              <th data-sortable="true" width="`10%">K (%)</th> 
-              <th data-sortable="true" width="`10%">Mg (%)</th>
-              <th data-sortable="true" width="`10%">Ca (%)</th> 
-              <th data-sortable="true" width="`10%">Mn (ppm)</th> 
-              <th data-sortable="true" width="`10%">B (ppm)</th> 
-              <th data-sortable="true" width="`10%">Zn (ppm)</th> 
-              <th data-sortable="true" width="`10%">Cu (ppm)</th> 
-              <th data-sortable="true" width="`10%">Ci (%)</th> 
-              <th data-sortable="true" width="`10%">Fe (ppm)</th> 
-              <th data-sortable="true" width="`10%">Na (ppm)</th> 
+             
+              
               <th data-sortable="true" width="`10%">Ref Surt RFC</th> 
-              <th  data-sortable="true" width="`10%">Ref Surat LAB</th> 
-              <th class="bg-blue" data-sortable="true" width="`10%">Status</th> 
+              <th data-sortable="true" width="`10%">Ref Surat LAB</th> 
+
+               <th data-sortable="true" width="`10%">Permintaan Analisa</th> 
+
+              <th data-sortable="true" width="`10%">Status</th> 
               <!-- <th class="bg-blue">Action</th> -->
               </tr>
                 </thead>
@@ -73,14 +116,35 @@
 			          <td><?php echo $no; ?></td>
                 <td><?php echo $t['id_reg'];?></td>
                       <td><?php echo $t['pengirim']; ?></td>
+                      <td><?php echo $t['id_labor']; ?></td>
+                      <td align="center"><?php echo $t['no_sample']; ?></td>
+                      <td align="center"><?php echo $t['date_sampling']; ?></td>
+                      <td align="center"><?php echo $t['lokasi']; ?></td>    
+                      <td><?php echo $t['fn']; ?></td>
+                      <td><?php echo $t['plot']; ?></td>
+                      <td><?php echo $t['n']; ?></td>
+                      <td><?php echo $t['p']; ?></td>
+                      <td><?php echo $t['k'];  ?></td>	 
+                      <td><?php echo $t['mg']; ?></td>
+                      <td><?php echo $t['ca']; ?></td>                   
+                      <td><?php echo $t['mn']; ?></td>
+					            <td><?php echo $t['b']; ?></td>
+                      <td><?php echo $t['zn']; ?></td>
+                      <td><?php echo $t['cu']; ?></td>
+                      <td><?php echo $t['ci']; ?></td>
+                      <td><?php echo $t['fe']; ?></td>
+                      <td><?php echo $t['na'];  ?></td>	 
+                      <td><?php echo $t['id_labor']; ?></td>
+                      <td><?php echo $t['plot']; ?></td>
+                      
                       
                       <td><?php echo $t['no_permintaan']; ?></td>
-                      <td><?php echo format_indo_nohari($t['tgl_surat']);  ?></td>	
+                      <td align="center"><?php echo format_indo_nohari($t['tgl_surat']);  ?></td>	
                       <td><?php echo $t['kategori']; ?></td>
                       <td><?php echo $t['urgensi']; ?></td>
                       
                       <td><?php echo $t['jenis']; ?></td>
-                      <td><?php echo $t['lokasi']; ?></td>                   
+                                     
                       <td><?php echo format_indo_nohari($t['tgl_kirim']);  ?></td>	
 					            <td><?php echo $t['division']; ?></td>
                       <td><?php echo $t['complex']; ?></td>
@@ -94,20 +158,32 @@
 					            <td><?php echo $t['lab_code']; ?></td>
                       <td><?php echo $t['sample_date']; ?></td>
                       <td><?php echo $t['frond_no'];  ?></td>	
-                      <td><?php echo $t['n']; ?></td>
-                      <td><?php echo $t['p']; ?></td>
-                      <td><?php echo $t['k'];  ?></td>	 
-                      <td><?php echo $t['mg']; ?></td>
-                      <td><?php echo $t['ca']; ?></td>                   
-                      <td><?php echo $t['mn']; ?></td>
-					            <td><?php echo $t['b']; ?></td>
-                      <td><?php echo $t['zn']; ?></td>
-                      <td><?php echo $t['cu']; ?></td>
-                      <td><?php echo $t['ci']; ?></td>
-                      <td><?php echo $t['fe']; ?></td>
-                      <td><?php echo $t['na'];  ?></td>	 
+                       
+                    
+                     
+                     
                       <td><?php echo $t['ref_rfc']; ?></td>
 					            <td><?php echo $t['ref_lab']; ?></td>
+
+                      <td align="center">
+                      <?php
+                      $n = ($t['n'] == 'x')? "N," : "";
+                      $p = ($t['p'] == 'x')? "P," : "";
+                      $k = ($t['k'] == 'x')? "K," : "";
+                      $mg = ($t['mg'] == 'x')? "Mg," : "";
+                      $ca = ($t['ca'] == 'x')? "Ca," : "";
+                      $mn = ($t['mn'] == 'x')? "Mn," : "";
+                      $b = ($t['b'] == 'x')? "B," : "";
+                      $zn = ($t['zn'] == 'x')? "Zn," : "";
+                      $cu = ($t['p'] == 'x')? "Cu," : "";
+                      $ci = ($t['p'] == 'x')? "Ci," : "";
+                      $fe = ($t['fe'] == 'x')? "Fe," : "";
+                      $na = ($t['na'] == 'x')? "Na" : "";
+                      echo $n.$p.$k.$mg.$ca.$mn.$b.$zn.$cu.$ci.$fe.$na;
+                      
+?>
+                      </td>	
+
 					   <td>
              <a class="btn btn-xs bg-fuchsia" data-toggle="modal" data-target="#modal_edit<?php echo $t['id_reg']; ?>"><?php echo  $t['status']; ?> </a>                     
                      </td>
@@ -201,8 +277,8 @@ $(document).ready(function() {
         scrollX:        true,  
         paging:         false,
         fixedColumns:   {
-            leftColumns: 3,
-			      rightColumns: 1
+            leftColumns: 6,
+			      rightColumns: 0
         }
     } );
 } );

@@ -16,6 +16,19 @@
 		
 		function index()
     	{	
+		
+		$quser = 'SELECT COUNT(*) AS hasil FROM tabel_data where status = "Menunggu"';
+		$data['suratmasuk'] = $this->db->query($quser)->row_array();
+	
+		$quser = 'SELECT COUNT(*) AS hasil FROM tabel_data where status = "Sample Diterima Admin"';
+        $data['suratditerima'] = $this->db->query($quser)->row_array();
+
+		$quser = 'SELECT COUNT(*) AS hasil FROM tabel_data where status = "Menunggu Konfirmasi Batch"';
+        $data['suratdisample'] = $this->db->query($quser)->row_array();
+
+		$quser = 'SELECT COUNT(*) AS hasil FROM table_sample';
+		$data['samplemasuk'] = $this->db->query($quser)->row_array();
+
         $data['data'] = $this->model_registrasi->tampil_data();	 
         $this->template->load('template', 'registrasi/view', $data);	
     	}		
@@ -28,7 +41,8 @@
 		}
 		function add()
 		{
-			if (isset($_POST['submit'])) {
+			
+			if (isset($_POST['submit'])) {		
 				$upload = $this->uploadexcel();
 				$this->model_registrasi->save($upload);
 				helper_log("add", "Menambahkan Trial", "Data");
@@ -36,29 +50,48 @@
 			} else {
 				$data['kodeunik'] = $this->model_registrasi->buat_kode();
 				$data['data'] = $this->model_registrasi->get_nama();
-				
 				$this->template->load('template', 'registrasi/add', $data);
 			}
 		}
+		
+
+			function editberkas()
+			{
+				$this->load->library('session');
+				$this->form_validation->set_rules('kode', 'kode', 'required');
+				$this->form_validation->set_rules('id_reg', 'id_reg', 'required');
+				
+				if($this->form_validation->run()==FALSE){
+					$this->session->set_flashdata('error',"Data Gagal Di Edit");
+					redirect('registrasi');
+				}else{
+					$data=array(
+						"berkas"=>$_POST['berkas'],
+					);
+					$this->uploadexcel();
+			 
+					$this->db->where('id_reg', $_POST['id_reg']);
+					$this->db->update('tabel_data',$data);
+					$this->session->set_flashdata('sukses',"Data Berhasil Diedit");
+					redirect('biodata');
+				}
+			}
 
 		function uploadexcel ()
 		{
 			
-			
+			$id_berkas = date('Y-m-d')."-";
 			$config['allowed_types'] 	= 'xlsx|xls';
-			$config['file_name'] = $this->input->post('id_reg').$_FILES['upload']['name'];
+			$config['file_name'] = $id_berkas.$_FILES['upload']['name'];
 			$config['overwrite'] = true;
 			$config['upload_path']   	= './uploads/';
             $this->load->library('upload', $config);
 			$this->upload->initialize($config);
-			if ( ! $this->upload->do_upload('upload')) { 
-				$error = array('error' => $this->upload->display_errors()); 
-				print_r($error); 
-			  } else { 
-				$data = array('upload_data' => $this->upload->data()); 
-			  } 
-			  $pet = $config['file_name']; 
-			  
+
+			 $this->upload->do_upload('upload');
+				$uploadData = $this->upload->data();
+				$filename = $uploadData['file_name'];
+
 			  $data = [ 
 				'pengirim'        	=> $this->input->post('pengirim', TRUE),		
 				'id_reg'          		=> $this->input->post('id_reg', TRUE),	
@@ -71,22 +104,21 @@
 				'lokasi'	    			=> $this->input->post('lokasi', TRUE),
 				'tgl_kirim'	    		=> $this->input->post('tgl_kirim', TRUE),
 				'status'	    		=> $this->input->post('status', TRUE),
-				'berkas' => $pet 
+				'berkas' => $filename, 
 				]; 
 				$this->model_registrasi->save($data); 
 				$this->session->set_flashdata('flash', 'Ditambah'); 
-				redirect('registrasi'); 
-          
-		}
-
-		 
-
-		
+				redirect('registrasi');  
+	}
+	
 		public function edit()
     {
+		$this->load->library('session');
+
         $this->form_validation->set_rules('kode', 'kode', 'required');
 		$this->form_validation->set_rules('id_reg', 'id_reg', 'required');
         $this->form_validation->set_rules('status', 'status', 'required');
+	 
         if($this->form_validation->run()==FALSE){
             $this->session->set_flashdata('error',"Data Gagal Di Edit");
             redirect('registrasi');
@@ -102,6 +134,8 @@
     }
 	public function editurgensi()
     {
+		$this->load->library('session');
+
         $this->form_validation->set_rules('kode', 'kode', 'required');
 		$this->form_validation->set_rules('id_reg', 'id_reg', 'required');
         $this->form_validation->set_rules('urgensi', 'urgensi', 'required');

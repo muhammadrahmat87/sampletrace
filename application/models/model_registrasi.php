@@ -44,6 +44,7 @@
 
 		
 		}
+	 
 
 		function buat_kode()   {    
 			$this->db->select('RIGHT(tabel_data.id_reg,2) as kode', FALSE);

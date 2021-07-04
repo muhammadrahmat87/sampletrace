@@ -1,20 +1,35 @@
 <section class="content">
     <div class="row">
         <div class="col-xs-12">
-
-          <div class="box box-success">
-            <div class="box-header  with-border">
-              <h3 class="box-title">Daftar Registrasi Diterima</h3>
-            </div>
-            <!-- /.box-header -->
+            <div class="box box-success">
+                <div class="box-header  with-border">
+                <h3 class="box-title">Daftar Registrasi Diterima</h3>
+                </div> 
+             
             <div class="box-body">
-
-            <!-- button add -->
-            
-<br><br> 
+            <br><br> 
+             
+            <div class="col-lg-12 ">
+                <button onclick="window.location.href='/sampletrace/registrasi'" class="btn btn-success  btn-social  " type="button"> <i class="fa fa-envelope"></i> Registrasi Masuk <span class="badge"><?php echo $suratmasuk['hasil']; ?></span>
+                </button>  
+                <button onclick="window.location.href='/sampletrace/registrasiditerima'" class="btn  btn-primary btn-social " type="button"><i class="fa fa-check"></i> Registrasi Diterima <span class="badge"><?php echo $suratditerima['hasil']; ?></span>
+                </button>  
+                <button onclick="window.location.href='/sampletrace/daftarsample'" class="btn btn-warning btn-social " type="button"><i class="fa fa-list"></i> Surat Sample Masuk <span class="badge"><?php echo $suratdisample['hasil']; ?></span>
+                </button>  
+                <button onclick="window.location.href='/sampletrace/daftarsample'" class="btn btn-danger btn-social " type="button"> <i class="fa fa-list"></i>Sample Masuk <span class="badge"><?php echo $samplemasuk['hasil']; ?></span>
+                </button>  <br>   
+            </div> 
+            </div>
+            </div>      
+          
+            <div class="row">
+            <div class="col-xs-12">
+            <div class="box box-success">
+            <div class="box-header  with-border">
+            <br>  <br>   <br>  
               <table id="example" class="table table-striped table-bordered table-hover table-full-width dataTable"  >
                 <thead>
-                    <tr class="bg-green">
+                    <tr class="bg-primary">
 						 
                     <th width="1%">No</th> 
                     <th width="2%">ID Reg</th>
@@ -23,14 +38,14 @@
                     <th width="1%">Tanggal Surat</th>
                     <th width="1%">Kategori</th>
                     <th width="1%">Urgensi</th>
-                    <th width="1%">Jumlah Sample</th>
+                    <th width="1%"> Sample</th>
                     <th width="1%">Jenis Analisa</th>
                     <th width="1%">Lokasi</th>   
                     <th width="1%">Tanggal Kirim</th>
                     <th width="1%">Status</th>
                     <th width="1%">Berkas</th>
                     <th width="1%">Import</th>
-                        <!-- <th >Action</th> -->
+                        <!-- <th >Upload Berkas</th> -->
                     </tr>
                 </thead>
 				
@@ -73,7 +88,7 @@
                       </td>  
                       <td><?php echo $berkas; ?></td>    
                       <td>
-                      <a href="<?php echo base_url(); ?>registrasiditerima/import/<?php echo $kode; ?>"class="btn btn-xs btn-primary" title="IMPORT"><i onClick="return confirm('Yakin ingin menghapus Trial?')"> <i class="fa fa-upload fa-fw"></i></i></a>					       
+                      <a onClick="return confirm('Yakin ingin mengimport Data ini?')" href="<?php echo base_url(); ?>registrasiditerima/import/<?php echo $kode; ?>"class="btn btn-xs btn-primary" title="IMPORT"><i > <i class="fa fa-upload fa-fw"></i></i></a>					       
                        </td>  
 					<!-- <td>
                       <a href="<?php echo base_url(); ?>registrasiditerima/delete/<?php echo $kode; ?>"class="btn btn-xs btn-danger" title="DELETE"><i onClick="return confirm('Yakin ingin menghapus Trial?')"> <i class="fa fa-trash fa-fw"></i></i></a>					       
@@ -172,7 +187,7 @@
             <div class="modal-content">
             <div class="modal-header bg-blue">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">X</button>
-                <h4 class="modal-title" >Edit Status</h4>
+                <h4 class="modal-title" >Edit Urgensi</h4>
             </div>
             <form class="form-horizontal" method="post" action="<?php echo base_url().'/registrasi/editurgensi'?>">
             <div class="box box-primary"> 
@@ -269,14 +284,54 @@
 <script src="<?php echo base_url(); ?>assets/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
 <script src="<?php echo base_url(); ?>assets/bower_components/datatables.net/js/jquery.dataTables.bootstrap.min.js"></script>
 <link rel="stylesheet" href="<?php echo base_url(); ?>assets/bower_components/datatables.net/js/datatables.min.css">
-
-<script>  
-     
-     $(document).ready(function() {
-    var table = $('#example').DataTable( {   
-       
+	<script src="<?php echo base_url(); ?>assets/bower_components/datatables.net/js/FixedColumns-3.3.2/js/dataTables.fixedColumns.min.js"></script>
+	     <script>
+$(document).ready(function() {
+    var table = $('#example').DataTable( {
+        scrollY:        "550px",
+        scrollX:        true,  
+        paging:         false,
+        fixedColumns:   {
+            leftColumns: 0,
+			      rightColumns: 0
+        }
     } );
-    
 } );
+    </script>
+
+    <script>
+ 
+
+   if (Notification.permission === "granted") {
+     
+   } else if (Notification.permission !== "denied") {
+      Notification.requestPermission().then(permission => {
+         // console.log(permission);
+      });
+   }
+
+
+
+   function showNotification() {
+   const notification = new Notification("Notifikasi", {
+      body: "Data berhasil di import",
+       // icon: "yourimageurl.png"
+   })
+   notification.onclick = (e) => {
+      window.location.href = "https://google.com";
+   };
+}
+</script>
+<?php
+    
+    if ($this->session->flashdata('success')) {
+      ?>
+        <script type="text/javascript">
+          showNotification();
+        </script>
+      <?php
+    }
+
+?>
 
 </script>
