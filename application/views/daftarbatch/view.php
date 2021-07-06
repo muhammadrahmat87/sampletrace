@@ -16,7 +16,7 @@
                 </button>  
                 <button onclick="window.location.href='/sampletrace/daftarsample'" class="btn btn-warning btn-social " type="button"><i class="fa fa-list"></i> Surat Sample Masuk <span class="badge"><?php echo $suratdisample['hasil']; ?></span>
                 </button>  
-                <button onclick="window.location.href='/sampletrace/daftarsample'" class="btn btn-danger btn-social " type="button"> <i class="fa fa-list"></i>Sample Masuk <span class="badge"><?php echo $samplemasuk['hasil']; ?></span>
+                <button onclick="window.location.href='/sampletrace/daftarantrian'" class="btn btn-danger btn-social " type="button"> <i class="fa fa-list"></i>Sample Masuk <span class="badge"><?php echo $samplemasuk['hasil']; ?></span>
                 </button>  <br>   
             </div> 
             </div>
@@ -35,11 +35,11 @@
                 <thead>
 		          <tr class="">               
 						  <th data-sortable="true" width="1%">No</th>
-              <th data-sortable="true" width="12%">ID Registrasi</th>
-              <th data-sortable="true" width="12%">Pengirim</th>
+              <!-- <th data-sortable="true" width="12%">ID Registrasi</th> -->
+              <!-- <th data-sortable="true" width="12%">Pengirim</th> -->
 
-              <th data-sortable="true" width="12%">No Sample</th>
-              <th data-sortable="true" width="12%">No Urut</th>
+             
+              <!-- <th data-sortable="true" width="12%">No Urut</th> -->
               <th data-sortable="true" width="12%">Batch</th>
               <th data-sortable="true" width="12%">No. LAB</th>
               <th data-sortable="true" width="12%">No. Pos</th>
@@ -106,11 +106,9 @@
              
 			 
 			          <td><?php echo $no; ?></td>
-                <td><?php echo $t['id_reg'];?></td>
-                      <td><?php echo $t['pengirim']; ?></td>
-
-                      <td align="center"><?php echo $t['no_sample']; ?></td>
-                      <td align="center"><?php echo $t['no_urut']; ?></td>
+                <!-- <td><?php echo $t['id_reg'];?></td> -->
+                      <!-- <td><?php echo $t['pengirim']; ?></td> -->                     
+                      <!-- <td align="center"><?php echo $t['no_urut']; ?></td> -->
                       <td align="center"><?php echo $t['batch']; ?></td>
                       <td align="center"><?php echo $t['id_labor']; ?></td>
                       <td align="center"><?php echo $t['no_pos']; ?></td>

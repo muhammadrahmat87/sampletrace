@@ -231,7 +231,7 @@
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">X</button>
                 <h3 class="modal-title" >Edit Status</h3>
             </div>
-            <form class="form-horizontal" method="post" action="<?php echo base_url().'/registrasi/edit'?>">
+            <form class="form-horizontal" method="post" action="<?php echo base_url().'/daftarsample/edit'?>">
                  <div class="box box-primary"> 
                  <div class="modal-body bg-primary">
                 
@@ -251,9 +251,9 @@
                             <select name="status" class="form-control" type="text">                   
                             <!-- <option value="Menunggu">Menunggu</option> -->
                             <option value="Sample Diterima Admin">Sample Diterima Admin</option>
-                            <option value="Sample Diterima LAB">Sample Diterima LAB</option>
+                            <!-- <option value="Sample Diterima LAB">Sample Diterima LAB</option>
                             <option value="Analisa">Analisa</option>
-                            <option value="Selesai">Selesai</option>
+                            <option value="Selesai">Selesai</option> -->
                             </select>
                         </div>
                         </div></div> <div class="box box-primary">

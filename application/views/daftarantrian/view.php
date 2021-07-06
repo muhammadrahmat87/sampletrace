@@ -16,7 +16,7 @@
                 </button>  
                 <button onclick="window.location.href='/sampletrace/daftarsample'" class="btn btn-warning btn-social " type="button"><i class="fa fa-list"></i> Surat Sample Masuk <span class="badge"><?php echo $suratdisample['hasil']; ?></span>
                 </button>  
-                <button onclick="window.location.href='/sampletrace/daftarsample'" class="btn btn-danger btn-social " type="button"> <i class="fa fa-list"></i>Sample Masuk <span class="badge"><?php echo $samplemasuk['hasil']; ?></span>
+                <button onclick="window.location.href='/sampletrace/daftarantrian'" class="btn btn-danger btn-social " type="button"> <i class="fa fa-list"></i>Sample Masuk <span class="badge"><?php echo $samplemasuk['hasil']; ?></span>
                 </button>  <br>   
             </div> 
             </div>
@@ -31,7 +31,7 @@
             <form id="form-filter" class="form-horizontal" method="POST">
               <div class="box-body">
               <div class="form-group">
-                <label class="col-sm-2 control-label">Jumlah sample : </label>
+                <label class="col-sm-2   ">Jumlah sample : </label>
                 <div class="col-sm-1">
                   <input class="form-control" name="trial_code" id="trial_code">
                   </select>
@@ -49,12 +49,13 @@
 						  <th data-sortable="true" width="1%">No</th>
               <th data-sortable="true" width="12%">ID Registrasi</th>
               <th data-sortable="true" width="12%">Pengirim</th>
-              <th data-sortable="true" width="12%">No. LAB</th>
+              
               <th data-sortable="true" width="12%">No Sample</th>
               <th data-sortable="true" width="12%">Date Sampling</th>
               <th >Location</th>
               <th data-sortable="true" width="12%">Frond No</th>
-              <th data-sortable="true" width="12%">Plot</th>
+              <th data-sortable="true" width="12%">Plot/Blok</th>
+              <th data-sortable="true" width="12%">No. LAB</th>
               <th data-sortable="true" width="`10%">N</th> 
               <th data-sortable="true" width="`10%">P</th> 
               <th data-sortable="true" width="`10%">K</th> 
@@ -95,9 +96,10 @@
               
               <th data-sortable="true" width="`10%">Ref Surt RFC</th> 
               <th data-sortable="true" width="`10%">Ref Surat LAB</th> 
+              <th data-sortable="true" width="`10%">Jumlah Sample per Surat</th> 
 
                <th data-sortable="true" width="`10%">Permintaan Analisa</th> 
-
+               <th data-sortable="true" width="`10%">Tanggal Terima</th> 
               <th data-sortable="true" width="`10%">Status</th> 
               <!-- <th class="bg-blue">Action</th> -->
               </tr>
@@ -116,54 +118,56 @@
 			          <td><?php echo $no; ?></td>
                 <td><?php echo $t['id_reg'];?></td>
                       <td><?php echo $t['pengirim']; ?></td>
-                      <td><?php echo $t['id_labor']; ?></td>
+                      
                       <td align="center"><?php echo $t['no_sample']; ?></td>
                       <td align="center"><?php echo $t['date_sampling']; ?></td>
                       <td align="center"><?php echo $t['lokasi']; ?></td>    
-                      <td><?php echo $t['fn']; ?></td>
-                      <td><?php echo $t['plot']; ?></td>
-                      <td><?php echo $t['n']; ?></td>
-                      <td><?php echo $t['p']; ?></td>
-                      <td><?php echo $t['k'];  ?></td>	 
-                      <td><?php echo $t['mg']; ?></td>
-                      <td><?php echo $t['ca']; ?></td>                   
-                      <td><?php echo $t['mn']; ?></td>
-					            <td><?php echo $t['b']; ?></td>
-                      <td><?php echo $t['zn']; ?></td>
-                      <td><?php echo $t['cu']; ?></td>
-                      <td><?php echo $t['ci']; ?></td>
-                      <td><?php echo $t['fe']; ?></td>
-                      <td><?php echo $t['na'];  ?></td>	 
-                      <td><?php echo $t['id_labor']; ?></td>
-                      <td><?php echo $t['plot']; ?></td>
+                      <td align="center"><?php echo $t['fn']; ?></td>
+                      <td>  <?php echo $t['plot']; ?></td>
+                      <td ><?php echo $t['id_labor']; ?></td>
+                      <td align="center"><?php echo $t['n']; ?></td>
+                      <td align="center"><?php echo $t['p']; ?></td>
+                      <td align="center"><?php echo $t['k'];  ?></td>	 
+                      <td align="center"><?php echo $t['mg']; ?></td>
+                      <td align="center"><?php echo $t['ca']; ?></td>                   
+                      <td align="center"><?php echo $t['mn']; ?></td>
+					            <td align="center"><?php echo $t['b']; ?></td>
+                      <td align="center"><?php echo $t['zn']; ?></td>
+                      <td align="center"><?php echo $t['cu']; ?></td>
+                      <td align="center"><?php echo $t['ci']; ?></td>
+                      <td align="center"><?php echo $t['fe']; ?></td>
+                      <td align="center"><?php echo $t['na'];  ?></td>	 
+                      <td  ><?php echo $t['id_labor']; ?></td>
+                      <td ><?php echo $t['plot']; ?></td>
                       
                       
-                      <td><?php echo $t['no_permintaan']; ?></td>
+                      <td align="center"><?php echo $t['no_permintaan']; ?></td>
                       <td align="center"><?php echo format_indo_nohari($t['tgl_surat']);  ?></td>	
-                      <td><?php echo $t['kategori']; ?></td>
-                      <td><?php echo $t['urgensi']; ?></td>
+                      <td align="center"><?php echo $t['kategori']; ?></td>
+                      <td align="center"><?php echo $t['urgensi']; ?></td>
                       
-                      <td><?php echo $t['jenis']; ?></td>
+                      <td align="center"><?php echo $t['jenis']; ?></td>
                                      
-                      <td><?php echo format_indo_nohari($t['tgl_kirim']);  ?></td>	
-					            <td><?php echo $t['division']; ?></td>
-                      <td><?php echo $t['complex']; ?></td>
-                      <td><?php echo $t['block']; ?></td>
-                      <td><?php echo $t['topography']; ?></td>
-                      <td><?php echo $t['fert']; ?></td>
-                      <td><?php echo $t['soil_type'];  ?></td>	 
-                      <td><?php echo $t['leader_lsu']; ?></td>
-                      <td><?php echo $t['group_lsu']; ?></td>                   
-                      <td><?php echo $t['sample_code']; ?></td>
-					            <td><?php echo $t['lab_code']; ?></td>
-                      <td><?php echo $t['sample_date']; ?></td>
-                      <td><?php echo $t['frond_no'];  ?></td>	
+                      <td align="center"><?php echo format_indo_nohari($t['tgl_kirim']);  ?></td>	
+					            <td align="center"><?php echo $t['division']; ?></td>
+                      <td align="center"><?php echo $t['complex']; ?></td>
+                      <td align="center"><?php echo $t['block']; ?></td>
+                      <td align="center"><?php echo $t['topography']; ?></td>
+                      <td ><?php echo $t['fert']; ?></td>
+                      <td align="center"><?php echo $t['soil_type'];  ?></td>	 
+                      <td align="center"><?php echo $t['leader_lsu']; ?></td>
+                      <td align="center"><?php echo $t['group_lsu']; ?></td>                   
+                      <td align="center"><?php echo $t['sample_code']; ?></td>
+					            <td align="center"><?php echo $t['lab_code']; ?></td>
+                      <td align="center"><?php echo $t['sample_date']; ?></td>
+                      <td align="center"><?php echo $t['frond_no'];  ?></td>	
                        
                     
                      
                      
-                      <td><?php echo $t['ref_rfc']; ?></td>
-					            <td><?php echo $t['ref_lab']; ?></td>
+                      <td align="center"><?php echo $t['ref_rfc']; ?></td>
+					            <td align="center"><?php echo $t['ref_lab']; ?></td>
+                      <td align="center"><?php echo $t['jumlah']; ?></td>
 
                       <td align="center">
                       <?php
@@ -180,12 +184,12 @@
                       $fe = ($t['fe'] == 'x')? "Fe," : "";
                       $na = ($t['na'] == 'x')? "Na" : "";
                       echo $n.$p.$k.$mg.$ca.$mn.$b.$zn.$cu.$ci.$fe.$na;
-                      
-?>
+                      ?>
                       </td>	
+                      <td align="center"><?php echo $t['tgl_terima']; ?></td>
 
 					   <td>
-             <a class="btn btn-xs bg-fuchsia" data-toggle="modal" data-target="#modal_edit<?php echo $t['id_reg']; ?>"><?php echo  $t['status']; ?> </a>                     
+             <a class="btn btn-xs bg-fuchsia" ><?php echo  $t['status']; ?> </a>                     
                      </td>
 					  <!-- <td>                       
                       <a href="<?php echo base_url(); ?>daftarregistrasi/edit/<?php echo $t['kode'] ?>" class="btn btn-xs btn-warning" title="EDIT"data-placement="top"><i class="fa fa-true"></i></a>                   

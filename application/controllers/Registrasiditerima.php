@@ -100,6 +100,10 @@
                         
                     }
 
+                    $tgl_terima = date('Y-m-d');
+
+                  
+
                     $no_sample = "1";
 
                     if (!empty($get_last_idlabor)) {
@@ -160,6 +164,7 @@
                         "ref_rfc"=>empty($rowData[0][26]) ? 0 : $rowData[0][26], //kalau empty nilainya 0 
                         "ref_lab"=>empty($rowData[0][27]) ? "-" : $rowData[0][27],
                         "berkas"=>$data[0]->berkas,
+                        "tgl_terima "=> $tgl_terima,
                         "status"=>'Menunggu Konfirmasi Batch',
 
 

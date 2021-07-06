@@ -229,7 +229,7 @@
 	  
 	  
     <b>
-	Copyright &copy; 2021 <a href="https://smartri.com"> Sample Tracing System</b></a> </b>
+ 2021. <a href="https://smartri.com"> Sample Tracing System</b></a> </b>
 	 
     
   </footer>

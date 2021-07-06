@@ -38,7 +38,7 @@
                     <th width="1%">Tanggal Surat</th>
                     <th width="1%">Kategori</th>
                     <th width="1%">Urgensi</th>
-                    <th width="1%"> Sample</th>
+                    <th width="1%">Jumlah Sample</th>
                     <th width="1%">Jenis Analisa</th>
                     <th width="1%">Lokasi</th>   
                     <th width="1%">Tanggal Kirim</th>
@@ -147,10 +147,10 @@
                         <div class="col-xs-8">
                             <select name="status" class="form-control" type="text">                   
                             <option value="Menunggu">Menunggu</option>
-                            <option value="Sample Diterima Admin">Sample Diterima Admin</option>
+                            <!-- <option value="Sample Diterima Admin">Sample Diterima Admin</option>
                             <option value="Sample Diterima LAB">Sample Diterima LAB</option>
                             <option value="Analisa">Analisa</option>
-                            <option value="Selesai">Selesai</option>
+                            <option value="Selesai">Selesai</option> -->
                             </select>
                         </div>
                         </div></div> <div class="box box-primary">
